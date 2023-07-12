@@ -1,0 +1,11 @@
+@import "./vars";
+@import "./mixin";
+
+body, html {
+  height: $full-screen;
+}
+
+#root {
+  height: $full-screen;
+}
+

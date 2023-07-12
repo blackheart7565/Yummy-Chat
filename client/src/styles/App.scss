@@ -1,0 +1,14 @@
+@import "../styles/base/vars";
+@import "../styles/base/mixin";
+@import "../styles/base/reset";
+@import "../styles/base/base";
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+
+  height: $full-screen;
+}

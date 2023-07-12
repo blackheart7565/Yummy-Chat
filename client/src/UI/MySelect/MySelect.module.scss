@@ -1,0 +1,12 @@
+
+.select {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translate(0, -50%);
+  max-width: 100px;
+  height: 25px;
+  z-index: 1;
+  outline: none;
+  border: 0.1px solid rgba(0, 1, 17, 0.58);
+}

@@ -1,0 +1,19 @@
+@import "../../styles/base/vars";
+@import "../../styles/base/mixin";
+
+.btnLogin {
+  color: $accent-color-text;
+
+  max-width: 200px;
+  font-size: 16px;
+
+  padding: 7px;
+  border-radius: 8px;
+  border: 2px solid $accent-color-text;
+
+  &:hover {
+    box-shadow: 1px 1px 5px $color-selection,
+                1px 1px 10px $accent-color-text,
+                ;
+  }
+}
