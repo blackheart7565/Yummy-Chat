@@ -5,30 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02ac5987-11bb-4688-aa7f-5fdc0571c4b9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/public/hide.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/public/show.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/UI/MyButton/MyButton.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/UI/MyButton/MyButton.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/UI/MyInput/MyInput.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/UI/MyInput/MyInput.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/UI/MyOption/MyOption.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/UI/MyOption/MyOption.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/UI/MySelect/MySelect.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/UI/MySelect/MySelect.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/component/Authorization.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/component/Chat.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/component/Message.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/component/Messages.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/styles/App.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/styles/Authorization.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/styles/base/base.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/styles/base/mixin.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/styles/base/reset.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/styles/base/vars.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/utils/phone-list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/Authorization.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/Authorization.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,27 +27,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "javascript.nodejs.core.library.configured.version": "20.4.0",
-    "javascript.nodejs.core.library.typings.version": "20.4.0",
-    "last_opened_file_path": "E:/My project/HTML + CSS + JavaScripts/Project/Yummy-Chat/client/public",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "F:\\WebStorm 2023.1.3\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;20.4.0&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;20.4.0&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/My project/HTML + CSS + JavaScripts/Project/Yummy-Chat/client/public&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;F:\\WebStorm 2023.1.3\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\My project\HTML + CSS + JavaScripts\Project\Yummy-Chat\client\public" />
@@ -93,7 +71,8 @@
       <workItem from="1689165931727" duration="3331000" />
       <workItem from="1689173693082" duration="12000" />
       <workItem from="1689177820072" duration="671000" />
-      <workItem from="1689178918315" duration="17270000" />
+      <workItem from="1689178918315" duration="17700000" />
+      <workItem from="1689247051423" duration="636000" />
     </task>
     <servers />
   </component>

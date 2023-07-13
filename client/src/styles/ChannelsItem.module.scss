@@ -1,0 +1,47 @@
+@import "./base/vars";
+@import "./base/mixin";
+
+.channels {
+
+  &__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    justify-content: center;
+    height: 85px;
+    width: $full-screen;
+    font-size: 18px;
+    font-weight: 700;
+    color: $white;
+
+    &:hover {
+      background: #56CCF2;
+      background: -webkit-linear-gradient(to top, #2F80ED, #56CCF2);
+      background: linear-gradient(to top, #2F80ED, #56CCF2)
+    }
+  }
+
+  &__logoChannel {
+    border-radius: 50%;
+    width: 75px;
+    height: 75px;
+    padding: 4px;
+  }
+
+  &__header {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    align-items: center;
+    padding-left: 15px;
+    height: $full-screen;
+  }
+
+  &__title {
+
+  }
+
+  &__description {
+    font-size: 16px;
+    color: #e8e8e8;
+  }
+}

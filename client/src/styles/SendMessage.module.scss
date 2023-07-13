@@ -1,0 +1,36 @@
+@import "../styles/base/vars";
+@import "../styles/base/mixin";
+
+.sendMessage {
+  display: flex;
+  gap: 10px;
+  align-items: end;
+  padding: 15px;
+  background: #0575E6;
+  background: -webkit-linear-gradient(to top, #021B79, #0575E6);
+  background: linear-gradient(to top, #021B79, #0575E6);
+
+  &__text {
+    width: $full-screen;
+    height: 24px;
+    min-height: 24px;
+    max-height: 200px;
+    color: $white;
+    background: #141E30;
+    background: -webkit-linear-gradient(to top, #243B55, #141E30);
+    background: linear-gradient(to top, #243B55, #141E30);
+    border: 1px solid rgba(0, 0, 0, 0);
+    resize: none;
+    outline: none;
+    padding: 0 10px;
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  &__sendBtn {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    background:  url("../../public/send-icon.png") 0 / cover no-repeat;
+  }
+}

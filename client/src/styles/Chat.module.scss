@@ -1,0 +1,17 @@
+@import "./base/vars";
+@import "./base/mixin";
+
+.chat {
+  display: grid;
+  grid-template-columns: 50px auto 1fr;
+  grid-template-rows: $full-screen;
+  width: $full-screen;
+  height: $full-screen;
+
+  &__communication {
+    display: flex;
+    flex-direction: column;
+    width: $full-screen;
+    height: $full-screen;
+  }
+}

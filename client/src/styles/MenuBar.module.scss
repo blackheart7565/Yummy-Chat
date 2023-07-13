@@ -1,0 +1,25 @@
+@import "../styles/base/vars";
+@import "../styles/base/mixin";
+
+.menuBar {
+  //display: flex;
+  height: $full-screen;
+  text-align: center;
+  background: #000428;
+  background: -webkit-linear-gradient(to top, #004e92, #000428);
+  background: linear-gradient(to top, #004e92, #000428);
+
+  &__inner {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: $full-screen;
+    padding: 10px 0;
+  }
+
+  &__settings {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background: url("../../public/settings.png") 0 / cover no-repeat;
+  }
+}

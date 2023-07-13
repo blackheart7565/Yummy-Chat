@@ -90,7 +90,6 @@ const Authorization = () => {
                             Clear
                         </MyButton>
                     </div>
-
                 </form>
             </div>
         </div>

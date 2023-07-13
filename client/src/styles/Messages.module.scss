@@ -1,0 +1,15 @@
+@import "./base/vars";
+@import "./base/mixin";
+
+.messages {
+  display: flex;
+  flex-direction: column;
+
+  height: $full-screen;
+  width: $full-screen;
+
+  background: #005C97;
+  background: -webkit-linear-gradient(to top, #363795, #005C97);
+  background: linear-gradient(to top, #363795, #005C97);
+
+}

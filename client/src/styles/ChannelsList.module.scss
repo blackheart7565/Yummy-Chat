@@ -1,0 +1,9 @@
+@import "./base/vars";
+@import "./base/mixin";
+
+.channels__list {
+  height: $full-screen;
+  width: $full-screen;
+  overflow-x: hidden;
+  overflow-y: auto;
+}

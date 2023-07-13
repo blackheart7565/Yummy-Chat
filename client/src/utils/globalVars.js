@@ -1,0 +1,1 @@
+export const SIZE_TEXTAREA = 24;
