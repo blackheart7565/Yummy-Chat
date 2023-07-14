@@ -1,3 +1,5 @@
+@import "../../styles/base/vars";
+@import "../../styles/base/mixin";
 
 .select {
   position: absolute;
@@ -8,5 +10,9 @@
   height: 25px;
   z-index: 1;
   outline: none;
-  border: 0.1px solid rgba(0, 1, 17, 0.58);
+  color: $white;
+  border: none;
+  background: #000428;
+  background: -webkit-linear-gradient(to bottom, #004e92, #000428);
+  background: linear-gradient(to bottom, #004e92, #000428);
 }

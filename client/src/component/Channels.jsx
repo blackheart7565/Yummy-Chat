@@ -1,4 +1,4 @@
-import chls from '../styles/Channels.module.scss';
+import chls from '../styles/module/Channels.module.scss';
 import React from 'react';
 import ChannelsList from "./ChannelsList";
 

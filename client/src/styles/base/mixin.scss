@@ -1,11 +1,65 @@
+@import "vars";
 
-@mixin centerPosition {
+@mixin centerPosition($x:50%, $y:50%) {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: $y;
+  left: $x;
   transform: translate(-50%, -50%);
 }
 
 @mixin padding {
   padding: 10px 50px 10px 10px;
+}
+
+@mixin mainBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: $full-screen;
+  width: $full-screen;
+}
+
+@mixin innerBlock {
+  width: $full-screen;
+  min-width: 300px;
+  min-height: 300px;
+  max-width: 500px;
+  max-height: 500px;
+
+  @include VisionsOfGrandeur;
+
+  padding: 15px;
+  border-radius: 8px;
+}
+
+@mixin title {
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: $white;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  text-align: center;
+}
+
+@mixin passwordBlock {
+  position: relative;
+}
+
+@mixin veryBlue-bg($direction: top) {
+  background: #0575E6;
+  background: -webkit-linear-gradient(to $direction, rgba(2, 27, 121, $opacity-back-bg), rgba(5, 117, 230, $opacity-back-bg));
+  background: linear-gradient(to $direction, rgba(2, 27, 121, $opacity-back-bg), rgba(5, 117, 230, $opacity-back-bg));
+}
+
+@mixin Frost-gradient($direction: top) {
+  background: #000428;
+  background: -webkit-linear-gradient(to $direction, #004e92, #000428);
+  background: linear-gradient(to $direction, #004e92, #000428);
+}
+
+@mixin VisionsOfGrandeur($direction: top) {
+  background: #000046;
+  background: -webkit-linear-gradient(to $direction, #1CB5E0, #000046);
+  background: linear-gradient(to $direction, #1CB5E0, #000046);
 }

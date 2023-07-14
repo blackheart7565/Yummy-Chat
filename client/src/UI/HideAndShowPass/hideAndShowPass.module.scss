@@ -1,0 +1,23 @@
+
+.hideAndShowPass {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translate(0, -50%);
+
+  &__hide {
+    background: url('../../../public/hide.png') 0 / cover no-repeat;
+    width: 25px;
+    height: 25px;
+  }
+  &__show {
+    background: url("../../../public/show.png") 0 / cover no-repeat;
+    width: 25px;
+    height: 25px;
+  }
+}

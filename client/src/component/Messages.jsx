@@ -1,4 +1,4 @@
-import mgs from '../styles/Messages.module.scss';
+import mgs from '../styles/module/Messages.module.scss';
 import React from 'react';
 import Message from "./Message";
 

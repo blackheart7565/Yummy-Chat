@@ -1,0 +1,72 @@
+@import "../base/vars";
+@import "../base/mixin";
+
+.reg {
+  @include mainBlock;
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include veryBlue-bg;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include innerBlock;
+  }
+
+  &__form {
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    row-gap: 20px;
+  }
+
+  &__title {
+    @include title;
+  }
+
+  &__username {
+    @include padding;
+  }
+
+  &__email {
+    @include padding;
+  }
+
+  &__phoneBlock {
+    position: relative;
+  }
+
+  &__phone {
+    width: $full-screen;
+    padding: 10px 50px 10px 70px;
+  }
+
+  &__phoneSelect {
+
+  }
+
+  &__phoneOption {
+
+  }
+
+  &__passwordBlock {
+    @include passwordBlock;
+  }
+
+  &__password {
+    width: $full-screen;
+    @include padding;
+  }
+
+  &__btns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &__login {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+}

@@ -1,8 +1,8 @@
-@import "../styles/base/vars";
-@import "../styles/base/mixin";
-@import "../styles/base/reset";
-@import "../styles/base/scroll";
-@import "../styles/base/base";
+@import "base/vars";
+@import "base/mixin";
+@import "base/reset";
+@import "base/scroll";
+@import "base/base";
 
 .App {
   position: relative;

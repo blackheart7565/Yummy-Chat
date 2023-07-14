@@ -1,4 +1,4 @@
-import chnlitem from '../styles/ChannelsItem.module.scss'
+import chnlitem from '../styles/module/ChannelsItem.module.scss'
 import React from 'react';
 
 const ChannelsItem = () => {

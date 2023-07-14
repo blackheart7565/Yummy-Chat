@@ -1,0 +1,29 @@
+@import "../../styles/base/vars";
+@import "../../styles/base/mixin";
+
+.auth {
+  @include mainBlock;
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include veryBlue-bg;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @include innerBlock;
+  }
+
+  &__title {
+    @include title;
+  }
+
+  &__phoneOption {
+
+  }
+}
+
+.auth.authClose {
+  display: none;
+}

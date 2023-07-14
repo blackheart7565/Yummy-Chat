@@ -1,5 +1,5 @@
-@import "../styles/base/vars";
-@import "../styles/base/mixin";
+@import "../base/vars";
+@import "../base/mixin";
 
 .sendMessage {
   display: flex;
@@ -31,6 +31,6 @@
     cursor: pointer;
     width: 24px;
     height: 24px;
-    background:  url("../../public/send-icon.png") 0 / cover no-repeat;
+    background:  url("../../../public/send-icon.png") 0 / cover no-repeat;
   }
 }

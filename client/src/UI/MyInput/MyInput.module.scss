@@ -2,8 +2,9 @@
 @import "../../styles/base/mixin";
 
 .input {
-  color: $accent-color-text;
-  box-shadow: 3px 3px 1px  $accent-color-text;
+  color: $white;
+  box-shadow: 3px 3px 3px $bright-green;
+  @include Frost-gradient;
   font-size: 17px;
   font-weight: 700;
   outline: none;
@@ -11,8 +12,11 @@
   border-radius: 8px;
   position: relative;
 
-
   &::selection {
-    background: $color-selection;
+    background: $selection-input;
+  }
+
+  &::placeholder {
+    color: $white;
   }
 }

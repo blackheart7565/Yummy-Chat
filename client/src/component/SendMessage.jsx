@@ -1,7 +1,7 @@
-import sendmes from '../styles/SendMessage.module.scss';
+import sendmes from '../styles/module/SendMessage.module.scss';
 import React, {useState} from 'react';
 import MyTextArea from "../UI/MyTextArea/MyTextArea";
-import {SIZE_TEXTAREA} from "../utils/globalVars";
+import {SIZE_HEIGHT_TEXTAREA} from "../utils/globalVars";
 
 const SendMessage = () => {
     const [message, setMessage] = useState('');
@@ -11,7 +11,7 @@ const SendMessage = () => {
         e.target.style.height = `${e.target.scrollHeight + 2}px`;
 
         if (e.target.value === '') {
-            e.target.style.height = `${SIZE_TEXTAREA}px`;
+            e.target.style.height = `${SIZE_HEIGHT_TEXTAREA}px`;
         }
     }
 

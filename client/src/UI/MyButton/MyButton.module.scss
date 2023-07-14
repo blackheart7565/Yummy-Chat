@@ -2,18 +2,20 @@
 @import "../../styles/base/mixin";
 
 .btnLogin {
-  color: $accent-color-text;
+  color: $white;
 
   max-width: 200px;
   font-size: 16px;
 
-  padding: 7px;
+  border: none;
+  text-transform: uppercase;
+  font-weight: 700;
   border-radius: 8px;
-  border: 2px solid $accent-color-text;
+  @include Frost-gradient;
 
   &:hover {
-    box-shadow: 1px 1px 5px $color-selection,
-                1px 1px 10px $accent-color-text,
-                ;
+    box-shadow: 1px 1px 5px $bright-green,
+    1px 1px 10px $bright-green,
+    1px 1px 15px $bright-green;
   }
 }

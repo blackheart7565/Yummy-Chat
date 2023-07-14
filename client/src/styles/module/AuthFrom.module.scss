@@ -1,0 +1,42 @@
+@import "../base/vars";
+@import "../base/mixin";
+
+.form {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px;
+
+  &__email {
+    padding: 10px 50px 10px 10px;
+  }
+
+  &__passwordBlock{
+    @include passwordBlock;
+  }
+
+  &__password {
+    padding: 10px 50px 10px 10px;
+    width: $full-screen;
+  }
+
+  &__login {
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    padding: 10px;
+  }
+
+  &__btns {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &__info {
+    cursor: pointer;
+    color: #000046;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 700;
+  }
+}
