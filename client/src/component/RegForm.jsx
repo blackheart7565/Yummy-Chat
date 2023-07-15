@@ -1,8 +1,8 @@
-import React, {forwardRef, useEffect, useRef, useState} from 'react';
+import React, {useRef, useState} from 'react';
 import reg from "../styles/module/Registration.module.scss";
 import MyInput from "../UI/MyInput/MyInput";
 import MySelect from "../UI/MySelect/MySelect";
-import HideAndShowPass from "../UI/HideAndShowPass/hideAndShowPass";
+import HideAndShowPass from "../UI/HideAndShowPass/HideAndShowPass";
 import MyButton from "../UI/MyButton/MyButton";
 import {USERS} from "../utils/globalVars";
 

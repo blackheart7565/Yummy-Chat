@@ -2,7 +2,7 @@ import authFrom from '../styles/module/AuthFrom.module.scss';
 import React, {useState} from 'react';
 import MyInput from "../UI/MyInput/MyInput";
 import MyButton from "../UI/MyButton/MyButton";
-import HideAndShowPass from "../UI/HideAndShowPass/hideAndShowPass";
+import HideAndShowPass from "../UI/HideAndShowPass/HideAndShowPass";
 import {USERS} from "../utils/globalVars";
 
 const AuthFrom = ({IsRegistration, IsAuthorization, ...props}) => {
@@ -13,7 +13,7 @@ const AuthFrom = ({IsRegistration, IsAuthorization, ...props}) => {
         e.preventDefault();
         USERS.forEach(user => {
             if (user.email === email && user.password === password) {
-                IsAuthorization(true);
+                IsAuthorization(true, user);
             }
         });
     }

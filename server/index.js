@@ -1,4 +1,4 @@
-const {WebSocket, WebSocketServer} = require("ws");
+const {WebSocketServer} = require("ws");
 
 const PORT = 7000;
 

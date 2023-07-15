@@ -6,7 +6,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  @include veryBlue-bg;
+  @include veryBlue-bg(top, 0.5);
 
   &__inner {
     display: flex;

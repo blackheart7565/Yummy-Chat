@@ -1,3 +1,5 @@
+@import "../../styles/base/vars";
+@import "../../styles/base/mixin";
 
 .hideAndShowPass {
   cursor: pointer;
@@ -11,12 +13,12 @@
   transform: translate(0, -50%);
 
   &__hide {
-    background: url('../../../public/hide.png') 0 / cover no-repeat;
+    background: url($hide-icon-password) 0 / cover no-repeat;
     width: 25px;
     height: 25px;
   }
   &__show {
-    background: url("../../../public/show.png") 0 / cover no-repeat;
+    background: url($show-icon-password) 0 / cover no-repeat;
     width: 25px;
     height: 25px;
   }

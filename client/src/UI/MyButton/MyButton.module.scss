@@ -11,11 +11,11 @@
   text-transform: uppercase;
   font-weight: 700;
   border-radius: 8px;
-  @include Frost-gradient;
+  @include Frost-gradient(top, 1);
 
   &:hover {
     box-shadow: 1px 1px 5px $bright-green,
-    1px 1px 10px $bright-green,
-    1px 1px 15px $bright-green;
+                1px 1px 10px $bright-green,
+                1px 1px 15px $bright-green;
   }
 }

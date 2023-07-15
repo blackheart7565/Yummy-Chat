@@ -1,11 +1,10 @@
-import hsp from './hideAndShowPass.module.scss';
+import hsp from './HideAndShowPass.module.scss';
 import React from 'react';
-import reg from "../../styles/module/Registration.module.scss";
 
 const HideAndShowPass = () => {
     const classArr = [hsp.hideAndShowPass, hsp.hideAndShowPass__hide];
 
-    const ViewAndHidePassword = (e) => {
+    const ViewAndHidePassword = () => {
         const blockPass = document.getElementById('passwordBlock').children
 
         if (blockPass[0].type === 'password') {
@@ -23,9 +22,7 @@ const HideAndShowPass = () => {
         <div
             className={classArr.join(' ')}
             onClick={ViewAndHidePassword}
-        >
-
-        </div>
+        />
     );
 };
 

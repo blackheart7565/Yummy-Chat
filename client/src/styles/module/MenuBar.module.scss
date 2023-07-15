@@ -4,7 +4,7 @@
 .menuBar {
   height: $full-screen;
   text-align: center;
-  @include Frost-gradient;
+  @include Frost-gradient(top, 1);
 
   &__inner {
     overflow-x: hidden;

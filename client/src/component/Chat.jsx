@@ -7,16 +7,32 @@ import MenuBar from "./MenuBar";
 import Authorization from "./Authorization";
 
 const Chat = () => {
-    const [isConnection, setIsConnection] = useState(false);
+    const [messages, setMessages] = useState([]);
+    const [user, setUser] = useState({});
+
+    const getMessage = (message) => {
+        setMessages(message);
+    }
+
+    const getUser = (user) => {
+        setUser(user);
+    }
 
     return (
         <div className={ct.chat}>
-            <Authorization/>
+            <Authorization
+                getUser={getUser}
+            />
             <MenuBar/>
             <Channels/>
             <div className={ct.chat__communication}>
-                <Messages/>
-                <SendMessage/>
+                <Messages
+                    messages={messages}
+                />
+                <SendMessage
+                    User={user}
+                    getMessage={getMessage}
+                />
             </div>
         </div>
     );

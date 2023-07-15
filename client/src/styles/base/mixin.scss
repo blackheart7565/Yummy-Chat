@@ -27,7 +27,7 @@
   max-width: 500px;
   max-height: 500px;
 
-  @include VisionsOfGrandeur;
+  @include VisionsOfGrandeur-gradient;
 
   padding: 15px;
   border-radius: 8px;
@@ -46,20 +46,38 @@
   position: relative;
 }
 
-@mixin veryBlue-bg($direction: top) {
+@mixin veryBlue-bg($direction: top, $opacity: 1) {
+  $startColor: rgba(2, 27, 121, $opacity);
+  $endColor: rgba(5, 117, 230, $opacity);
+
   background: #0575E6;
-  background: -webkit-linear-gradient(to $direction, rgba(2, 27, 121, $opacity-back-bg), rgba(5, 117, 230, $opacity-back-bg));
-  background: linear-gradient(to $direction, rgba(2, 27, 121, $opacity-back-bg), rgba(5, 117, 230, $opacity-back-bg));
+  background: -webkit-linear-gradient(to $direction, $startColor, $endColor);
+  background: linear-gradient(to $direction, $startColor, $endColor);
 }
 
-@mixin Frost-gradient($direction: top) {
+@mixin Frost-gradient($direction: top, $opacity: 1) {
+  $startColor: rgba(0, 78, 146, $opacity);
+  $endColor: rgba(0, 4, 40, $opacity);
+
   background: #000428;
-  background: -webkit-linear-gradient(to $direction, #004e92, #000428);
-  background: linear-gradient(to $direction, #004e92, #000428);
+  background: -webkit-linear-gradient(to $direction, $startColor, $endColor);
+  background: linear-gradient(to $direction, $startColor, $endColor);
 }
 
-@mixin VisionsOfGrandeur($direction: top) {
+@mixin VisionsOfGrandeur-gradient($direction: top, $opacity: 1) {
+  $startColor: rgba(28, 181, 224, $opacity);
+  $endColor: rgba(0, 0, 70, $opacity);
+
   background: #000046;
-  background: -webkit-linear-gradient(to $direction, #1CB5E0, #000046);
-  background: linear-gradient(to $direction, #1CB5E0, #000046);
+  background: -webkit-linear-gradient(to $direction, $startColor, $endColor);
+  background: linear-gradient(to $direction, $startColor, $endColor);
+}
+
+@mixin Royal-gradient($direction: top, $opacity: 1) {
+  $startColor: rgba(36, 59, 85, $opacity);
+  $endColor: rgba(20, 30, 48, $opacity);
+
+  background: #141E30;
+  background: -webkit-linear-gradient(to top, $startColor, $endColor);
+  background: linear-gradient(to top, $startColor, $endColor);
 }

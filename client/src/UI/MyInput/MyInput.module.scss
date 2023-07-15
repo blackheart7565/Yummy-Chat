@@ -4,7 +4,7 @@
 .input {
   color: $white;
   box-shadow: 3px 3px 3px $bright-green;
-  @include Frost-gradient;
+  @include Frost-gradient(top, 1);
   font-size: 17px;
   font-weight: 700;
   outline: none;

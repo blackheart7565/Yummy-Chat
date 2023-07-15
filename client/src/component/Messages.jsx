@@ -2,10 +2,16 @@ import mgs from '../styles/module/Messages.module.scss';
 import React from 'react';
 import Message from "./Message";
 
-const Messages = () => {
+const Messages = ({messages}) => {
     return (
         <div className={mgs.messages}>
-            <Message></Message>
+            {
+                messages.map(mess =>
+                    <Message key={mess.id}>
+                        {mess.username} : {mess.message}
+                    </Message>
+                )
+            }
         </div>
     );
 };

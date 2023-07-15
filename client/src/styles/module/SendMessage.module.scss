@@ -6,9 +6,7 @@
   gap: 10px;
   align-items: end;
   padding: 15px;
-  background: #0575E6;
-  background: -webkit-linear-gradient(to top, #021B79, #0575E6);
-  background: linear-gradient(to top, #021B79, #0575E6);
+  @include veryBlue-bg(top, 1);
 
   &__text {
     width: $full-screen;
@@ -16,9 +14,7 @@
     min-height: 24px;
     max-height: 200px;
     color: $white;
-    background: #141E30;
-    background: -webkit-linear-gradient(to top, #243B55, #141E30);
-    background: linear-gradient(to top, #243B55, #141E30);
+    @include Royal-gradient(top, 1);
     border: 1px solid rgba(0, 0, 0, 0);
     resize: none;
     outline: none;
@@ -31,6 +27,6 @@
     cursor: pointer;
     width: 24px;
     height: 24px;
-    background:  url("../../../public/send-icon.png") 0 / cover no-repeat;
+    background:  url($send-icon-message) 0 / cover no-repeat;
   }
 }

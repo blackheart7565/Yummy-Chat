@@ -4,7 +4,7 @@ import Authorization from "./Authorization";
 import RegForm from "./RegForm";
 import auth from "../styles/module/Authorization.module.scss";
 
-const Registration = () => {
+const Registration = ({getUser}) => {
     const [isLogin, setIsLogin] = useState(false);
 
     const getIsLogIn = (isLogin) => {
@@ -12,7 +12,7 @@ const Registration = () => {
     }
 
     if (isLogin) {
-        return <Authorization/>
+        return <Authorization getUser={getUser}/>;
     }
 
     return (
