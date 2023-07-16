@@ -81,3 +81,21 @@
   background: -webkit-linear-gradient(to top, $startColor, $endColor);
   background: linear-gradient(to top, $startColor, $endColor);
 }
+
+@mixin Clear-Sky($direction: top, $opacity: 1) {
+  $startColor: rgba(54, 55, 149, $opacity);
+  $endColor: rgba(0, 92, 151, $opacity);
+
+  background: #005C97;
+  background: -webkit-linear-gradient(to $direction, $startColor, $endColor);
+  background: linear-gradient(to $direction, $startColor, $endColor);
+}
+
+@mixin Midnight-City($direction: top, $opacity: 1) {
+  $startColor: rgba(65, 67, 69, $opacity);
+  $endColor: rgba(35, 37, 38, $opacity);
+
+  background: #232526;
+  background: -webkit-linear-gradient(to $direction, $startColor, $endColor);
+  background: linear-gradient(to $direction, $startColor, $endColor);
+}

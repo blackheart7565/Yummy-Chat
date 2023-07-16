@@ -1,14 +1,18 @@
 import textarea from './MyTextArea.module.scss';
-import React from 'react';
+import React, {forwardRef} from 'react';
 
-const MyTextArea = ({children, ...props}) => {
+const MyTextArea = forwardRef(({children, ...props}, ref) => {
     const classArr = [textarea.textArea, props.className];
 
     return (
-        <textarea {...props} className={classArr.join(' ')}>
+        <textarea
+            {...props}
+            ref={ref}
+            className={classArr.join(' ')}
+        >
             {children}
         </textarea>
     );
-};
+});
 
 export default MyTextArea;

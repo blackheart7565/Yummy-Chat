@@ -4,12 +4,29 @@
 .messages {
   display: flex;
   flex-direction: column;
+  gap: 10px;
 
   height: $full-screen;
   width: $full-screen;
 
-  background: #005C97;
-  background: -webkit-linear-gradient(to top, #363795, #005C97);
-  background: linear-gradient(to top, #363795, #005C97);
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 10px 20px;
+  @include Clear-Sky(top, 1);
 
+  &__username {
+    display: inline-block;
+    padding: 5px 15px;
+    margin-bottom: 15px;
+
+    @include Midnight-City(top, 1);
+  }
+}
+
+.currentUserMessage {
+  align-self: end;
+}
+
+.otherUserMessage{
+  align-self: start;
 }

@@ -6,6 +6,7 @@ import {PORT, SIZE_HEIGHT_TEXTAREA} from "../utils/globalVars";
 const SendMessage = ({User, getMessage}) => {
     const [value, setValue] = useState('');
     const socket = useRef();
+    const textareaRef = useRef();
 
     useEffect(() => {
         connect();
@@ -54,7 +55,6 @@ const SendMessage = ({User, getMessage}) => {
     }
 
     const sendingMessage = () => {
-
         const message = {
             event: 'message',
             username: User.username,
@@ -62,11 +62,15 @@ const SendMessage = ({User, getMessage}) => {
             id: Date.now(),
         }
         socket.current.send(JSON.stringify(message));
+
+        setValue('');
+        textareaRef.current.style.height = `${SIZE_HEIGHT_TEXTAREA}px`;
     }
 
     return (
         <div className={sendmes.sendMessage}>
             <MyTextArea
+                ref={textareaRef}
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
                 onInput={changeSizeInput}

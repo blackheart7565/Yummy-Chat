@@ -27,6 +27,7 @@ const Chat = () => {
             <Channels/>
             <div className={ct.chat__communication}>
                 <Messages
+                    currentUser={user.username}
                     messages={messages}
                 />
                 <SendMessage

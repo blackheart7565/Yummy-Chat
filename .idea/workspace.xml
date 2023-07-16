@@ -5,27 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02ac5987-11bb-4688-aa7f-5fdc0571c4b9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/styles/module/Message.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/UI/HideAndShowPass/hideAndShowPass.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/UI/HideAndShowPass/HideAndShowPass.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/UI/HideAndShowPass/hideAndShowPass.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/UI/HideAndShowPass/HideAndShowPass.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/UI/MyButton/MyButton.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/UI/MyButton/MyButton.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/UI/MyInput/MyInput.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/UI/MyInput/MyInput.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/AuthFrom.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/AuthFrom.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/Authorization.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/Authorization.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/UI/MyTextArea/MyTextArea.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/UI/MyTextArea/MyTextArea.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/ChannelsItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/ChannelsItem.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/component/Chat.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/Chat.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/component/Message.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/Message.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/component/Messages.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/Messages.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/RegForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/RegForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/Registration.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/Registration.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/component/SendMessage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/SendMessage.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/styles/base/mixin.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/base/mixin.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/base/vars.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/base/vars.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/module/Authorization.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/module/Authorization.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/module/MenuBar.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/module/MenuBar.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/module/Registration.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/module/Registration.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/module/SendMessage.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/module/SendMessage.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/styles/module/Messages.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/module/Messages.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/utils/globalVars.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utils/globalVars.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,9 +69,9 @@
       <recent name="E:\My project\HTML + CSS + JavaScripts\Project\Yummy-Chat\client\public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\My project\HTML + CSS + JavaScripts\Project\Yummy-Chat\client\src\component" />
       <recent name="E:\My project\HTML + CSS + JavaScripts\Project\Yummy-Chat\client\src\styles\module" />
       <recent name="E:\My project\HTML + CSS + JavaScripts\Project\Yummy-Chat\client\src\styles" />
-      <recent name="E:\My project\HTML + CSS + JavaScripts\Project\Yummy-Chat\client\src\component" />
       <recent name="E:\My project\HTML + CSS + JavaScripts\Project\Yummy-Chat\client\src\UI\MyTextArea" />
       <recent name="E:\My project\HTML + CSS + JavaScripts\Project\Yummy-Chat\client\public" />
     </key>
@@ -104,7 +95,8 @@
       <workItem from="1689257316530" duration="26296000" />
       <workItem from="1689329485050" duration="24931000" />
       <workItem from="1689420752306" duration="5910000" />
-      <workItem from="1689451121441" duration="6295000" />
+      <workItem from="1689451121441" duration="7268000" />
+      <workItem from="1689509064513" duration="13929000" />
     </task>
     <servers />
   </component>

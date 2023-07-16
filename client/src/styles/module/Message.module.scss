@@ -1,0 +1,15 @@
+@import "../base/base";
+@import "../base/mixin";
+
+.message {
+  display: inline-block;
+  word-wrap: break-word;
+  max-width: 600px;
+  white-space: pre-wrap;
+
+  padding: 10px 20px;
+  border-radius: 8px 8px 8px 0;
+
+  color: $white;
+  @include Royal-gradient(top, 1);
+}
