@@ -23,7 +23,9 @@ const Chat = () => {
             <Authorization
                 getUser={getUser}
             />
-            <MenuBar User={user}/>
+            <MenuBar
+                User={user}
+            />
             <Channels/>
             <div className={ct.chat__communication}>
                 <Messages

@@ -14,10 +14,12 @@ wss.on('connection', (ws) => {
         switch (message.event) {
             case 'message': {
                 broadcastMessage(message);
-            }break;
-            case 'connecting': {
+            }
+                break;
+            case 'connecting1': {
                 broadcastMessage(message);
-            } break;
+            }
+                break;
         }
     });
 });

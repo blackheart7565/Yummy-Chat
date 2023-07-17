@@ -2,25 +2,14 @@ import menubar from '../styles/module/MenuBar.module.scss';
 import React from 'react';
 import MyButton from "../UI/MyButton/MyButton";
 import {useDispatch} from "react-redux";
-import {ADD_CHANNEL} from "../utils/globalVars";
+import {addNewChannel} from "../utils/reducer-service";
 
 const MenuBar = ({User}) => {
     const dispatch = useDispatch()
 
     const newChannel = () => {
-        dispatch(
-            {
-                type: ADD_CHANNEL
-                , payload: {
-                    id: Date.now()
-                    , displayNameChannel: 'Sato'
-                    , message: []
-                    , users: [{
-                        usernameUser: User.username
-                        , phoneUser: User.phone
-                    }]
-                }
-            }
+        dispatch (
+            addNewChannel('Sato', User)
         )
     }
 

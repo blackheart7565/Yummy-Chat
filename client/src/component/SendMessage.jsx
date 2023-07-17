@@ -2,9 +2,16 @@ import sendmes from '../styles/module/SendMessage.module.scss';
 import React, {useEffect, useRef, useState} from 'react';
 import MyTextArea from "../UI/MyTextArea/MyTextArea";
 import {PORT, SIZE_HEIGHT_TEXTAREA} from "../utils/globalVars";
+import {useDispatch, useSelector} from "react-redux";
+import {addNewMessage} from "../utils/reducer-service";
 
 const SendMessage = ({User, getMessage}) => {
     const [value, setValue] = useState('');
+    const currentChannelId = useSelector(state => state.currentChannelId);
+    const channels = useSelector(state => state.channels);
+    const currentChannel = channels.find(channel => channel.id === currentChannelId);
+    const dispatch = useDispatch();
+
     const socket = useRef();
     const textareaRef = useRef();
 
@@ -27,9 +34,10 @@ const SendMessage = ({User, getMessage}) => {
         // Событие когда подключились к чату
         socket.current.onopen = () => {
             const message = {
-                event: 'connection',
+                event: 'connecting',
                 username: User.username,
                 id: Date.now(),
+                // message: `${User.username} connected to channel`
             }
 
             socket.current.send(
@@ -40,6 +48,9 @@ const SendMessage = ({User, getMessage}) => {
         // Событие когда получили сообшение
         socket.current.onmessage = (event) => {
             const message = JSON.parse(event.data);
+
+            addNewMessage(currentChannelId, message);
+
             getMessage(prev => [...prev, message]);
         }
 
@@ -55,16 +66,23 @@ const SendMessage = ({User, getMessage}) => {
     }
 
     const sendingMessage = () => {
-        const message = {
-            event: 'message',
-            username: User.username,
-            message: value,
-            id: Date.now(),
-        }
-        socket.current.send(JSON.stringify(message));
+        if (currentChannel) {
+            const message = {
+                event: 'message',
+                username: User.username,
+                message: value,
+                id: Date.now(),
+            }
 
-        setValue('');
-        textareaRef.current.style.height = `${SIZE_HEIGHT_TEXTAREA}px`;
+            dispatch(
+                addNewMessage(currentChannelId, message)
+            )
+
+            socket.current.send(JSON.stringify(message));
+
+            setValue('');
+            textareaRef.current.style.height = `${SIZE_HEIGHT_TEXTAREA}px`;
+        }
     }
 
     return (
