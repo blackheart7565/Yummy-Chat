@@ -1,9 +1,12 @@
 import chnlitem from '../styles/module/ChannelsItem.module.scss'
 import React from 'react';
 
-const ChannelsItem = () => {
+const ChannelsItem = ({channel, ...props}) => {
     return (
-        <div className={chnlitem.channels__item}>
+        <div
+            {...props}
+            className={chnlitem.channels__item}
+        >
             <img className={chnlitem.channels__logoChannel}
                  src="https://cdn.pixabay.com/photo/2015/04/19/08/32/marguerite-729510_1280.jpg"
                  alt="logo-channel"/>
