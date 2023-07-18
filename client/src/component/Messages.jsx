@@ -3,7 +3,7 @@ import React from 'react';
 import Message from "./Message";
 import {useSelector} from "react-redux";
 
-const Messages = ({messages, currentUser}) => {
+const Messages = ({currentUser}) => {
     const channels = useSelector(state => state.channels);
     const currentChannelId = useSelector(state => state.currentChannelId);
 

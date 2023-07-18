@@ -5,16 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02ac5987-11bb-4688-aa7f-5fdc0571c4b9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/utils/reducer-service.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/utils/socket-connect.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/utils/template.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/ChannelsList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/ChannelsList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/AuthFrom.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/AuthFrom.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/component/Chat.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/Chat.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/component/MenuBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/MenuBar.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/component/Messages.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/Messages.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/RegForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/RegForm.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/component/SendMessage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/SendMessage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/styles/module/Messages.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/module/Messages.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/utils/globalVars.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utils/globalVars.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/utils/reducer-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utils/reducer-service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/utils/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utils/reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +100,8 @@
       <workItem from="1689420752306" duration="5910000" />
       <workItem from="1689451121441" duration="7268000" />
       <workItem from="1689509064513" duration="13929000" />
-      <workItem from="1689623963536" duration="3430000" />
+      <workItem from="1689623963536" duration="4800000" />
+      <workItem from="1689678401840" duration="14758000" />
     </task>
     <servers />
   </component>

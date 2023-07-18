@@ -3,16 +3,19 @@ import React, {useState} from 'react';
 import MyInput from "../UI/MyInput/MyInput";
 import MyButton from "../UI/MyButton/MyButton";
 import HideAndShowPass from "../UI/HideAndShowPass/HideAndShowPass";
-import {USERS} from "../utils/globalVars";
+import {useSelector} from "react-redux";
 
 const AuthFrom = ({IsRegistration, IsAuthorization, ...props}) => {
+    const Users = useSelector(state => state.users);
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const logIn = (e) => {
         e.preventDefault();
-        USERS.forEach(user => {
-            if (user.email === email && user.password === password) {
+        Users.forEach(user => {
+            // if (user.email === email && user.password === password) {
+            if (user.email === email) {
                 IsAuthorization(true, user);
             }
         });

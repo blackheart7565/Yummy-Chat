@@ -10,7 +10,7 @@
   width: $full-screen;
 
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
   padding: 10px 20px;
   @include Clear-Sky(top, 1);
 

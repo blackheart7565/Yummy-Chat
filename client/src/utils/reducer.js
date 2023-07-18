@@ -1,8 +1,22 @@
-import {ADD_CHANNEL, ADDING_MESSAGE, GET_MESSAGE, SET_CURRENT_CHANNEL} from "./globalVars";
+import {ADD_CHANNEL, ADD_USERS, ADDING_MESSAGE, SET_CURRENT_CHANNEL} from "./globalVars";
 
 const defaultChannel = {
-    channels: [],
-    currentChannelId: null,
+    channels: []
+    , currentChannelId: null
+    , users: [
+        {
+            username: 'admin',
+            email: 'a',
+            phone: '+38014475185625',
+            password: 'a',
+        },
+        {
+            username: 'Sato',
+            email: 's',
+            phone: '+38014475185625',
+            password: 's',
+        }
+    ]
 }
 
 const reducer = (state = defaultChannel, action) => {
@@ -29,6 +43,12 @@ const reducer = (state = defaultChannel, action) => {
                         : channel
                 )
             };
+
+        case ADD_USERS:
+            return {
+                ...state
+                , users: [...state.users, action.payload]
+            }
 
         default:
             return state;

@@ -4,9 +4,11 @@ import MyInput from "../UI/MyInput/MyInput";
 import MySelect from "../UI/MySelect/MySelect";
 import HideAndShowPass from "../UI/HideAndShowPass/HideAndShowPass";
 import MyButton from "../UI/MyButton/MyButton";
-import {USERS} from "../utils/globalVars";
+import {useDispatch} from "react-redux";
+import {addUser} from "../utils/reducer-service";
 
 const RegForm = ({getIsLogIn, ...props}) => {
+    const dispatch = useDispatch();
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
@@ -24,7 +26,9 @@ const RegForm = ({getIsLogIn, ...props}) => {
         }
 
         if (Object.values(User).every(value => value)) {
-            USERS.push(User);
+            dispatch(
+                addUser(User)
+            );
             getIsLogIn(true);
         }
     }
