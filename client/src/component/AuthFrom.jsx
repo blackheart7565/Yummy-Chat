@@ -7,15 +7,15 @@ import {useSelector} from "react-redux";
 
 const AuthFrom = ({IsRegistration, IsAuthorization, ...props}) => {
     const Users = useSelector(state => state.users);
-
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [user, setUser] = useState({
+        email: ''
+        , password: ''
+    });
 
     const logIn = (e) => {
         e.preventDefault();
         Users.forEach(user => {
-            // if (user.email === email && user.password === password) {
-            if (user.email === email) {
+            if (user.email === user.email && user.password === user.password) {
                 IsAuthorization(true, user);
             }
         });
@@ -28,8 +28,8 @@ const AuthFrom = ({IsRegistration, IsAuthorization, ...props}) => {
     return (
         <form {...props} className={authFrom.form}>
             <MyInput
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={user.email}
+                onChange={(e) => setUser({...user, email: e.target.value})}
                 className={authFrom.form__email}
                 placeholder='Email'
             />
@@ -39,8 +39,8 @@ const AuthFrom = ({IsRegistration, IsAuthorization, ...props}) => {
                 className={authFrom.form__passwordBlock}
             >
                 <MyInput
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    value={user.password}
+                    onChange={(e) => setUser({...user, password: e.target.value})}
                     type='password'
                     className={authFrom.form__password}
                     placeholder='Password'

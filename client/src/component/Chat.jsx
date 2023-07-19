@@ -7,7 +7,6 @@ import MenuBar from "./MenuBar";
 import Authorization from "./Authorization";
 import {useDispatch, useSelector} from "react-redux";
 import {connect} from "../utils/socket-connect";
-import {addNewChannel} from "../utils/reducer-service";
 
 const Chat = () => {
     const [user, setUser] = useState({});
@@ -26,27 +25,12 @@ const Chat = () => {
         setUser(user);
     }
 
-    const handleNewChannel = (channel) => {
-        const channels = {
-            event: 'new_channel',
-            channel: {
-                ...channel,
-                usernameUser: user.username,
-                phoneUser: user.phone,
-            },
-        };
-
-        dispatch(addNewChannel(channel));
-        socket.current.send(JSON.stringify(channels));
-    };
-
     return (
         <div className={ct.chat}>
             <Authorization
                 getUser={getUser}
             />
             <MenuBar
-                onNewChannel={handleNewChannel}
                 websocket={socket}
                 User={user}
             />

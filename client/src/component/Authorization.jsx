@@ -1,29 +1,31 @@
-import React, {useRef, useState} from 'react';
+import React, {useState} from 'react';
 import auth from '../styles/module/Authorization.module.scss';
 import Registration from "./Registration";
 import AuthFrom from "./AuthFrom";
 
 const Authorization = ({getUser}) => {
-    const [isRegistration, setIsRegistration] = useState(true);
-    const [isLogIn, setIsLogIn] = useState(false);
+    const [condition, setCondition] = useState({
+        isRegistration: true
+        , isLogIn: false
+    });
     const rootClass = [auth.auth];
 
     const IsRegs = (isRegistration) => {
-        setIsRegistration(isRegistration)
+        setCondition({...condition, isRegistration: isRegistration})
     }
 
     const IsLogIn = (isLogIn, user) => {
-        setIsLogIn(isLogIn);
+        setCondition({...condition, isLogIn: isLogIn})
         getUser(user);
     }
 
-    if (!isRegistration) {
+    if (!condition.isRegistration) {
         return <Registration
             getUser={getUser}
         />
     }
 
-    if(isLogIn) {
+    if(condition.isLogIn) {
         rootClass.push(auth.authClose);
     }
 

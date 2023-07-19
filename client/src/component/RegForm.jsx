@@ -9,22 +9,24 @@ import {addUser} from "../utils/reducer-service";
 import {nanoid} from "nanoid";
 
 const RegForm = ({getIsLogIn, ...props}) => {
-    const dispatch = useDispatch();
-    const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
-    const [phone, setPhone] = useState('');
-    const [password, setPassword] = useState('');
-    const [selectOption, setSelectOption] = useState('');
+    const [user, setUser] = useState({
+        username: ''
+        , email: ''
+        , phone: ''
+        , password: ''
+        , selectOption: ''
+    });
     const selectCodeCountryPhone = useRef(null);
+    const dispatch = useDispatch();
 
     const RegistrationUser = (e) => {
         e.preventDefault();
         const User = {
             id: nanoid(16),
-            username: username,
-            email: email,
-            phone: `${selectCodeCountryPhone.current.value}${phone}`,
-            password: password,
+            username: user.username,
+            email: user.email,
+            phone: `${selectCodeCountryPhone.current.value}${user.phone}`,
+            password: user.password,
         }
 
         if (Object.values(User).every(value => value)) {
@@ -43,15 +45,15 @@ const RegForm = ({getIsLogIn, ...props}) => {
     return (
         <form {...props} className={reg.reg__form}>
             <MyInput
-                value={username}
-                onChange={e => setUsername(e.target.value)}
+                value={user.username}
+                onChange={e => setUser({...user, username: e.target.value})}
                 className={[reg.reg__username].join(' ')}
                 type="text"
                 placeholder='Username'
             />
             <MyInput
-                value={email}
-                onChange={e => setEmail(e.target.value)}
+                value={user.email}
+                onChange={e => setUser({...user, email: e.target.value})}
                 className={reg.reg__email}
                 type="email"
                 placeholder='Email'
@@ -59,13 +61,13 @@ const RegForm = ({getIsLogIn, ...props}) => {
             <div className={reg.reg__phoneBlock}>
                 <MySelect
                     ref={selectCodeCountryPhone}
-                    value={selectOption}
-                    onChange={(e) => setSelectOption(e.target.value)}
+                    value={user.selectOption}
+                    onChange={(e) => setUser({...user, selectOption: e.target.value})}
                     className={reg.reg__phoneSelect}
                 />
                 <MyInput
-                    value={phone}
-                    onChange={e => setPhone(e.target.value)}
+                    value={user.phone}
+                    onChange={e => setUser({...user, phone: e.target.value})}
                     className={reg.reg__phone}
                     type="text"
                     placeholder='Phone'
@@ -76,8 +78,8 @@ const RegForm = ({getIsLogIn, ...props}) => {
                 className={reg.reg__passwordBlock}
             >
                 <MyInput
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
+                    value={user.password}
+                    onChange={e => setUser({...user, password: e.target.value})}
                     className={reg.reg__password}
                     type="password"
                     placeholder='Password'
