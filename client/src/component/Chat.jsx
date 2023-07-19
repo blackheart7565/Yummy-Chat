@@ -50,7 +50,9 @@ const Chat = () => {
                 websocket={socket}
                 User={user}
             />
-            <Channels/>
+            <Channels
+                User={user}
+            />
             <div className={ct.chat__communication}>
                 <Messages
                     currentUser={user.username}

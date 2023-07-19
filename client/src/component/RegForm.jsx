@@ -6,6 +6,7 @@ import HideAndShowPass from "../UI/HideAndShowPass/HideAndShowPass";
 import MyButton from "../UI/MyButton/MyButton";
 import {useDispatch} from "react-redux";
 import {addUser} from "../utils/reducer-service";
+import {nanoid} from "nanoid";
 
 const RegForm = ({getIsLogIn, ...props}) => {
     const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const RegForm = ({getIsLogIn, ...props}) => {
     const RegistrationUser = (e) => {
         e.preventDefault();
         const User = {
+            id: nanoid(16),
             username: username,
             email: email,
             phone: `${selectCodeCountryPhone.current.value}${phone}`,

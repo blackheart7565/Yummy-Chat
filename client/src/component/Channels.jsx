@@ -2,12 +2,12 @@ import chls from '../styles/module/Channels.module.scss';
 import React from 'react';
 import ChannelsList from "./ChannelsList";
 
-const Channels = () => {
+const Channels = ({User}) => {
     return (
         <div
             className={chls.channels}
         >
-            <ChannelsList/>
+            <ChannelsList User={User}/>
         </div>
     );
 };
