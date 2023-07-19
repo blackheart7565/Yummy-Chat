@@ -2,7 +2,7 @@ import chlslist from '../styles/module/ChannelsList.module.scss';
 import React from 'react';
 import ChannelsItem from "./ChannelsItem";
 import {useDispatch, useSelector} from "react-redux";
-import {setCurrentChannel} from "../utils/reducer-service";
+import {setCurrentChannel} from "../utils/reducer/reducer-service";
 
 const ChannelsList = () => {
     const dispatch = useDispatch();

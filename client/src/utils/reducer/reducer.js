@@ -1,4 +1,4 @@
-import {ADD_CHANNEL, ADD_CURRENT_USERS, ADD_USERS, ADDING_MESSAGE, SET_CURRENT_CHANNEL} from "./globalVars";
+import {ADD_CHANNEL, ADD_CURRENT_USERS, ADD_USERS, ADDING_MESSAGE, SET_CURRENT_CHANNEL} from "../globalVars";
 
 const defaultChannel = {
     channels: []

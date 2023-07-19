@@ -5,7 +5,7 @@ import MySelect from "../UI/MySelect/MySelect";
 import HideAndShowPass from "../UI/HideAndShowPass/HideAndShowPass";
 import MyButton from "../UI/MyButton/MyButton";
 import {useDispatch} from "react-redux";
-import {addUser} from "../utils/reducer-service";
+import {addUser} from "../utils/reducer/reducer-service";
 import {nanoid} from "nanoid";
 
 const RegForm = ({getIsLogIn, ...props}) => {

@@ -4,7 +4,7 @@ import MyInput from "../UI/MyInput/MyInput";
 import MyButton from "../UI/MyButton/MyButton";
 import HideAndShowPass from "../UI/HideAndShowPass/HideAndShowPass";
 import {useDispatch, useSelector} from "react-redux";
-import {addCurrentUser} from "../utils/reducer-service";
+import {addCurrentUser} from "../utils/reducer/reducer-service";
 
 const AuthFrom = ({IsRegistration, IsAuthorization, ...props}) => {
     const Users = useSelector(state => state.users);

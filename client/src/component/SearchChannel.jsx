@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import MyInput from "../UI/MyInput/MyInput";
 import {useDispatch, useSelector} from "react-redux";
 import ChannelsItem from "./ChannelsItem";
-import {setCurrentChannel} from "../utils/reducer-service";
+import {setCurrentChannel} from "../utils/reducer/reducer-service";
 
 const SearchChannel = () => {
     const [search, setSearch] = useState('');

@@ -6,7 +6,8 @@ import Channels from "./Channels";
 import MenuBar from "./MenuBar";
 import Authorization from "./Authorization";
 import {useDispatch, useSelector} from "react-redux";
-import {connect} from "../utils/socket-connect";
+import {connect} from "../utils/websocket/socket-connect";
+import {nanoid} from "nanoid";
 
 const Chat = () => {
     const dispatch = useDispatch();

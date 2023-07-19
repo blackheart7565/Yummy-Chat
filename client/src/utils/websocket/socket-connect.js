@@ -1,5 +1,5 @@
-import {PORT} from "./globalVars";
-import {addNewChannel, addNewMessage} from "./reducer-service";
+import {PORT} from "../globalVars";
+import {addNewChannel, addNewMessage} from "../reducer/reducer-service";
 
 export const connect = ({socket, user}) => (dispatch) => {
     socket.current = new WebSocket(`ws://localhost:${PORT}`);
