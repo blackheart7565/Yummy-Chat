@@ -1,5 +1,5 @@
 import ct from '../styles/module/Chat.module.scss';
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef} from 'react';
 import Messages from "./Messages";
 import SendMessage from "./SendMessage";
 import Channels from "./Channels";
@@ -10,42 +10,30 @@ import {connect} from "../utils/socket-connect";
 
 const Chat = () => {
     const dispatch = useDispatch();
-    const [user, setUser] = useState({});
     const socket = useRef();
 
     const currentChannelId = useSelector(state => state.currentChannelId);
+    const currentUser = useSelector(state => state.currentUser);
     const channels = useSelector(state => state.channels);
     const currentChannel = channels.find(channel => channel.id === currentChannelId);
 
     useEffect(() => {
-        connect({socket, currentChannelId, user})(dispatch);
+        connect({socket, currentUser})(dispatch);
     }, [connect]);
-
-    const getUser = (user) => {
-        setUser(user);
-    }
 
     return (
         <div className={ct.chat}>
-            <Authorization
-                getUser={getUser}
-            />
+            <Authorization/>
             <MenuBar
                 websocket={socket}
-                User={user}
             />
-            <Channels
-                User={user}
-            />
+            <Channels/>
             <div className={ct.chat__communication}>
-                <Messages
-                    currentUser={user.username}
-                />
+                <Messages/>
                 {
                     currentChannel &&
                     <SendMessage
                         websocket={socket}
-                        User={user}
                     />
                 }
             </div>

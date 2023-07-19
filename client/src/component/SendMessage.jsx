@@ -4,10 +4,11 @@ import MyTextArea from "../UI/MyTextArea/MyTextArea";
 import {SIZE_HEIGHT_TEXTAREA} from "../utils/globalVars";
 import {useSelector} from "react-redux";
 
-const SendMessage = ({User, websocket}) => {
+const SendMessage = ({websocket}) => {
     const [value, setValue] = useState('');
     const currentChannelId = useSelector(state => state.currentChannelId);
     const channels = useSelector(state => state.channels);
+    const currentUser = useSelector(state => state.currentUser);
     const currentChannel = channels.find(channel => channel.id === currentChannelId);
     const textareaRef = useRef();
 
@@ -24,7 +25,7 @@ const SendMessage = ({User, websocket}) => {
         if (currentChannel) {
             const message = {
                 id: Date.now(),
-                username: User.username,
+                username: currentUser.username,
                 message: value,
                 currentChannelId
             }

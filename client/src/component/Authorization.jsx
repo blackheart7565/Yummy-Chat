@@ -3,7 +3,7 @@ import auth from '../styles/module/Authorization.module.scss';
 import Registration from "./Registration";
 import AuthFrom from "./AuthFrom";
 
-const Authorization = ({getUser}) => {
+const Authorization = () => {
     const [condition, setCondition] = useState({
         isRegistration: true
         , isLogIn: false
@@ -14,18 +14,15 @@ const Authorization = ({getUser}) => {
         setCondition({...condition, isRegistration: isRegistration})
     }
 
-    const IsLogIn = (isLogIn, user) => {
+    const IsLogIn = (isLogIn) => {
         setCondition({...condition, isLogIn: isLogIn})
-        getUser(user);
     }
 
     if (!condition.isRegistration) {
-        return <Registration
-            getUser={getUser}
-        />
+        return <Registration />
     }
 
-    if(condition.isLogIn) {
+    if (condition.isLogIn) {
         rootClass.push(auth.authClose);
     }
 

@@ -3,9 +3,10 @@ import React from 'react';
 import Message from "./Message";
 import {useSelector} from "react-redux";
 
-const Messages = ({currentUser}) => {
+const Messages = () => {
     const channels = useSelector(state => state.channels);
     const currentChannelId = useSelector(state => state.currentChannelId);
+    const currentUser = useSelector(state => state.currentUser);
 
     const currentChannel = channels.find(channel => channel.id === currentChannelId);
 
@@ -19,7 +20,7 @@ const Messages = ({currentUser}) => {
                 currentChannel.messages.map(mess =>
                     <Message
                         key={mess.id}
-                        className={mess.username === currentUser ? mgs.currentUserMessage : mgs.otherUserMessage}
+                        className={mess.username === currentUser.username ? mgs.currentUserMessage : mgs.otherUserMessage}
                     >
                         <div className={mgs.messages__username}>
                             {mess.username}

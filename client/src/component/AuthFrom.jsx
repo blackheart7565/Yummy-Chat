@@ -3,7 +3,8 @@ import React, {useState} from 'react';
 import MyInput from "../UI/MyInput/MyInput";
 import MyButton from "../UI/MyButton/MyButton";
 import HideAndShowPass from "../UI/HideAndShowPass/HideAndShowPass";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {addCurrentUser} from "../utils/reducer-service";
 
 const AuthFrom = ({IsRegistration, IsAuthorization, ...props}) => {
     const Users = useSelector(state => state.users);
@@ -11,13 +12,18 @@ const AuthFrom = ({IsRegistration, IsAuthorization, ...props}) => {
         email: ''
         , password: ''
     });
+    // const currentUser = useSelector(state => state.currentUser);
+    const dispatch = useDispatch();
 
     const logIn = (e) => {
         e.preventDefault();
         Users.forEach(user => {
             // if (user.email === userAuth.email && user.password === userAuth.password) {
             if (user.email === userAuth.email) {
-                IsAuthorization(true, user);
+                IsAuthorization(true);
+                dispatch(
+                    addCurrentUser(user)
+                );
             }
         });
     }

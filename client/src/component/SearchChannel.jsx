@@ -5,11 +5,10 @@ import {useDispatch, useSelector} from "react-redux";
 import ChannelsItem from "./ChannelsItem";
 import {setCurrentChannel} from "../utils/reducer-service";
 
-const SearchChannel = ({User}) => {
+const SearchChannel = () => {
     const [search, setSearch] = useState('');
     const channels = useSelector(state => state.channels);
     const currentUser = useSelector(state => state.currentUser);
-
     const dispatch = useDispatch();
 
     const handleCurrentChannel = (channelId) => {
@@ -31,7 +30,7 @@ const SearchChannel = ({User}) => {
             <div className={st.searchChannel__resultInput}>
                 {
                     channels.map(channel => {
-                            if (channel.displayNameChannel === search && !channel.users.some(user => user.id === User.id)) {
+                            if (channel.displayNameChannel === search && !channel.users.some(user => user.id === currentUser.id)) {
                                 return <ChannelsItem
                                     onClick={() => handleCurrentChannel(channel.id)}
                                     key={channel.id}

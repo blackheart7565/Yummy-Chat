@@ -1,4 +1,4 @@
-import {ADD_CHANNEL, ADD_USERS, ADDING_MESSAGE, SET_CURRENT_CHANNEL} from "./globalVars";
+import {ADD_CHANNEL, ADD_CURRENT_USERS, ADD_USERS, ADDING_MESSAGE, SET_CURRENT_CHANNEL} from "./globalVars";
 
 export const addNewChannel = (channel) => {
     return {
@@ -29,5 +29,12 @@ export const addUser = (user) => {
     return {
         type: ADD_USERS
         , payload: user
+    }
+}
+
+export const addCurrentUser = (currentUser) => {
+    return {
+        type: ADD_CURRENT_USERS
+        , payload: currentUser
     }
 }

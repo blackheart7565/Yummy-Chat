@@ -1,8 +1,11 @@
 import menubar from '../styles/module/MenuBar.module.scss';
 import React from 'react';
 import MyButton from "../UI/MyButton/MyButton";
+import {useSelector} from "react-redux";
 
-const MenuBar = ({User, websocket}) => {
+const MenuBar = ({websocket}) => {
+    const currentUser = useSelector(state => state.currentUser);
+
     const newChannel = () => {
         const channels = {
             event: 'channel'
@@ -14,9 +17,9 @@ const MenuBar = ({User, websocket}) => {
                 , status: 'public'
                 , messages: []
                 , users: [{
-                    id: User.id
-                    , usernameUser: User.username
-                    , phoneUser: User.phone
+                    id: currentUser.id
+                    , usernameUser: currentUser.username
+                    , phoneUser: currentUser.phone
                 }]
             }
         }

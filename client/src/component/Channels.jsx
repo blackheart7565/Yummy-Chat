@@ -3,15 +3,13 @@ import React from 'react';
 import ChannelsList from "./ChannelsList";
 import SearchChannel from "./SearchChannel";
 
-const Channels = ({User}) => {
+const Channels = () => {
     return (
         <div
             className={chls.channels}
         >
-            <SearchChannel User={User}/>
-            <ChannelsList
-                User={User}
-            />
+            <SearchChannel/>
+            <ChannelsList/>
         </div>
     );
 };

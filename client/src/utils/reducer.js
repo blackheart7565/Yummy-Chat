@@ -1,4 +1,4 @@
-import {ADD_CHANNEL, ADD_USERS, ADDING_MESSAGE, SET_CURRENT_CHANNEL} from "./globalVars";
+import {ADD_CHANNEL, ADD_CURRENT_USERS, ADD_USERS, ADDING_MESSAGE, SET_CURRENT_CHANNEL} from "./globalVars";
 
 const defaultChannel = {
     channels: []
@@ -51,6 +51,12 @@ const reducer = (state = defaultChannel, action) => {
             return {
                 ...state
                 , users: [...state.users, action.payload]
+            }
+
+        case ADD_CURRENT_USERS:
+            return {
+                ...state
+                , currentUser: action.payload
             }
 
         default:

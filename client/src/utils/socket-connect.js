@@ -1,20 +1,22 @@
 import {PORT} from "./globalVars";
 import {addNewChannel, addNewMessage} from "./reducer-service";
 
-export const connect = ({socket, currentChannelId, user}) => (dispatch) => {
+export const connect = ({socket, user}) => (dispatch) => {
     socket.current = new WebSocket(`ws://localhost:${PORT}`);
 
     // Событие когда подключились к чату
     socket.current.onopen = () => {
-        const message = {
-            event: 'connecting',
-            username: user.username,
-            id: Date.now(),
-        }
+        if (user && user.username) {
+            const message = {
+                event: 'connecting',
+                username: user.username,
+                id: Date.now(),
+            }
 
-        socket.current.send(
-            JSON.stringify(message)
-        );
+            socket.current.send(
+                JSON.stringify(message)
+            );
+        }
     }
 
     // Событие когда получили сообшение

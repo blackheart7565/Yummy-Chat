@@ -4,9 +4,10 @@ import ChannelsItem from "./ChannelsItem";
 import {useDispatch, useSelector} from "react-redux";
 import {setCurrentChannel} from "../utils/reducer-service";
 
-const ChannelsList = ({User}) => {
+const ChannelsList = () => {
     const dispatch = useDispatch();
     const channels = useSelector(state => state.channels);
+    const currentUser = useSelector(state => state.currentUser);
 
     const handleCurrentChannel = (channelId) => {
         dispatch(
@@ -15,7 +16,7 @@ const ChannelsList = ({User}) => {
     }
 
     const userChannels = channels.filter(channel =>
-        channel.users.some(user => user.id === User.id)
+        channel.users.some(user => user.id === currentUser.id)
     );
 
     return (
