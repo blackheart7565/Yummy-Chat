@@ -7,7 +7,7 @@ import {useSelector} from "react-redux";
 
 const AuthFrom = ({IsRegistration, IsAuthorization, ...props}) => {
     const Users = useSelector(state => state.users);
-    const [user, setUser] = useState({
+    const [userAuth, setUserAuth] = useState({
         email: ''
         , password: ''
     });
@@ -15,7 +15,8 @@ const AuthFrom = ({IsRegistration, IsAuthorization, ...props}) => {
     const logIn = (e) => {
         e.preventDefault();
         Users.forEach(user => {
-            if (user.email === user.email && user.password === user.password) {
+            // if (user.email === userAuth.email && user.password === userAuth.password) {
+            if (user.email === userAuth.email) {
                 IsAuthorization(true, user);
             }
         });
@@ -28,8 +29,8 @@ const AuthFrom = ({IsRegistration, IsAuthorization, ...props}) => {
     return (
         <form {...props} className={authFrom.form}>
             <MyInput
-                value={user.email}
-                onChange={(e) => setUser({...user, email: e.target.value})}
+                value={userAuth.email}
+                onChange={(e) => setUserAuth({...userAuth, email: e.target.value})}
                 className={authFrom.form__email}
                 placeholder='Email'
             />
@@ -39,8 +40,8 @@ const AuthFrom = ({IsRegistration, IsAuthorization, ...props}) => {
                 className={authFrom.form__passwordBlock}
             >
                 <MyInput
-                    value={user.password}
-                    onChange={(e) => setUser({...user, password: e.target.value})}
+                    value={userAuth.password}
+                    onChange={(e) => setUserAuth({...userAuth, password: e.target.value})}
                     type='password'
                     className={authFrom.form__password}
                     placeholder='Password'

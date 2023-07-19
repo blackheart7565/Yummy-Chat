@@ -8,8 +8,10 @@ const MenuBar = ({User, websocket}) => {
             event: 'channel'
             , channel: {
                 id: Date.now()
-                , status: 'public'
+                , avatar: [] // аватарка канала в виде массива байтов или в виде path строки
                 , displayNameChannel: 'Sato'
+                , description: ''
+                , status: 'public'
                 , messages: []
                 , users: [{
                     id: User.id

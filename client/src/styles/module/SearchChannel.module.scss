@@ -1,0 +1,24 @@
+@import "../base/vars";
+@import "../base/mixin";
+
+.searchChannel {
+  margin: 5px 5px 20px 5px;
+
+  &__inputSection {
+
+  }
+
+  &__input {
+    padding: 12px;
+    width: $full-screen;
+
+    &::placeholder {
+      opacity: 0.6;
+    }
+  }
+
+  &__resultInput {
+    display: block;
+    @include veryBlue-bg(top, 0.5);
+  }
+}

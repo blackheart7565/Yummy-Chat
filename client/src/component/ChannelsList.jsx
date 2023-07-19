@@ -17,7 +17,6 @@ const ChannelsList = ({User}) => {
     const userChannels = channels.filter(channel =>
         channel.users.some(user => user.id === User.id)
     );
-    console.log(userChannels)
 
     return (
         <div className={chlslist.channels__list}>

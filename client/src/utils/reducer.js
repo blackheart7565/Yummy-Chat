@@ -2,7 +2,6 @@ import {ADD_CHANNEL, ADD_USERS, ADDING_MESSAGE, SET_CURRENT_CHANNEL} from "./glo
 
 const defaultChannel = {
     channels: []
-    , currentChannelId: null
     , users: [
         {
             id: 1,
@@ -19,6 +18,8 @@ const defaultChannel = {
             password: 's',
         }
     ]
+    , currentChannelId: null
+    , currentUser: null
 }
 
 const reducer = (state = defaultChannel, action) => {

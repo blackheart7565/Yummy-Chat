@@ -9,13 +9,13 @@ import {useDispatch, useSelector} from "react-redux";
 import {connect} from "../utils/socket-connect";
 
 const Chat = () => {
+    const dispatch = useDispatch();
     const [user, setUser] = useState({});
+    const socket = useRef();
 
     const currentChannelId = useSelector(state => state.currentChannelId);
     const channels = useSelector(state => state.channels);
     const currentChannel = channels.find(channel => channel.id === currentChannelId);
-    const socket = useRef();
-    const dispatch = useDispatch();
 
     useEffect(() => {
         connect({socket, currentChannelId, user})(dispatch);
