@@ -1,0 +1,44 @@
+@import "../../styles/base/vars";
+@import "../../styles/base/mixin";
+
+.connect {
+  padding: 15px;
+  color: $white;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  position: relative;
+  z-index: 2;
+  @include veryBlue-bg(top, 1);
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+    width: $full-screen;
+    height: $full-screen;
+    @include veryBlue-bg(right bottom, 1);
+    transition: opacity 0.5s ease-in-out;
+  }
+
+  > span {
+    cursor: default;
+    position: relative;
+    z-index: 3;
+  }
+
+  &:hover:before {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+    box-shadow: 0 0 10px #66ff00
+              , 0 0 20px #66ff00
+              , 0 0 30px #66ff00
+              , 0 0 40px #66ff00
+            ;
+  }
+}

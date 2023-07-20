@@ -4,26 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02ac5987-11bb-4688-aa7f-5fdc0571c4b9" name="Changes" comment="Refactoring. Changed the storage of the current user. Moved to redux instead of object">
-      <change afterPath="$PROJECT_DIR$/client/src/API/CountryCodes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/API/api-service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="02ac5987-11bb-4688-aa7f-5fdc0571c4b9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/UI/Connect/Connect.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/UI/Connect/Connect.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/plans.txt" beforeDir="false" afterPath="$PROJECT_DIR$/client/plans.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/UI/MySelect/MySelect.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/UI/MySelect/MySelect.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/UI/MySelect/MySelect.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/UI/MySelect/MySelect.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/component/AuthFrom.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/AuthFrom.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/ChannelsList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/ChannelsList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/component/Chat.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/Chat.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/RegForm.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/RegForm.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/SearchChannel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/SearchChannel.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/module/Registration.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/module/Registration.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/utils/reducer-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utils/reducer/reducer-service.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/utils/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utils/reducer/reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/utils/socket-connect.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utils/websocket/socket-connect.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/styles/base/mixin.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/base/mixin.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/utils/globalVars.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utils/globalVars.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/utils/reducer/reducer-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utils/reducer/reducer-service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/utils/reducer/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utils/reducer/reducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +22,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -76,11 +69,11 @@
       <recent name="E:\My project\HTML + CSS + JavaScripts\Project\Yummy-Chat\client\public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\My project\HTML + CSS + JavaScripts\Project\Yummy-Chat\client\src\UI\Connect" />
       <recent name="E:\My project\HTML + CSS + JavaScripts\Project\Yummy-Chat\client\src\API" />
       <recent name="E:\My project\HTML + CSS + JavaScripts\Project\Yummy-Chat\client\src\utils\websocket" />
       <recent name="E:\My project\HTML + CSS + JavaScripts\Project\Yummy-Chat\client\src\utils\reducer" />
       <recent name="E:\My project\HTML + CSS + JavaScripts\Project\Yummy-Chat\client\src\component" />
-      <recent name="E:\My project\HTML + CSS + JavaScripts\Project\Yummy-Chat\client\src\styles\module" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -111,7 +104,8 @@
       <workItem from="1689710466651" duration="120000" />
       <workItem from="1689710598764" duration="200000" />
       <workItem from="1689711669912" duration="501000" />
-      <workItem from="1689768837320" duration="23718000" />
+      <workItem from="1689768837320" duration="24040000" />
+      <workItem from="1689858319301" duration="11939000" />
     </task>
     <task id="LOCAL-00001" summary="Refactoring. Changed the storage of the current user. Moved to redux instead of object">
       <option name="closed" value="true" />
@@ -121,7 +115,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689791832788</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added display of international phone code for each country&#10;&#10;It was implemented through an API request, but since the requests exceeded the free plan usage limit, it was decided to change the format to json.&#10;&#10;Taken from https://gist.github.com/anubhavshrimal/75f6183458db8c453306f93521e93d37#file-countrycodes-json">
+      <option name="closed" value="true" />
+      <created>1689802055091</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1689802055091</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,6 +142,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Refactoring. Changed the storage of the current user. Moved to redux instead of object" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactoring. Changed the storage of the current user. Moved to redux instead of object" />
+    <MESSAGE value="Added display of international phone code for each country&#10;&#10;It was implemented through an API request, but since the requests exceeded the free plan usage limit, it was decided to change the format to json.&#10;&#10;Taken from https://gist.github.com/anubhavshrimal/75f6183458db8c453306f93521e93d37#file-countrycodes-json" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added display of international phone code for each country&#10;&#10;It was implemented through an API request, but since the requests exceeded the free plan usage limit, it was decided to change the format to json.&#10;&#10;Taken from https://gist.github.com/anubhavshrimal/75f6183458db8c453306f93521e93d37#file-countrycodes-json" />
   </component>
 </project>

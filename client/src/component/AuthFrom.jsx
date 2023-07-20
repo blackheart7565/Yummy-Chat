@@ -18,8 +18,8 @@ const AuthFrom = ({IsRegistration, IsAuthorization, ...props}) => {
     const logIn = (e) => {
         e.preventDefault();
         Users.forEach(user => {
-            // if (user.email === userAuth.email && user.password === userAuth.password) {
-            if (user.email === userAuth.email) {
+            if (user.email === userAuth.email && user.password === userAuth.password) {
+            // if (user.email === userAuth.email) {
                 IsAuthorization(true);
                 dispatch(
                     addCurrentUser(user)

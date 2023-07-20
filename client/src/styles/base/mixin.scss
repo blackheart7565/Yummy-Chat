@@ -99,3 +99,40 @@
   background: -webkit-linear-gradient(to $direction, $startColor, $endColor);
   background: linear-gradient(to $direction, $startColor, $endColor);
 }
+
+@mixin Light-Sky($direction: top, $opacity: 1) {
+  $start-color: rgba(13,61,230, $opacity);
+  $middle-color: rgba(18,21,203,$opacity);
+  $end-color: rgba(14,189,231,$opacity);
+
+  background: rgba(13,61,230, 1);
+  background: -moz-linear-gradient($direction, $start-color 0%, $middle-color 62%, $end-color 100%);
+  background: -webkit-linear-gradient($direction, $start-color 0%, $middle-color 62%, $end-color 100%);
+  background: linear-gradient($direction, $start-color 0%, $middle-color 62%, $end-color 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0d3de6",endColorstr="#0ebde7",GradientType=1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
