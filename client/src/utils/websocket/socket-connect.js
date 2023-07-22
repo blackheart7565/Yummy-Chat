@@ -34,7 +34,6 @@ export const connect = ({socket, user}) => (dispatch) => {
                     addNewChannel(data.channel)
                 );
                 break;
-
         }
     }
 

@@ -33,10 +33,6 @@ const Chat = () => {
         );
     }
 
-    console.log(
-        channels
-    )
-
     return (
         <div className={ct.chat}>
             <Authorization/>
@@ -48,19 +44,19 @@ const Chat = () => {
                 <Messages/>
                 {
                     currentChannel ?
-                    currentChannel?.users.some(user => user.id === currentUser.id)
-                        ? (
-                            <SendMessage
-                                websocket={socket}
-                            />
-                        )
-                        : (
-                            <Connect
-                                onClick={ConnectUserInChannel}
-                            >
-                                Подключится
-                            </Connect>
-                        )
+                        currentChannel?.users.some(user => user.id === currentUser.id)
+                            ? (
+                                <SendMessage
+                                    websocket={socket}
+                                />
+                            )
+                            : (
+                                <Connect
+                                    onClick={ConnectUserInChannel}
+                                >
+                                    Подключится
+                                </Connect>
+                            )
                         :
                         null
                 }

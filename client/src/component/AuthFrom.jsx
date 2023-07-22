@@ -12,14 +12,13 @@ const AuthFrom = ({IsRegistration, IsAuthorization, ...props}) => {
         email: ''
         , password: ''
     });
-    // const currentUser = useSelector(state => state.currentUser);
     const dispatch = useDispatch();
 
     const logIn = (e) => {
         e.preventDefault();
         Users.forEach(user => {
-            if (user.email === userAuth.email && user.password === userAuth.password) {
-            // if (user.email === userAuth.email) {
+            // if (user.email === userAuth.email && user.password === userAuth.password) {
+            if (user.email === userAuth.email) {
                 IsAuthorization(true);
                 dispatch(
                     addCurrentUser(user)
@@ -27,6 +26,7 @@ const AuthFrom = ({IsRegistration, IsAuthorization, ...props}) => {
             }
         });
     }
+
     const registration = (e) => {
         e.preventDefault();
         IsRegistration(false);

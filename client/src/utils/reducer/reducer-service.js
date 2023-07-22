@@ -5,7 +5,7 @@ import {
     ADD_USERS_IN_CHANNEL,
     ADDING_MESSAGE,
     SET_CURRENT_CHANNEL
-} from "../globalVars";
+} from "./const-reducer";
 
 export const addNewChannel = (channel) => {
     return {
@@ -47,11 +47,11 @@ export const addCurrentUser = (currentUser) => {
 }
 
 export const addUserInChannel = (channelId, user) => {
- return {
-     type: ADD_USERS_IN_CHANNEL
-     , payload: [
-         channelId
-         , user
-     ]
- }
+    return {
+        type: ADD_USERS_IN_CHANNEL
+        , payload: [
+            channelId
+            , user
+        ]
+    }
 }

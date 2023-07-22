@@ -5,7 +5,7 @@ import {
     ADD_USERS_IN_CHANNEL,
     ADDING_MESSAGE,
     SET_CURRENT_CHANNEL
-} from "../globalVars";
+} from "./const-reducer";
 
 const defaultChannel = {
     channels: []
