@@ -1,7 +1,6 @@
 import {table} from "../model/model.js";
 
 class ChannelController {
-
     async create(req, res) {
         const {name, type} = req.body;
         const channel = await table.Channel.create(
@@ -20,6 +19,12 @@ class ChannelController {
         const channel = await table.Channel.findOne(
             {where: {id}}
         );
+        return res.json(channel);
+    }
+
+    async delete (req, res) {
+        const {id} = req.params;
+        const channel = table.Channel.findOne({where: {id}});
         return res.json(channel);
     }
 }

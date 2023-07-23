@@ -7,6 +7,7 @@ import {WS_PORT} from "./const-vars.js";
 import {table} from "./model/model.js";
 import express from 'express';
 import cors from 'cors';
+import {errorHandler} from "./middleware/ErrorHandlerMidleware.js";
 import {router} from "./routers/index.js";
 
 const app = express();
@@ -14,6 +15,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use('/api', router);
+app.use(errorHandler);
 
 const server = new WebSocketServer({
     port: WS_PORT
@@ -22,7 +24,6 @@ const server = new WebSocketServer({
 await onSequelize(app);
 
 server.on('connection', (socket) => {
-    console.log(1)
     socket.on('message', (data) => {
         data = JSON.parse(data);
 
