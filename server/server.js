@@ -2,17 +2,24 @@ import {config} from "dotenv";
 config();
 
 import {WebSocketServer} from "ws";
-import {broadcastMessage, onSequelize} from "./websocket/ws-service.js";
+import {broadcastMessage, onSequelize} from "./websocket/server-service.js";
+import {WS_PORT} from "./const-vars.js";
 import {table} from "./model/model.js";
+import express from 'express';
+import cors from 'cors';
+import {router} from "./routers/index.js";
 
-const PORT = process.env.PORT || 5000;
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+app.use('/api', router);
 
 const server = new WebSocketServer({
-    port: PORT
-})
+    port: WS_PORT
+});
 
-await onSequelize();
-
+await onSequelize(app);
 
 server.on('connection', (socket) => {
     console.log(1)
