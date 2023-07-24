@@ -3,31 +3,30 @@ import React, {useState} from 'react';
 import MyInput from "../UI/MyInput/MyInput";
 import MyButton from "../UI/MyButton/MyButton";
 import HideAndShowPass from "../UI/HideAndShowPass/HideAndShowPass";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {addCurrentUser} from "../utils/reducer/reducer-service";
+import {login} from "../http/useAPI";
 
 const AuthFrom = ({IsRegistration, IsAuthorization, ...props}) => {
-    const Users = useSelector(state => state.users);
     const [userAuth, setUserAuth] = useState({
         email: ''
         , password: ''
     });
     const dispatch = useDispatch();
 
-    const logIn = (e) => {
+    const singIn = async (e) => {
         e.preventDefault();
-        Users.forEach(user => {
-            // if (user.email === userAuth.email && user.password === userAuth.password) {
-            if (user.email === userAuth.email) {
-                IsAuthorization(true);
-                dispatch(
-                    addCurrentUser(user)
-                );
-            }
-        });
+        const user = await login(userAuth.email, userAuth.password)
+
+        if (user) {
+            IsAuthorization(true);
+            dispatch(
+                addCurrentUser(user)
+            );
+        }
     }
 
-    const registration = (e) => {
+    const singOut = (e) => {
         e.preventDefault();
         IsRegistration(false);
     }
@@ -56,13 +55,13 @@ const AuthFrom = ({IsRegistration, IsAuthorization, ...props}) => {
             </div>
             <MyButton
                 className={authFrom.form__login}
-                onClick={logIn}
+                onClick={singIn}
             >
                 Log In
             </MyButton>
             <p
                 className={authFrom.form__info}
-                onClick={registration}
+                onClick={singOut}
             >
                 Don't have an account yet?
             </p>

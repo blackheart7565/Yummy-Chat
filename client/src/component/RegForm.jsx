@@ -4,9 +4,7 @@ import MyInput from "../UI/MyInput/MyInput";
 import MySelect from "../UI/MySelect/MySelect";
 import HideAndShowPass from "../UI/HideAndShowPass/HideAndShowPass";
 import MyButton from "../UI/MyButton/MyButton";
-import {useDispatch} from "react-redux";
-import {addUser} from "../utils/reducer/reducer-service";
-import {nanoid} from "nanoid";
+import {registration} from "../http/useAPI";
 
 const RegForm = ({getIsLogIn, ...props}) => {
     const [userReg, setUserReg] = useState({
@@ -14,27 +12,19 @@ const RegForm = ({getIsLogIn, ...props}) => {
         , email: ''
         , phone: ''
         , password: ''
-        , selectOption: ''
     });
     const selectCodeCountryPhone = useRef(null);
-    const dispatch = useDispatch();
 
-    const RegistrationUser = (e) => {
+    const RegistrationUser = async (e) => {
         e.preventDefault();
-        const User = {
-            id: nanoid(16),
+
+        await registration({
             username: userReg.username,
             email: userReg.email,
             phone: `${selectCodeCountryPhone.current.value}${userReg.phone}`,
             password: userReg.password,
-        }
-
-        if (Object.values(User).every(value => value)) {
-            dispatch(
-                addUser(User)
-            );
-            getIsLogIn(true);
-        }
+        });
+        getIsLogIn(true);
     }
 
     const Back = (e) => {
@@ -61,8 +51,6 @@ const RegForm = ({getIsLogIn, ...props}) => {
             <div className={reg.reg__phoneBlock}>
                 <MySelect
                     ref={selectCodeCountryPhone}
-                    value={userReg.selectOption}
-                    onChange={(e) => setUserReg({...userReg, selectOption: e.target.value})}
                     className={reg.reg__phoneSelect}
                 />
                 <MyInput

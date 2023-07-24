@@ -1,4 +1,4 @@
-import {PORT} from "../globalVars";
+import {PORT} from "../const-vars";
 import {addNewChannel, addNewMessage} from "../reducer/reducer-service";
 
 export const connect = ({socket, user}) => (dispatch) => {

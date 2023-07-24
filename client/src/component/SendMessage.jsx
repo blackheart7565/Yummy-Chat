@@ -1,7 +1,7 @@
 import sendmes from '../styles/module/SendMessage.module.scss';
 import React, {useRef, useState} from 'react';
 import MyTextArea from "../UI/MyTextArea/MyTextArea";
-import {SIZE_HEIGHT_TEXTAREA} from "../utils/globalVars";
+import {SIZE_HEIGHT_TEXTAREA} from "../utils/const-vars";
 import {useSelector} from "react-redux";
 
 const SendMessage = ({websocket}) => {

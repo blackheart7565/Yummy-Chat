@@ -9,22 +9,7 @@ import {
 
 const defaultChannel = {
     channels: []
-    , users: [
-        {
-            id: 1,
-            username: 'admin',
-            email: 'a',
-            phone: '+38014475185625',
-            password: 'a',
-        },
-        {
-            id: 2,
-            username: 'Sato',
-            email: 's',
-            phone: '+38014475185625',
-            password: 's',
-        }
-    ]
+    , user: {}
     , currentChannelId: null
     , currentUser: null
 }
