@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02ac5987-11bb-4688-aa7f-5fdc0571c4b9" name="Changes" comment="Added connection of another user to the channel">
-      <change afterPath="$PROJECT_DIR$/server/middleware/AuthMiddleware.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/middleware/ErrorHandlerMidleware.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/const-vars.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/const-vars.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controllers/channelController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/channelController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/userController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routers/userRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routers/userRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/error/ApiError.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/error/ApiError.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/middleware/ErrorHandlerMidleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/middleware/ErrorHandlerMidleware.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/model/model.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/model.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +105,8 @@
       <workItem from="1689940108102" duration="917000" />
       <workItem from="1689941377243" duration="10369000" />
       <workItem from="1690029217641" duration="14208000" />
-      <workItem from="1690138585709" duration="6125000" />
+      <workItem from="1690138585709" duration="6419000" />
+      <workItem from="1690200534351" duration="4089000" />
     </task>
     <task id="LOCAL-00001" summary="Refactoring. Changed the storage of the current user. Moved to redux instead of object">
       <option name="closed" value="true" />

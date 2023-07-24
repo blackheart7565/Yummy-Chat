@@ -26,10 +26,8 @@ export class ApiError extends Error {
         return new ApiError(403, message);
     }
 
-
     // Внутренняя ошибка сервера
     static internalServerError(message) {
         return new ApiError(500, message);
     }
-
 }

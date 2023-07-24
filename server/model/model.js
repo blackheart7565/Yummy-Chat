@@ -31,7 +31,7 @@ const Message = sequelize.define('message', {
     channelId: {type: DataTypes.INTEGER, allowNull: true, ref: `${Channel}`},
 });
 
-Channel.hasMany(Message);
+Channel.hasMany(Message , {as: 'messages'});
 Message.belongsTo(Channel);
 
 User.belongsToMany(Channel, {through: UserChannel});
