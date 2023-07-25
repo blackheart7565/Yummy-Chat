@@ -11,7 +11,10 @@ const defaultChannel = {
     channels: []
     , user: {}
     , currentChannelId: null
+
+
     , currentUser: null
+    , messages: []
 }
 
 const reducer = (state = defaultChannel, action) => {

@@ -2,31 +2,25 @@ import menubar from '../styles/module/MenuBar.module.scss';
 import React from 'react';
 import MyButton from "../UI/MyButton/MyButton";
 import {useSelector} from "react-redux";
+import {createChannel} from "../http/channelAPI";
 
 const MenuBar = ({websocket}) => {
     const currentUser = useSelector(state => state.currentUser);
 
-    const newChannel = () => {
-        const channels = {
-            event: 'channel'
-            , channel: {
-                id: Date.now()
-                , avatar: [] // аватарка канала в виде массива байтов или в виде path строки
-                , displayNameChannel: 'Sato'
-                , description: ''
-                , status: 'public'
-                , messages: []
-                , users: [{
-                    id: currentUser.id
-                    , usernameUser: currentUser.username
-                    , phoneUser: currentUser.phone
-                }]
-            }
+    const newChannel = async () => {
+        const channel = {
+            name: "wefwefwe",
+            description: "",
+            type: "public",
+            userId: currentUser.id,
+            messages: []
         }
 
-        websocket.current.send(
-            JSON.stringify(channels)
-        );
+        await createChannel(channel);
+
+        // websocket.current.send(
+        //     JSON.stringify(channel)
+        // );
     }
 
     return (

@@ -8,6 +8,8 @@ const User = sequelize.define('user', {
     email: {type: DataTypes.STRING, unique: true, allowNull: false},
     phone: {type: DataTypes.STRING, allowNull: false},
     password: {type: DataTypes.STRING, allowNull: false},
+}, {
+    timestamps: false
 });
 
 const Channel = sequelize.define('channel', {
@@ -16,29 +18,37 @@ const Channel = sequelize.define('channel', {
     name: {type: DataTypes.STRING, allowNull: false},
     description: {type: DataTypes.STRING, allowNull: true},
     type: {type: DataTypes.STRING, allowNull: false},
+}, {
+    timestamps: false
 });
 
 const UserChannel = sequelize.define('user_channel', {
     id: {type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true},
-    userId: {type: DataTypes.INTEGER, ref: `${User}`},
-    channelId: {type: DataTypes.INTEGER, ref: `${Channel}`},
+}, {
+    timestamps: false
 });
 
 const Message = sequelize.define('message', {
     id: {type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true},
     message: {type: DataTypes.STRING, allowNull: true},
-    userId: {type: DataTypes.INTEGER, allowNull: true, ref: `${User}`},
-    channelId: {type: DataTypes.INTEGER, allowNull: true, ref: `${Channel}`},
+}, {
+    timestamps: false
 });
 
-Channel.hasMany(Message , {as: 'messages'});
+Channel.hasMany(Message, {as: 'messages'});
 Message.belongsTo(Channel);
-
-User.belongsToMany(Channel, {through: UserChannel});
-Channel.belongsToMany(User, {through: UserChannel});
 
 User.hasMany(Message);
 Message.belongsTo(User);
+
+User.belongsToMany(Channel, {through: UserChannel});
+Channel.belongsToMany(User, {through: UserChannel});
+//
+// User.hasOne(Channel)
+// Channel.belongsTo(User)
+//
+// Channel.hasOne(User)
+// User.belongsTo(Channel)
 
 export const table = {
     Channel,
