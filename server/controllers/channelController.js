@@ -1,7 +1,8 @@
 import {table} from "../model/model.js";
-import {model} from "mongoose";
+import {ApiError} from "../error/ApiError.js";
 
 class ChannelController {
+
     async create(req, res) {
         let {avatar, name, description, type, userId} = req.body;
 
@@ -9,34 +10,25 @@ class ChannelController {
             {avatar, name, description, type, userId}
         );
 
-        // if (messages) {
-        //     // messages = JSON.parse(messages);
-        //     messages.forEach(item =>
-        //         table.Message.create({
-        //             message: item.message,
-        //             userId: item.userId,
-        //             channelId: channel.id,
-        //         })
-        //     )
-        // }
+        const user = await table.User.findOne({where: {id: userId}});
+        if(!user) {
+            ApiError.notFound('Пользователь не найден');
+        }
+        await user.addChannel(channel);
+
         const messages = await table.Message.create({
-            message: 'Канал создан'
+            message: 'Канал создан',
+            username: user.username,
+            nameChannel: channel.name,
+            userId
         });
         channel.addMessages(messages);
-
-        await table.User.findOne(
-            {
-                where: {id: userId},
-            }
-        ).then(user => {
-            user.addChannel(channel);
-        })
 
         return res.json(channel);
     }
 
     async getAll(req, res) {
-        const channels= await table.Channel.findAll({where:{}})
+        const channels = await table.Channel.findAll({where: {}})
         return res.json(channels);
     }
 
@@ -59,7 +51,7 @@ class ChannelController {
         const channel = await table.Channel.findOne(
             {
                 where: {id},
-                include: [{ model: table.Message, as: 'messages'}]
+                include: [{model: table.Message, as: 'messages'}]
             }
         );
         return res.json(channel);

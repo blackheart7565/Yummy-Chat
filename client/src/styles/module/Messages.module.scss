@@ -15,7 +15,8 @@
   @include Clear-Sky(top, 1);
 
   &__username {
-    display: inline-block;
+    display: inline-flex;
+    gap: 20px;
     padding: 5px 15px;
     margin-bottom: 15px;
 
