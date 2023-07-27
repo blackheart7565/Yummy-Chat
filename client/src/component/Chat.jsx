@@ -1,13 +1,11 @@
 import ct from '../styles/module/Chat.module.scss';
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef} from 'react';
 import Messages from "./Messages";
-import SendMessage from "./SendMessage";
 import Channels from "./Channels";
 import MenuBar from "./MenuBar";
 import Authorization from "./Authorization";
 import {useDispatch, useSelector} from "react-redux";
 import {connect} from "../utils/websocket/socket-connect";
-import Connect from "../UI/Connect/Connect";
 import {addNewManyChannel, addUserInChannel} from "../utils/reducer/reducer-service";
 import {fetchUserChannel} from "../http/channelAPI";
 
@@ -19,8 +17,6 @@ const Chat = () => {
     const currentUser = useSelector(state => state.currentUser);
     const channels = useSelector(state => state.channels);
     const currentChannel = channels.find(channel => channel.id === currentChannelId);
-
-    console.log(currentChannel)
 
     useEffect(() => {
         connect({socket, currentUser})(dispatch);
@@ -39,9 +35,7 @@ const Chat = () => {
     useEffect(() => {
         if (currentUser) {
             fetchUserChannel(currentUser.id)
-                .then(channel => {
-                    dispatch(addNewManyChannel(channel.channels))
-                });
+                .then(channel => dispatch(addNewManyChannel(channel.channels)));
         }
     }, [currentUser])
 

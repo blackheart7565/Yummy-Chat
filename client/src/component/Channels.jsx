@@ -1,8 +1,7 @@
 import chls from '../styles/module/Channels.module.scss';
-import React, {useEffect} from 'react';
+import React from 'react';
 import ChannelsList from "./ChannelsList";
 import SearchChannel from "./SearchChannel";
-import {fetchChannel} from "../http/channelAPI";
 
 const Channels = () => {
     return (

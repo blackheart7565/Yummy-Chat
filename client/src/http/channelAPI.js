@@ -7,6 +7,11 @@ export const createChannel = async (channel) => {
 }
 
 export const fetchUserChannel = async (userId) => {
-    const {data} = await $host.get(`/api/channel`, {params: {userId}});
+    const {data} = await $authHost.get(`/api/channel`, {params: {userId}});
     return data;
+}
+
+export const fetchOneChannel = async (id) => {
+    const {data} = await $host.get(`/api/channel/${id}`);
+    return data
 }

@@ -14,6 +14,8 @@ const ChannelsList = () => {
         );
     }
 
+    // console.log(messages)
+
     return (
         <div className={chlslist.channels__list}>
             {

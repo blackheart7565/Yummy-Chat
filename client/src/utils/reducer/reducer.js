@@ -40,7 +40,6 @@ const reducer = (state = defaultChannel, action) => {
 
         case ADDING_MESSAGE: {
             const [channelId, message] = action.payload;
-            console.log(message)
             return {
                 ...state
                 , channels: state.channels.map(channel =>

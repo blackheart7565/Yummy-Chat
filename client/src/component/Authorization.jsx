@@ -1,10 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import auth from '../styles/module/Authorization.module.scss';
 import Registration from "./Registration";
 import AuthFrom from "./AuthFrom";
-import {fetchChannel, fetchUserChannel} from "../http/channelAPI";
 import {useDispatch, useSelector} from "react-redux";
-import {addNewManyChannel} from "../utils/reducer/reducer-service";
 
 const Authorization = () => {
     const [condition, setCondition] = useState({

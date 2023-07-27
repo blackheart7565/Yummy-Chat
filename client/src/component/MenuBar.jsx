@@ -17,7 +17,6 @@ const MenuBar = ({websocket}) => {
             userId: currentUser.id,
             messages: []
         }
-
         createChannel(channel).then(data => dispatch(addNewChannel(data)));
 
         // websocket.current.send(
