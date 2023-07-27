@@ -7,7 +7,6 @@ import {setCurrentChannel} from "../utils/reducer/reducer-service";
 const ChannelsList = () => {
     const dispatch = useDispatch();
     const channels = useSelector(state => state.channels);
-    const currentUser = useSelector(state => state.currentUser);
 
     const handleCurrentChannel = (channelId) => {
         dispatch(
@@ -15,14 +14,10 @@ const ChannelsList = () => {
         );
     }
 
-    const userChannels = channels.filter(channel =>
-        channel.users.some(user => user.id === currentUser.id)
-    );
-
     return (
         <div className={chlslist.channels__list}>
             {
-                userChannels.map(channel =>
+                channels.map(channel =>
                     <ChannelsItem
                         onClick={() => handleCurrentChannel(channel.id)}
                         key={channel.id}

@@ -4,10 +4,10 @@ import MyInput from "../UI/MyInput/MyInput";
 import MyButton from "../UI/MyButton/MyButton";
 import HideAndShowPass from "../UI/HideAndShowPass/HideAndShowPass";
 import {useDispatch} from "react-redux";
-import {addCurrentUser} from "../utils/reducer/reducer-service";
+import {addCurrentUser, toggleIsLogin} from "../utils/reducer/reducer-service";
 import {login} from "../http/useAPI";
 
-const AuthFrom = ({IsRegistration, IsAuthorization, ...props}) => {
+const AuthFrom = ({IsRegistration, ...props}) => {
     const [userAuth, setUserAuth] = useState({
         email: ''
         , password: ''
@@ -19,7 +19,9 @@ const AuthFrom = ({IsRegistration, IsAuthorization, ...props}) => {
         const user = await login(userAuth.email, userAuth.password)
 
         if (user) {
-            IsAuthorization(true);
+            dispatch(
+                toggleIsLogin(true)
+            );
             dispatch(
                 addCurrentUser(user)
             );

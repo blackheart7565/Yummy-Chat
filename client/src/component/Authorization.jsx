@@ -1,28 +1,30 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import auth from '../styles/module/Authorization.module.scss';
 import Registration from "./Registration";
 import AuthFrom from "./AuthFrom";
+import {fetchChannel, fetchUserChannel} from "../http/channelAPI";
+import {useDispatch, useSelector} from "react-redux";
+import {addNewManyChannel} from "../utils/reducer/reducer-service";
 
 const Authorization = () => {
     const [condition, setCondition] = useState({
         isRegistration: true
-        , isLogIn: false
     });
+    const isLogin = useSelector(state => state.isLogin);
     const rootClass = [auth.auth];
+    const currentUser = useSelector(state => state.currentUser);
+    const dispatch = useDispatch();
 
     const IsRegs = (isRegistration) => {
         setCondition({...condition, isRegistration: isRegistration})
     }
 
-    const IsLogIn = (isLogIn) => {
-        setCondition({...condition, isLogIn: isLogIn})
-    }
 
     if (!condition.isRegistration) {
-        return <Registration />
+        return <Registration/>
     }
 
-    if (condition.isLogIn) {
+    if (isLogin) {
         rootClass.push(auth.authClose);
     }
 
@@ -34,7 +36,6 @@ const Authorization = () => {
                 </h2>
                 <AuthFrom
                     IsRegistration={IsRegs}
-                    IsAuthorization={IsLogIn}
                 />
             </div>
         </div>

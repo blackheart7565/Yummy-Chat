@@ -1,22 +1,24 @@
 import menubar from '../styles/module/MenuBar.module.scss';
 import React from 'react';
 import MyButton from "../UI/MyButton/MyButton";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {createChannel} from "../http/channelAPI";
+import {addNewChannel} from "../utils/reducer/reducer-service";
 
 const MenuBar = ({websocket}) => {
     const currentUser = useSelector(state => state.currentUser);
+    const dispatch = useDispatch();
 
     const newChannel = async () => {
         const channel = {
-            name: "wefwefwe",
-            description: "",
+            name: prompt('Name'),
+            description: prompt('Description'),
             type: "public",
             userId: currentUser.id,
             messages: []
         }
 
-        await createChannel(channel);
+        createChannel(channel).then(data => dispatch(addNewChannel(data)));
 
         // websocket.current.send(
         //     JSON.stringify(channel)

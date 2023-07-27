@@ -43,12 +43,12 @@ Message.belongsTo(User);
 
 User.belongsToMany(Channel, {through: UserChannel});
 Channel.belongsToMany(User, {through: UserChannel});
-//
-// User.hasOne(Channel)
-// Channel.belongsTo(User)
-//
-// Channel.hasOne(User)
-// User.belongsTo(Channel)
+
+User.hasMany(UserChannel);
+UserChannel.belongsTo(User);
+
+Channel.hasMany(UserChannel);
+UserChannel.belongsTo(Channel);
 
 export const table = {
     Channel,

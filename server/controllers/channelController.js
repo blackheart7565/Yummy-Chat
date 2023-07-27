@@ -1,4 +1,6 @@
 import {table} from "../model/model.js";
+import UserController from "./userController.js";
+import {ApiError} from "../error/ApiError.js";
 
 class ChannelController {
     async create(req, res) {
@@ -19,6 +21,7 @@ class ChannelController {
             )
         }
 
+
         await table.User.findOne(
             {
                 where: {id: userId},
@@ -30,15 +33,17 @@ class ChannelController {
         return res.json(channel);
     }
 
-    async getAll(req, res) {
-        const channel = await table.Channel.findAll(
+    async getUserChannel(req, res) {
+        const {userId} = req.query;
+
+        const channelsUser = await table.User.findOne(
             {
-                include: [
-                    {model: table.Message, as: "messages"}
-                ]
+                where: {id: userId},
+                include: table.Channel
             }
         );
-        return res.json(channel);
+
+        return res.json(channelsUser);
     }
 
     async getOne(req, res) {

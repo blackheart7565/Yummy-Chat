@@ -1,19 +1,18 @@
 import {
     ADD_CHANNEL,
-    ADD_CURRENT_USERS,
+    ADD_CURRENT_USERS, ADD_MANY_CHANNEL,
     ADD_USERS,
     ADD_USERS_IN_CHANNEL,
-    ADDING_MESSAGE,
+    ADDING_MESSAGE, IS_LOGIN,
     SET_CURRENT_CHANNEL
 } from "./const-reducer";
 
 const defaultChannel = {
     channels: []
-    , user: {}
     , currentChannelId: null
-
-
     , currentUser: null
+    , isLogin: false
+
     , messages: []
 }
 
@@ -23,6 +22,12 @@ const reducer = (state = defaultChannel, action) => {
             return {
                 ...state
                 , channels: [...state.channels, action.payload]
+            };
+        }
+        case ADD_MANY_CHANNEL: {
+            return {
+                ...state
+                , channels: [...state.channels, ...action.payload]
             };
         }
 
@@ -70,6 +75,13 @@ const reducer = (state = defaultChannel, action) => {
                         : channel
                 )
             };
+        }
+
+        case IS_LOGIN: {
+            return {
+                ...state
+                , isLogin : action.payload
+            }
         }
 
         default:

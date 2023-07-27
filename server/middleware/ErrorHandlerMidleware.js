@@ -1,6 +1,6 @@
 import {ApiError} from "../error/ApiError.js";
 
-export const errorHandler = (err, req, res) => {
+export const errorHandler = (err, req, res, next) => {
     if (err instanceof ApiError) {
         return res.status(err.status)
             .json({message: err.message});

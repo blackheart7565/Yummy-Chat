@@ -1,9 +1,7 @@
 import {
     ADD_CHANNEL,
-    ADD_CURRENT_USERS, ADD_USER,
-    ADD_USERS,
-    ADD_USERS_IN_CHANNEL,
-    ADDING_MESSAGE,
+    ADD_CURRENT_USERS, ADD_MANY_CHANNEL, ADD_USERS_IN_CHANNEL,
+    ADDING_MESSAGE, IS_LOGIN,
     SET_CURRENT_CHANNEL
 } from "./const-reducer";
 
@@ -13,6 +11,16 @@ export const addNewChannel = (channel) => {
         , payload: channel
     }
 }
+
+export const addNewManyChannel = (channels) => {
+    return {
+        type: ADD_MANY_CHANNEL
+        , payload: channels
+    }
+}
+
+
+
 
 export const addNewMessage = (channelId, message) => {
     return {
@@ -32,13 +40,6 @@ export const setCurrentChannel = (channelId) => {
     }
 }
 
-export const addUser = (user) => {
-    return {
-        type: ADD_USERS
-        , payload: user
-    }
-}
-
 export const addCurrentUser = (currentUser) => {
     return {
         type: ADD_CURRENT_USERS
@@ -55,3 +56,12 @@ export const addUserInChannel = (channelId, user) => {
         ]
     }
 }
+
+
+export const toggleIsLogin = (flag) => {
+    return {
+        type: IS_LOGIN
+        , payload: flag
+    }
+}
+
