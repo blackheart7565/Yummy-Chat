@@ -1,7 +1,7 @@
 import {
     ADD_CHANNEL, ADD_CURRENT_CHANNEL,
     ADD_CURRENT_USERS, ADD_MANY_CHANNEL, ADD_USERS_IN_CHANNEL,
-    ADDING_MESSAGE, IS_LOGIN,
+    ADDING_MESSAGE, GET_ALL_CHANNEL, IS_LOGIN,
     SET_CURRENT_CHANNEL
 } from "./const-reducer";
 
@@ -25,16 +25,18 @@ export const addCurrentChannel = (channel) => {
         , payload: channel
     }
 }
+export const getAllChannel = (channels) => {
+    return {
+        type: GET_ALL_CHANNEL
+        , payload: channels
+    }
+}
 
 
-
-export const addNewMessage = (channelId, message) => {
+export const addNewMessage = (message) => {
     return {
         type: ADDING_MESSAGE
-        , payload: [
-            channelId
-            , message
-        ]
+        , payload:  message
     }
 }
 

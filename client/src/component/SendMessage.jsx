@@ -34,11 +34,15 @@ const SendMessage = ({websocket}) => {
                 }
             }
 
-            await createMessage(messageEvent.data);
+            try {
+                websocket.current.send(
+                    JSON.stringify(messageEvent)
+                );
 
-            websocket.current.send(
-                JSON.stringify(messageEvent)
-            );
+                await createMessage(messageEvent.data);
+            } catch (e) {
+                console.log(e.message)
+            }
 
             setValue('');
             textareaRef.current.style.height = `${SIZE_HEIGHT_TEXTAREA}px`;

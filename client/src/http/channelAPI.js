@@ -15,3 +15,7 @@ export const fetchOneChannel = async (id) => {
     const {data} = await $host.get(`/api/channel/${id}`);
     return data
 }
+export const fetchAllChannel = async () => {
+    const {data} = await $host.get(`/api/channel/all`);
+    return data
+}

@@ -26,7 +26,6 @@ await onSequelize(app);
 server.on('connection', (socket) => {
     socket.on('message', (data) => {
         data = JSON.parse(data);
-        console.log(data)
 
         switch (data.event) {
             case 'message':

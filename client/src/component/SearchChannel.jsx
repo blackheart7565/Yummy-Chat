@@ -8,6 +8,7 @@ import {setCurrentChannel} from "../utils/reducer/reducer-service";
 const SearchChannel = () => {
     const [search, setSearch] = useState('');
     const channels = useSelector(state => state.channels);
+    const allChannels = useSelector(state => state.allChannels);
     const currentUser = useSelector(state => state.currentUser);
     const dispatch = useDispatch();
 
@@ -29,8 +30,8 @@ const SearchChannel = () => {
             </div>
             <div className={st.searchChannel__resultInput}>
                 {
-                    channels.map(channel => {
-                            if (channel.displayNameChannel === search && !channel.users.some(user => user.id === currentUser.id)) {
+                    allChannels.map(channel => {
+                            if (channel.name === search) {
                                 return <ChannelsItem
                                     onClick={() => handleCurrentChannel(channel.id)}
                                     key={channel.id}

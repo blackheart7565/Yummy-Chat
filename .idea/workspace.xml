@@ -5,18 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02ac5987-11bb-4688-aa7f-5fdc0571c4b9" name="Changes" comment="Added connection of another user to the channel">
-      <change afterPath="$PROJECT_DIR$/client/src/http/messageAPI.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/Authorization.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/Authorization.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/ChannelsList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/ChannelsList.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/component/Chat.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/Chat.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/Messages.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/Messages.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/SearchChannel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/SearchChannel.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/component/SendMessage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/SendMessage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/http/channelAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/http/channelAPI.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/utils/reducer/const-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utils/reducer/const-reducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/utils/reducer/reducer-service.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utils/reducer/reducer-service.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/utils/reducer/reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utils/reducer/reducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/utils/websocket/socket-connect.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utils/websocket/socket-connect.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/messageController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/messageController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/channelController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/channelController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routers/channelRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routers/channelRouter.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

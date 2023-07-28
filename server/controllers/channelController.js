@@ -42,6 +42,11 @@ class ChannelController {
         return res.json(channelsUser);
     }
 
+    async getAll(req,res) {
+        const channel = await table.Channel.findAll();
+        return res.json(channel);
+    }
+
     async getOne(req, res) {
         const {id} = req.params;
 

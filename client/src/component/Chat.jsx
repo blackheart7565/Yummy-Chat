@@ -6,8 +6,8 @@ import MenuBar from "./MenuBar";
 import Authorization from "./Authorization";
 import {useDispatch, useSelector} from "react-redux";
 import {connect} from "../utils/websocket/socket-connect";
-import {addNewManyChannel, addUserInChannel} from "../utils/reducer/reducer-service";
-import {fetchUserChannel} from "../http/channelAPI";
+import {addNewManyChannel, addUserInChannel, getAllChannel} from "../utils/reducer/reducer-service";
+import {fetchAllChannel, fetchUserChannel} from "../http/channelAPI";
 import SendMessage from "./SendMessage";
 import Connect from "../UI/Connect/Connect";
 
@@ -39,6 +39,12 @@ const Chat = () => {
                 .then(channel => dispatch(addNewManyChannel(channel.channels)));
         }
     }, [currentUser])
+
+    useEffect(() => {
+        fetchAllChannel().then(channels => dispatch(
+            getAllChannel(channels)
+        ))
+    }, [])
 
     return (
         <div className={ct.chat}>

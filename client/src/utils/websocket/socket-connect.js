@@ -25,10 +25,9 @@ export const connect = ({socket, user}) => (dispatch) => {
         switch (data.event) {
             case 'message':
 
-
-                // dispatch(
-                //     addNewMessage(data.data.channelId, data.data)
-                // );
+                dispatch(
+                    addNewMessage(data.data)
+                )
                 break;
 
             case 'channel':
