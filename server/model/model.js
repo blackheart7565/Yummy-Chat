@@ -37,12 +37,14 @@ const Message = sequelize.define('message', {
     timestamps: false
 });
 
+// One to Many
 Channel.hasMany(Message, {as: 'messages'});
 Message.belongsTo(Channel);
 
 User.hasMany(Message);
 Message.belongsTo(User);
 
+// Super Many to Many
 User.belongsToMany(Channel, {through: UserChannel});
 Channel.belongsToMany(User, {through: UserChannel});
 
