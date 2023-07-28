@@ -1,5 +1,6 @@
 import {table} from "../model/model.js";
 import {ApiError} from "../error/ApiError.js";
+import MessageService from "./service/messageService.js";
 
 class ChannelController {
 
@@ -14,16 +15,16 @@ class ChannelController {
         if(!user) {
             ApiError.notFound('Пользователь не найден');
         }
-        await user.addChanne(channel);
+        await user.addChannel(channel);
         await channel.addUser(user);
 
-        const messages = await table.Message.create({
+        const messages = await MessageService.create({
             message: 'Канал создан',
             username: user.username,
             nameChannel: channel.name,
             userId
         });
-        channel.addMessages(messages);
+        await channel.addMessages(messages);
 
         return res.json(channel);
     }
