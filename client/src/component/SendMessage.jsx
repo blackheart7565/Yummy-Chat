@@ -7,8 +7,8 @@ import {createMessage} from "../http/messageAPI";
 
 const SendMessage = ({websocket}) => {
     const [value, setValue] = useState('');
-    const currentChannel = useSelector(state => state.currentChannel);
-    const currentUser = useSelector(state => state.currentUser);
+    const currentChannel = useSelector(state => state.channel.currentChannel);
+    const currentUser = useSelector(state => state.user.currentUser);
 
     const textareaRef = useRef();
 

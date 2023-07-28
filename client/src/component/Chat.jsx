@@ -1,33 +1,29 @@
 import ct from '../styles/module/Chat.module.scss';
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef} from 'react';
 import Messages from "./Messages";
 import Channels from "./Channels";
 import MenuBar from "./MenuBar";
 import Authorization from "./Authorization";
 import {useDispatch, useSelector} from "react-redux";
 import {connect} from "../utils/websocket/socket-connect";
-import {
-    addManyMessage,
-    addNewManyChannel,
-    addNewMessage,
-    addUserInChannel,
-    getAllChannel
-} from "../utils/reducer/reducer-service";
 import {fetchAllChannel, fetchUserChannel} from "../http/channelAPI";
 import SendMessage from "./SendMessage";
 import Connect from "../UI/Connect/Connect";
+import UserService from "../utils/reducer/service/userService";
+import ChannelService from "../utils/reducer/service/channelService";
+import MessageService from "../utils/reducer/service/messageService";
 
 const Chat = () => {
     const dispatch = useDispatch();
     const socket = useRef();
 
-    const currentChannelId = useSelector(state => state.currentChannelId);
-    const currentUser = useSelector(state => state.currentUser);
-    const currentChannel = useSelector(state => state.currentChannel);
+    const currentChannelId = useSelector(state => state.channel.currentChannelId);
+    const currentUser = useSelector(state => state.user.currentUser);
+    const currentChannel = useSelector(state => state.channel.currentChannel);
 
     const ConnectUserInChannel = () => {
         dispatch(
-            addUserInChannel(currentChannelId, {
+            UserService.addUserInChannel(currentChannelId, {
                 id: currentUser.id
                 , phoneUser: currentUser.phone
                 , usernameUser: currentUser.username
@@ -42,19 +38,18 @@ const Chat = () => {
     useEffect(() => {
         if (currentUser) {
             fetchUserChannel(currentUser.id)
-                .then(channel => dispatch(addNewManyChannel(channel.channels)));
+                .then(channel => dispatch(ChannelService.addNewManyChannel(channel.channels)));
         }
     }, [currentUser])
 
     useEffect(() => {
         fetchAllChannel().then(channels => {
                 dispatch(
-                    getAllChannel(channels)
+                    ChannelService.getAllChannel(channels)
                 )
                 channels.forEach(channel => {
-                    console.log(channel.messages)
                         dispatch(
-                            addManyMessage(channel.messages)
+                            MessageService.addManyMessage(channel.messages)
                         )
                     }
                 )
@@ -74,6 +69,7 @@ const Chat = () => {
             <div className={ct.chat__communication}>
                 <Messages/>
                 {
+
                     currentChannel ?
                         currentChannel?.users.some(user => user.id === currentUser.id)
                             ? (

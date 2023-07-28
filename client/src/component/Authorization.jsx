@@ -8,7 +8,7 @@ const Authorization = () => {
     const [condition, setCondition] = useState({
         isRegistration: true
     });
-    const isLogin = useSelector(state => state.isLogin);
+    const isLogin = useSelector(state => state.user.isLogin);
     const rootClass = [auth.auth];
 
     const IsRegs = (isRegistration) => {

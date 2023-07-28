@@ -1,5 +1,6 @@
 import {PORT} from "../const-vars";
-import {addNewChannel, addNewMessage} from "../reducer/reducer-service";
+import MessageService from "../reducer/service/messageService";
+import ChannelService from "../reducer/service/channelService";
 
 export const connect = ({socket, user}) => (dispatch) => {
     socket.current = new WebSocket(`ws://localhost:${PORT}`);
@@ -25,13 +26,13 @@ export const connect = ({socket, user}) => (dispatch) => {
         switch (data.event) {
             case 'message':
                 dispatch(
-                    addNewMessage(data.data)
+                    MessageService.addNewMessage(data.data)
                 )
                 break;
 
             case 'channel':
                 dispatch(
-                    addNewChannel(data.channel)
+                    ChannelService.addNewChannel(data.channel)
                 );
                 break;
         }

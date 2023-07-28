@@ -3,20 +3,20 @@ import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {fetchOneChannel} from "../http/channelAPI";
 import Message from "./Message";
-import {addCurrentChannel} from "../utils/reducer/reducer-service";
+import ChannelService from "../utils/reducer/service/channelService";
 
 const Messages = () => {
-    const currentChannelId = useSelector(state => state.currentChannelId);
-    const currentUser = useSelector(state => state.currentUser);
-    const currentChannel = useSelector(state => state.currentChannel);
-    const messages = useSelector(state => state.messages);
+    const currentChannelId = useSelector(state => state.channel.currentChannelId);
+    const currentUser = useSelector(state => state.user.currentUser);
+    const currentChannel = useSelector(state => state.channel.currentChannel);
+    const messages = useSelector(state => state.message.messages);
     const dispatch = useDispatch();
 
     useEffect(() => {
         if (currentChannelId) {
             fetchOneChannel(currentChannelId)
                 .then(channel => dispatch(
-                    addCurrentChannel(channel)
+                    ChannelService.addCurrentChannel(channel)
                 ));
         }
     }, [currentChannelId]);

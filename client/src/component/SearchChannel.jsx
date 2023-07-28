@@ -3,18 +3,16 @@ import React, {useState} from 'react';
 import MyInput from "../UI/MyInput/MyInput";
 import {useDispatch, useSelector} from "react-redux";
 import ChannelsItem from "./ChannelsItem";
-import {setCurrentChannel} from "../utils/reducer/reducer-service";
+import ChannelService from "../utils/reducer/service/channelService";
 
 const SearchChannel = () => {
     const [search, setSearch] = useState('');
-    const channels = useSelector(state => state.channels);
-    const allChannels = useSelector(state => state.allChannels);
-    const currentUser = useSelector(state => state.currentUser);
+    const allChannels = useSelector(state => state.channel.allChannels);
     const dispatch = useDispatch();
 
     const handleCurrentChannel = (channelId) => {
         dispatch(
-            setCurrentChannel(channelId)
+            ChannelService.setCurrentChannel(channelId)
         );
     }
 

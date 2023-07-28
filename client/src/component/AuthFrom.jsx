@@ -4,8 +4,8 @@ import MyInput from "../UI/MyInput/MyInput";
 import MyButton from "../UI/MyButton/MyButton";
 import HideAndShowPass from "../UI/HideAndShowPass/HideAndShowPass";
 import {useDispatch} from "react-redux";
-import {addCurrentUser, toggleIsLogin} from "../utils/reducer/reducer-service";
 import {login} from "../http/useAPI";
+import UserService from "../utils/reducer/service/userService";
 
 const AuthFrom = ({IsRegistration, ...props}) => {
     const [userAuth, setUserAuth] = useState({
@@ -20,10 +20,10 @@ const AuthFrom = ({IsRegistration, ...props}) => {
 
         if (user) {
             dispatch(
-                toggleIsLogin(true)
+                UserService.toggleIsLogin(true)
             );
             dispatch(
-                addCurrentUser(user)
+                UserService.addCurrentUser(user)
             );
         }
     }
