@@ -1,6 +1,6 @@
 import {
     ADD_CHANNEL, ADD_CURRENT_CHANNEL,
-    ADD_CURRENT_USERS, ADD_MANY_CHANNEL, ADD_USERS_IN_CHANNEL,
+    ADD_CURRENT_USERS, ADD_MANY_CHANNEL, ADD_MANY_MESSAGE, ADD_USERS_IN_CHANNEL,
     ADDING_MESSAGE, GET_ALL_CHANNEL, IS_LOGIN,
     SET_CURRENT_CHANNEL
 } from "./const-reducer";
@@ -37,6 +37,13 @@ export const addNewMessage = (message) => {
     return {
         type: ADDING_MESSAGE
         , payload:  message
+    }
+}
+
+export const addManyMessage = (messages) => {
+    return {
+        type: ADD_MANY_MESSAGE
+        , payload: messages
     }
 }
 

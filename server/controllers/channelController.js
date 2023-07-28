@@ -43,7 +43,9 @@ class ChannelController {
     }
 
     async getAll(req,res) {
-        const channel = await table.Channel.findAll();
+        const channel = await table.Channel.findAll({
+            include: [{model: table.Message, as: "messages"}]
+        });
         return res.json(channel);
     }
 

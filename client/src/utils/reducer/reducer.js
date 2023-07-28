@@ -1,6 +1,6 @@
 import {
     ADD_CHANNEL, ADD_CURRENT_CHANNEL,
-    ADD_CURRENT_USERS, ADD_MANY_CHANNEL,
+    ADD_CURRENT_USERS, ADD_MANY_CHANNEL, ADD_MANY_MESSAGE,
     ADD_USERS,
     ADD_USERS_IN_CHANNEL,
     ADDING_MESSAGE, GET_ALL_CHANNEL, IS_LOGIN,
@@ -15,6 +15,8 @@ const defaultChannel = {
 
     , currentUser: null
     , isLogin: false
+
+    , messages: []
 }
 
 const reducer = (state = defaultChannel, action) => {
@@ -43,9 +45,6 @@ const reducer = (state = defaultChannel, action) => {
                 , allChannels: action.payload
             }
         }
-
-
-
         case SET_CURRENT_CHANNEL: {
             return {
                 ...state
@@ -53,24 +52,25 @@ const reducer = (state = defaultChannel, action) => {
             };
         }
 
+
         case ADDING_MESSAGE: {
             return {
                 ...state
-                , currentChannel: [...state.currentChannel.messages,  action.payload]
+                , messages: [...state.messages, action.payload]
             };
         }
+        case ADD_MANY_MESSAGE: {
+            return {
+                ...state
+                , messages: [...state.messages, ...action.payload]
+            };
+        }
+
 
         case ADD_USERS: {
             return {
                 ...state
                 , users: [...state.users, action.payload]
-            }
-        }
-
-        case ADD_CURRENT_USERS: {
-            return {
-                ...state
-                , currentUser: action.payload
             }
         }
 
@@ -86,10 +86,18 @@ const reducer = (state = defaultChannel, action) => {
             };
         }
 
+
+        case ADD_CURRENT_USERS: {
+            return {
+                ...state
+                , currentUser: action.payload
+            }
+        }
+
         case IS_LOGIN: {
             return {
                 ...state
-                , isLogin : action.payload
+                , isLogin: action.payload
             }
         }
 

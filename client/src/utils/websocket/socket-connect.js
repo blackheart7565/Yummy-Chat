@@ -24,7 +24,6 @@ export const connect = ({socket, user}) => (dispatch) => {
         const data = JSON.parse(event.data);
         switch (data.event) {
             case 'message':
-
                 dispatch(
                     addNewMessage(data.data)
                 )

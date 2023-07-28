@@ -9,6 +9,7 @@ const Messages = () => {
     const currentChannelId = useSelector(state => state.currentChannelId);
     const currentUser = useSelector(state => state.currentUser);
     const currentChannel = useSelector(state => state.currentChannel);
+    const messages = useSelector(state => state.messages);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -27,17 +28,19 @@ const Messages = () => {
     return (
         <div className={mgs.messages}>
             {
-                currentChannel.messages.map(mess =>
-                    <Message
-                        key={mess.id}
-                        className={mess.username === currentUser.username ? mgs.currentUserMessage : mgs.otherUserMessage}
-                    >
-                        <div className={mgs.messages__username}>
-                            <div>{mess.nameChannel}</div>
-                            <div>{mess.username}</div>
-                        </div>
-                        <div>{mess.message}</div>
-                    </Message>
+                messages.map(mess =>
+                        mess.channelId === currentChannelId && (
+                            <Message
+                                key={mess.id}
+                                className={mess.username === currentUser.username ? mgs.currentUserMessage : mgs.otherUserMessage}
+                            >
+                                <div className={mgs.messages__username}>
+                                    <div>{mess.nameChannel}</div>
+                                    <div>{mess.username}</div>
+                                </div>
+                                <div>{mess.message}</div>
+                            </Message>
+                        )
                 )
             }
         </div>
