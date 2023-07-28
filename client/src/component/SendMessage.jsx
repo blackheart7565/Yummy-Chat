@@ -3,13 +3,13 @@ import React, {useRef, useState} from 'react';
 import MyTextArea from "../UI/MyTextArea/MyTextArea";
 import {SIZE_HEIGHT_TEXTAREA} from "../utils/const-vars";
 import {useSelector} from "react-redux";
+import {createMessage} from "../http/messageAPI";
 
 const SendMessage = ({websocket}) => {
     const [value, setValue] = useState('');
-    const currentChannelId = useSelector(state => state.currentChannelId);
-    const channels = useSelector(state => state.channels);
+    const currentChannel = useSelector(state => state.currentChannel);
     const currentUser = useSelector(state => state.currentUser);
-    const currentChannel = channels.find(channel => channel.id === currentChannelId);
+
     const textareaRef = useRef();
 
     const changeSizeInput = (e) => {
@@ -21,20 +21,24 @@ const SendMessage = ({websocket}) => {
         }
     }
 
-    const sendingMessage = () => {
+    const sendingMessage = async () => {
         if (currentChannel) {
-            const message = {
-                id: Date.now(),
-                username: currentUser.username,
-                message: value,
-                currentChannelId
-            }
             const messageEvent = {
                 event: 'message',
-                message
+                data: {
+                    message: value
+                    , username: currentUser.username
+                    , nameChannel: currentChannel.name
+                    , userId: currentUser.id
+                    , channelId: currentChannel.id
+                }
             }
 
-            websocket.current.send(JSON.stringify(messageEvent));
+            await createMessage(messageEvent.data);
+
+            websocket.current.send(
+                JSON.stringify(messageEvent)
+            );
 
             setValue('');
             textareaRef.current.style.height = `${SIZE_HEIGHT_TEXTAREA}px`;

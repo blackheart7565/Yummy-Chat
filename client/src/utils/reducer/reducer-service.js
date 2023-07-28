@@ -1,5 +1,5 @@
 import {
-    ADD_CHANNEL,
+    ADD_CHANNEL, ADD_CURRENT_CHANNEL,
     ADD_CURRENT_USERS, ADD_MANY_CHANNEL, ADD_USERS_IN_CHANNEL,
     ADDING_MESSAGE, IS_LOGIN,
     SET_CURRENT_CHANNEL
@@ -19,6 +19,12 @@ export const addNewManyChannel = (channels) => {
     }
 }
 
+export const addCurrentChannel = (channel) => {
+    return {
+        type: ADD_CURRENT_CHANNEL
+        , payload: channel
+    }
+}
 
 
 

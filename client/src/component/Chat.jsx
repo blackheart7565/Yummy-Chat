@@ -17,7 +17,7 @@ const Chat = () => {
 
     const currentChannelId = useSelector(state => state.currentChannelId);
     const currentUser = useSelector(state => state.currentUser);
-    const [currentChannel, setCurrentChannel] = useState(null);
+    const currentChannel = useSelector(state => state.currentChannel);
 
     const ConnectUserInChannel = () => {
         dispatch(
@@ -40,10 +40,6 @@ const Chat = () => {
         }
     }, [currentUser])
 
-    console.log(
-        currentChannel
-    )
-
     return (
         <div className={ct.chat}>
             <Authorization/>
@@ -54,10 +50,7 @@ const Chat = () => {
                 userId={currentUser?.id}
             />
             <div className={ct.chat__communication}>
-                <Messages
-                    currentChannel={currentChannel}
-                    setCurrentChannel={setCurrentChannel}
-                />
+                <Messages/>
                 {
                     currentChannel ?
                         currentChannel?.users.some(user => user.id === currentUser.id)

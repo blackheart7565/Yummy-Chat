@@ -1,5 +1,5 @@
 import {
-    ADD_CHANNEL,
+    ADD_CHANNEL, ADD_CURRENT_CHANNEL,
     ADD_CURRENT_USERS, ADD_MANY_CHANNEL,
     ADD_USERS,
     ADD_USERS_IN_CHANNEL,
@@ -11,9 +11,8 @@ const defaultChannel = {
     channels: []
     , currentChannelId: null
     , currentUser: null
+    , currentChannel: null
     , isLogin: false
-
-    , messages: []
 }
 
 const reducer = (state = defaultChannel, action) => {
@@ -30,6 +29,14 @@ const reducer = (state = defaultChannel, action) => {
                 , channels: [...state.channels, ...action.payload]
             };
         }
+        case ADD_CURRENT_CHANNEL: {
+            return {
+                ...state
+                , currentChannel: action.payload
+            };
+        }
+
+
 
         case SET_CURRENT_CHANNEL: {
             return {

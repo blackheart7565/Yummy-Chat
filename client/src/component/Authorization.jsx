@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import auth from '../styles/module/Authorization.module.scss';
 import Registration from "./Registration";
 import AuthFrom from "./AuthFrom";
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
 
 const Authorization = () => {
     const [condition, setCondition] = useState({
@@ -10,13 +10,10 @@ const Authorization = () => {
     });
     const isLogin = useSelector(state => state.isLogin);
     const rootClass = [auth.auth];
-    const currentUser = useSelector(state => state.currentUser);
-    const dispatch = useDispatch();
 
     const IsRegs = (isRegistration) => {
         setCondition({...condition, isRegistration: isRegistration})
     }
-
 
     if (!condition.isRegistration) {
         return <Registration/>
