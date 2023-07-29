@@ -1,5 +1,5 @@
 import {
-    ADD_CHANNEL
+    ADD_CHANNEL, ADD_CHANNEL_IN_ALL_CHANNEL
     , ADD_CURRENT_CHANNEL
     , ADD_MANY_CHANNEL
     , GET_ALL_CHANNEL
@@ -7,9 +7,13 @@ import {
 } from "../const-reducer";
 
 const defaultChannel = {
+    // каналы пользователей
     channels: []
+    // все каналы всех пользователей
     , allChannels: []
+    // текущий id текущеного канала
     , currentChannelId: null
+    // текущий канал
     , currentChannel: null
 }
 
@@ -41,6 +45,13 @@ export const channelReducer = (state = defaultChannel, action) => {
             return {
                 ...state
                 , allChannels: action.payload
+            }
+        }
+
+        case ADD_CHANNEL_IN_ALL_CHANNEL: {
+            return {
+                ...state
+                , allChannels: [...state.allChannels, action.payload]
             }
         }
 

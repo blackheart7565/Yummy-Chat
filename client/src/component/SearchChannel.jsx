@@ -4,7 +4,7 @@ import MyInput from "../UI/MyInput/MyInput";
 import {useDispatch, useSelector} from "react-redux";
 import ChannelsItem from "./ChannelsItem";
 import ChannelService from "../utils/reducer/service/channelService";
-import {v4 as uuid} from "uuid";
+import {v4 as uuid} from 'uuid'
 
 const SearchChannel = () => {
     const [search, setSearch] = useState('');
@@ -33,7 +33,7 @@ const SearchChannel = () => {
                             if (channel.name === search) {
                                 return <ChannelsItem
                                     onClick={() => handleCurrentChannel(channel.id)}
-                                    key={[channel.id, uuid.v4(5)].join('')}
+                                    key={uuid(7)}
                                     channel={channel}
                                 />
                             }

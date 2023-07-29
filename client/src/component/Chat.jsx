@@ -21,7 +21,7 @@ const Chat = () => {
     const currentUser = useSelector(state => state.user.currentUser);
     const currentChannel = useSelector(state => state.channel.currentChannel);
 
-    const ConnectUserInChannel = async () => {
+    const ConnectUserToChannel = async () => {
         await addUserToChannelAPI(currentUser.id, currentChannelId)
             .then(channel =>
                 dispatch(
@@ -37,10 +37,12 @@ const Chat = () => {
         );
     }
 
+    // Подключение websocket
     useEffect(() => {
         connect({socket, currentUser})(dispatch);
     }, [connect]);
 
+    // Получение каналов которые пренадлежат пользователю
     useEffect(() => {
         if (currentUser) {
             fetchUserChannel(currentUser.id)
@@ -48,6 +50,7 @@ const Chat = () => {
         }
     }, [currentUser])
 
+    // При старте получает все каналы всех пользователей
     useEffect(() => {
         fetchAllChannel().then(channels => {
                 dispatch(
@@ -69,13 +72,10 @@ const Chat = () => {
             <MenuBar
                 websocket={socket}
             />
-            <Channels
-                userId={currentUser?.id}
-            />
+            <Channels />
             <div className={ct.chat__communication}>
                 <Messages/>
                 {
-
                     currentChannel ?
                         currentChannel?.users.some(user => user.id === currentUser.id)
                             ? (
@@ -85,7 +85,7 @@ const Chat = () => {
                             )
                             : (
                                 <Connect
-                                    onClick={ConnectUserInChannel}
+                                    onClick={ConnectUserToChannel}
                                 >
                                     Подключится
                                 </Connect>

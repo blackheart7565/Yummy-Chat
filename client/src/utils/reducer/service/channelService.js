@@ -1,5 +1,5 @@
 import {
-    ADD_CHANNEL,
+    ADD_CHANNEL, ADD_CHANNEL_IN_ALL_CHANNEL,
     ADD_CURRENT_CHANNEL,
     ADD_MANY_CHANNEL,
     GET_ALL_CHANNEL,
@@ -33,6 +33,13 @@ class ChannelService {
         return {
             type: GET_ALL_CHANNEL
             , payload: channels
+        }
+    }
+
+    addChannelInAllChannel = (channel) => {
+        return {
+            type: ADD_CHANNEL_IN_ALL_CHANNEL
+            , payload: channel
         }
     }
 

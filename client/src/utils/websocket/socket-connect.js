@@ -32,8 +32,8 @@ export const connect = ({socket, user}) => (dispatch) => {
 
             case 'channel':
                 dispatch(
-                    ChannelService.addNewChannel(data.channel)
-                );
+                    ChannelService.addChannelInAllChannel(data.channel)
+                )
                 break;
         }
     }
