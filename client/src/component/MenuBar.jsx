@@ -5,7 +5,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {createChannel} from "../http/channelAPI";
 import ChannelService from "../utils/reducer/service/channelService";
 
-const MenuBar = ({websocket}) => {
+const MenuBar = () => {
     const currentUser = useSelector(state => state.user.currentUser);
     const dispatch = useDispatch();
 
@@ -17,11 +17,8 @@ const MenuBar = ({websocket}) => {
             userId: currentUser.id,
             messages: []
         }
-        createChannel(channel).then(data => dispatch(ChannelService.addNewChannel(data)));
-
-        // websocket.current.send(
-        //     JSON.stringify(channel)
-        // );
+        createChannel(channel)
+            .then(data => dispatch(ChannelService.addNewChannel(data)));
     }
 
     return (

@@ -4,6 +4,7 @@ import ChannelsItem from "./ChannelsItem";
 import {useDispatch, useSelector} from "react-redux";
 import ChannelService from "../utils/reducer/service/channelService";
 import {fetchOneChannel} from "../http/channelAPI";
+import {nanoid} from "nanoid";
 
 const ChannelsList = () => {
     const dispatch = useDispatch();
@@ -31,7 +32,7 @@ const ChannelsList = () => {
                 channels.map(channel =>
                     <ChannelsItem
                         onClick={() => handleCurrentChannel(channel.id)}
-                        key={channel.id}
+                        key={channel.id + nanoid(5)}
                         channel={channel}
                     />
                 )

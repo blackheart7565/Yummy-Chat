@@ -6,15 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="02ac5987-11bb-4688-aa7f-5fdc0571c4b9" name="Changes" comment="Added connection of another user to the channel">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/component/ChannelsList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/ChannelsList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/Chat.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/Chat.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/MenuBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/MenuBar.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/component/Messages.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/Messages.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/http/channelAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/http/channelAPI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/utils/reducer/service/userService.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utils/reducer/service/userService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/utils/reducer/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utils/reducer/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/channelController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/channelController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/userController.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/userController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routers/channelRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routers/channelRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/SearchChannel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/SearchChannel.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +114,7 @@
       <workItem from="1690397191923" duration="645000" />
       <workItem from="1690457779651" duration="8024000" />
       <workItem from="1690544306068" duration="6283000" />
-      <workItem from="1690633513506" duration="4480000" />
+      <workItem from="1690633513506" duration="5212000" />
     </task>
     <task id="LOCAL-00001" summary="Refactoring. Changed the storage of the current user. Moved to redux instead of object">
       <option name="closed" value="true" />
