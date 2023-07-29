@@ -12,7 +12,7 @@ class ChannelController {
         );
 
         const user = await table.User.findOne({where: {id: userId}});
-        if(!user) {
+        if (!user) {
             ApiError.notFound('Пользователь не найден');
         }
         await user.addChannel(channel);
@@ -42,7 +42,19 @@ class ChannelController {
         return res.json(channelsUser);
     }
 
-    async getAll(req,res) {
+    async connectUserToChannel(req, res) {
+        const {userId, channelId} = req.body;
+
+        const user = await table.User.findByPk(userId);
+        const channel = await table.Channel.findByPk(channelId);
+
+        await user.addChannel(channel);
+        await channel.addUser(user);
+
+        return res.json(channel);
+    }
+
+    async getAll(req, res) {
         const channel = await table.Channel.findAll({
             include: [{model: table.Message, as: "messages"}]
         });

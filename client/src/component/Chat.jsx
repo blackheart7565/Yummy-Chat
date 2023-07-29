@@ -6,7 +6,7 @@ import MenuBar from "./MenuBar";
 import Authorization from "./Authorization";
 import {useDispatch, useSelector} from "react-redux";
 import {connect} from "../utils/websocket/socket-connect";
-import {fetchAllChannel, fetchUserChannel} from "../http/channelAPI";
+import {addUserToChannelAPI, fetchAllChannel, fetchOneChannel, fetchUserChannel} from "../http/channelAPI";
 import SendMessage from "./SendMessage";
 import Connect from "../UI/Connect/Connect";
 import UserService from "../utils/reducer/service/userService";
@@ -21,13 +21,19 @@ const Chat = () => {
     const currentUser = useSelector(state => state.user.currentUser);
     const currentChannel = useSelector(state => state.channel.currentChannel);
 
-    const ConnectUserInChannel = () => {
-        dispatch(
-            UserService.addUserInChannel(currentChannelId, {
-                id: currentUser.id
-                , phoneUser: currentUser.phone
-                , usernameUser: currentUser.username
-            })
+    const ConnectUserInChannel = async () => {
+        await addUserToChannelAPI(currentUser.id, currentChannelId)
+            .then(channel =>
+                dispatch(
+                    ChannelService.addNewChannel(channel)
+                )
+            );
+
+        await fetchOneChannel(currentChannelId)
+            .then(channel =>
+            dispatch(
+                ChannelService.addCurrentChannel(channel)
+            )
         );
     }
 

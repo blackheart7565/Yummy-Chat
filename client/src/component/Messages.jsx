@@ -1,25 +1,13 @@
 import mgs from '../styles/module/Messages.module.scss';
-import React, {useEffect} from 'react';
-import {useDispatch, useSelector} from "react-redux";
-import {fetchOneChannel} from "../http/channelAPI";
+import React from 'react';
+import {useSelector} from "react-redux";
 import Message from "./Message";
-import ChannelService from "../utils/reducer/service/channelService";
 
 const Messages = () => {
     const currentChannelId = useSelector(state => state.channel.currentChannelId);
     const currentUser = useSelector(state => state.user.currentUser);
     const currentChannel = useSelector(state => state.channel.currentChannel);
     const messages = useSelector(state => state.message.messages);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        if (currentChannelId) {
-            fetchOneChannel(currentChannelId)
-                .then(channel => dispatch(
-                    ChannelService.addCurrentChannel(channel)
-                ));
-        }
-    }, [currentChannelId]);
 
     if (!currentChannel) {
         return <div className={mgs.messages}></div>

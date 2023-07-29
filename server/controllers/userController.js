@@ -75,6 +75,7 @@ class UserController {
         const user = await table.User.findOne({id})
         return res.json(user);
     }
+
 }
 
 export default new UserController();

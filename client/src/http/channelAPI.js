@@ -15,7 +15,14 @@ export const fetchOneChannel = async (id) => {
     const {data} = await $host.get(`/api/channel/${id}`);
     return data
 }
+
 export const fetchAllChannel = async () => {
     const {data} = await $host.get(`/api/channel/all`);
     return data
 }
+
+export const addUserToChannelAPI = async (userId, channelId) => {
+    const {data} = await $host.post(`/api/channel/connect`, {userId, channelId});
+    return data
+}
+
