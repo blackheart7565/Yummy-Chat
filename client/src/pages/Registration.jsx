@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import reg from '../styles/module/Registration.module.scss';
 import Authorization from "./Authorization";
-import RegForm from "./RegForm";
+import RegForm from "../component/RegForm";
 import auth from "../styles/module/Authorization.module.scss";
 
 const Registration = () => {

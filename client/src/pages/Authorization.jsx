@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import auth from '../styles/module/Authorization.module.scss';
 import Registration from "./Registration";
-import AuthFrom from "./AuthFrom";
+import AuthFrom from "../component/AuthFrom";
 import {useSelector} from "react-redux";
 
 const Authorization = () => {

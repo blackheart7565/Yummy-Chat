@@ -1,13 +1,13 @@
 import ct from '../styles/module/Chat.module.scss';
 import React, {useEffect, useRef} from 'react';
-import Messages from "./Messages";
-import Channels from "./Channels";
-import MenuBar from "./MenuBar";
+import Messages from "../component/Messages";
+import Channels from "../component/Channels";
+import MenuBar from "../component/MenuBar";
 import Authorization from "./Authorization";
 import {useDispatch, useSelector} from "react-redux";
 import {connect} from "../utils/websocket/socket-connect";
 import {addUserToChannelAPI, fetchAllChannel, fetchOneChannel, fetchUserChannel} from "../http/channelAPI";
-import SendMessage from "./SendMessage";
+import SendMessage from "../component/SendMessage";
 import Connect from "../UI/Connect/Connect";
 import UserService from "../utils/reducer/service/userService";
 import ChannelService from "../utils/reducer/service/channelService";

@@ -1,12 +1,14 @@
 import React from 'react';
 import "./styles/App.scss";
-import Chat from "./component/Chat";
-import Authorization from "./component/Authorization";
+import {BrowserRouter} from "react-router-dom";
+import AppRouter from "./component/AppRouter";
 
 const App = () => {
     return (
         <div className='App'>
-            <Chat/>
+            <BrowserRouter>
+                <AppRouter/>
+            </BrowserRouter>
         </div>
     );
 };

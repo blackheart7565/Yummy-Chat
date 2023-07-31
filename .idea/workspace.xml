@@ -5,14 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02ac5987-11bb-4688-aa7f-5fdc0571c4b9" name="Changes" comment="Added connection of another user to the channel">
+      <change afterPath="$PROJECT_DIR$/client/src/component/AppRouter.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/routs/path-rout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/Chat.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/Chat.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/MenuBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/MenuBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/SearchChannel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/SearchChannel.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/utils/reducer/const-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utils/reducer/const-reducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/utils/reducer/repository/channelReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utils/reducer/repository/channelReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/utils/reducer/service/channelService.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utils/reducer/service/channelService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/Authorization.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Authorization.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/Chat.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Chat.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/Registration.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Registration.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,11 +67,11 @@
       <recent name="E:\My project\HTML + CSS + JavaScripts\Project\Yummy-Chat\client\public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\My project\HTML + CSS + JavaScripts\Project\Yummy-Chat\client\src\pages" />
       <recent name="E:\My project\HTML + CSS + JavaScripts\Project\Yummy-Chat\client\src\utils\reducer\repository" />
       <recent name="E:\My project\HTML + CSS + JavaScripts\Project\Yummy-Chat\server\controllers" />
       <recent name="E:\My project\HTML + CSS + JavaScripts\Project\Yummy-Chat\client\src\utils\reducer" />
       <recent name="E:\My project\HTML + CSS + JavaScripts\Project\Yummy-Chat\client\src\UI\Connect" />
-      <recent name="E:\My project\HTML + CSS + JavaScripts\Project\Yummy-Chat\client\src\API" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
