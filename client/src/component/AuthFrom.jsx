@@ -15,7 +15,6 @@ const AuthFrom = ({IsRegistration, ...props}) => {
         , password: ''
     });
     const dispatch = useDispatch();
-
     const location = useLocation();
 
     const singIn = async (e) => {
@@ -31,11 +30,6 @@ const AuthFrom = ({IsRegistration, ...props}) => {
             );
         }
     }
-
-    // const singOut = (e) => {
-    //     e.preventDefault();
-    //     IsRegistration(false);
-    // }
 
     return (
         <form {...props} className={authFrom.form}>

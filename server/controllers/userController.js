@@ -62,20 +62,6 @@ class UserController {
         const token = generateJwt(req.user.id, req.user.avatar, req.user.username, req.user.email, req.user.phone)
         return res.json({token});
     }
-
-    async getAll(req, res) {
-        const user = await table.User.findAll({
-            where: {}
-        });
-        return res.json(user);
-    }
-
-    async getOne(req, res) {
-        const {id} = req.params;
-        const user = await table.User.findOne({id})
-        return res.json(user);
-    }
-
 }
 
 export default new UserController();
