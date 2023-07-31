@@ -68,7 +68,6 @@ const Chat = () => {
 
     return (
         <div className={ct.chat}>
-            <Authorization/>
             <MenuBar
                 websocket={socket}
             />

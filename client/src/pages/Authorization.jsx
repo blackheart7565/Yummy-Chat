@@ -5,23 +5,23 @@ import AuthFrom from "../component/AuthFrom";
 import {useSelector} from "react-redux";
 
 const Authorization = () => {
-    const [condition, setCondition] = useState({
-        isRegistration: true
-    });
-    const isLogin = useSelector(state => state.user.isLogin);
+    // const [condition, setCondition] = useState({
+    //     isRegistration: true
+    // });
+    // const isLogin = useSelector(state => state.user.isLogin);
     const rootClass = [auth.auth];
 
-    const IsRegs = (isRegistration) => {
-        setCondition({...condition, isRegistration: isRegistration})
-    }
+    // const IsRegs = (isRegistration) => {
+    //     setCondition({...condition, isRegistration: isRegistration})
+    // }
 
-    if (!condition.isRegistration) {
-        return <Registration/>
-    }
+    // if (!condition.isRegistration) {
+    //     return <Registration/>
+    // }
 
-    if (isLogin) {
-        rootClass.push(auth.authClose);
-    }
+    // if (isLogin) {
+    //     rootClass.push(auth.authClose);
+    // }
 
     return (
         <div className={rootClass.join(' ')}>
@@ -29,9 +29,7 @@ const Authorization = () => {
                 <h2 className={auth.auth__title}>
                     Authorization
                 </h2>
-                <AuthFrom
-                    IsRegistration={IsRegs}
-                />
+                <AuthFrom />
             </div>
         </div>
     );

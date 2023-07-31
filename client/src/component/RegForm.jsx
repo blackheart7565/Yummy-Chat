@@ -5,6 +5,7 @@ import MySelect from "../UI/MySelect/MySelect";
 import HideAndShowPass from "../UI/HideAndShowPass/HideAndShowPass";
 import MyButton from "../UI/MyButton/MyButton";
 import {registration} from "../http/useAPI";
+import {useLocation, useNavigate} from "react-router-dom";
 
 const RegForm = ({getIsLogIn, ...props}) => {
     const [userReg, setUserReg] = useState({
@@ -14,6 +15,7 @@ const RegForm = ({getIsLogIn, ...props}) => {
         , password: ''
     });
     const selectCodeCountryPhone = useRef(null);
+    const navigate = useNavigate();
 
     const RegistrationUser = async (e) => {
         e.preventDefault();
@@ -29,7 +31,7 @@ const RegForm = ({getIsLogIn, ...props}) => {
 
     const Back = (e) => {
         e.preventDefault();
-        getIsLogIn(true);
+        navigate(-1)
     }
 
     return (

@@ -6,6 +6,8 @@ import HideAndShowPass from "../UI/HideAndShowPass/HideAndShowPass";
 import {useDispatch} from "react-redux";
 import {login} from "../http/useAPI";
 import UserService from "../utils/reducer/service/userService";
+import {Link, useLocation} from "react-router-dom";
+import {REGISTRATION_PATH} from "../utils/const-vars";
 
 const AuthFrom = ({IsRegistration, ...props}) => {
     const [userAuth, setUserAuth] = useState({
@@ -13,6 +15,8 @@ const AuthFrom = ({IsRegistration, ...props}) => {
         , password: ''
     });
     const dispatch = useDispatch();
+
+    const location = useLocation();
 
     const singIn = async (e) => {
         e.preventDefault();
@@ -28,10 +32,10 @@ const AuthFrom = ({IsRegistration, ...props}) => {
         }
     }
 
-    const singOut = (e) => {
-        e.preventDefault();
-        IsRegistration(false);
-    }
+    // const singOut = (e) => {
+    //     e.preventDefault();
+    //     IsRegistration(false);
+    // }
 
     return (
         <form {...props} className={authFrom.form}>
@@ -61,12 +65,13 @@ const AuthFrom = ({IsRegistration, ...props}) => {
             >
                 Log In
             </MyButton>
-            <p
+            <Link
                 className={authFrom.form__info}
-                onClick={singOut}
+                to={REGISTRATION_PATH}
+                state={location}
             >
                 Don't have an account yet?
-            </p>
+            </Link>
         </form>
     );
 };

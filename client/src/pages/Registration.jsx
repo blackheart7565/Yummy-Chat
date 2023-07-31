@@ -5,15 +5,15 @@ import RegForm from "../component/RegForm";
 import auth from "../styles/module/Authorization.module.scss";
 
 const Registration = () => {
-    const [isLogin, setIsLogin] = useState(false);
+    // const [isLogin, setIsLogin] = useState(false);
 
-    const getIsLogIn = (isLogin) => {
-        setIsLogin(isLogin);
-    }
+    // const getIsLogIn = (isLogin) => {
+    //     setIsLogin(isLogin);
+    // }
 
-    if (isLogin) {
-        return <Authorization/>;
-    }
+    // if (isLogin) {
+    //     return <Authorization/>;
+    // }
 
     return (
         <div className={reg.reg}>
@@ -21,7 +21,7 @@ const Registration = () => {
                 <h2 className={auth.auth__title}>
                     Registration
                 </h2>
-                <RegForm getIsLogIn={getIsLogIn} />
+                <RegForm />
             </div>
         </div>
     );
