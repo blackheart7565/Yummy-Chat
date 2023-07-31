@@ -5,9 +5,10 @@ import MySelect from "../UI/MySelect/MySelect";
 import HideAndShowPass from "../UI/HideAndShowPass/HideAndShowPass";
 import MyButton from "../UI/MyButton/MyButton";
 import {registration} from "../http/useAPI";
-import {useLocation, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import {LOGIN_PATH} from "../utils/const-vars";
 
-const RegForm = ({getIsLogIn, ...props}) => {
+const RegForm = ({...props}) => {
     const [userReg, setUserReg] = useState({
         username: ''
         , email: ''
@@ -20,13 +21,17 @@ const RegForm = ({getIsLogIn, ...props}) => {
     const RegistrationUser = async (e) => {
         e.preventDefault();
 
-        await registration({
-            username: userReg.username,
-            email: userReg.email,
-            phone: `${selectCodeCountryPhone.current.value}${userReg.phone}`,
-            password: userReg.password,
-        });
-        getIsLogIn(true);
+       try {
+           await registration({
+               username: userReg.username,
+               email: userReg.email,
+               phone: `${selectCodeCountryPhone.current.value}${userReg.phone}`,
+               password: userReg.password,
+           });
+           navigate(LOGIN_PATH, {replace: true});
+       }catch (e) {
+           console.error(e.message)
+       }
     }
 
     const Back = (e) => {
