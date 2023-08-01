@@ -5,6 +5,8 @@ import {useDispatch, useSelector} from "react-redux";
 import ChannelService from "../utils/reducer/service/channelService";
 import {fetchOneChannel} from "../http/channelAPI";
 import {nanoid} from "nanoid";
+import {Link} from "react-router-dom";
+import {CHANNEL_PATH, CHAT_PATH} from "../utils/const-vars";
 
 const ChannelsList = () => {
     const dispatch = useDispatch();
@@ -30,11 +32,15 @@ const ChannelsList = () => {
         <div className={chlslist.channels__list}>
             {
                 channels.map(channel =>
-                    <ChannelsItem
-                        onClick={() => handleCurrentChannel(channel.id)}
-                        key={channel.id + nanoid(5)}
-                        channel={channel}
-                    />
+                   <Link
+                       to={`${CHAT_PATH}${channel.id}`}
+                       key={channel.id + nanoid(5)}
+                   >
+                       <ChannelsItem
+                           onClick={() => handleCurrentChannel(channel.id)}
+                           channel={channel}
+                       />
+                   </Link>
                 )
             }
         </div>

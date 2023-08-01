@@ -29,10 +29,10 @@ const Chat = () => {
 
         await fetchOneChannel(currentChannelId)
             .then(channel =>
-            dispatch(
-                ChannelService.addCurrentChannel(channel)
-            )
-        );
+                dispatch(
+                    ChannelService.addCurrentChannel(channel)
+                )
+            );
     }
 
     // Подключение websocket
@@ -62,14 +62,14 @@ const Chat = () => {
                 )
             }
         )
-    }, [])
+    }, []);
 
     return (
         <div className={ct.chat}>
             <MenuBar
                 websocket={socket}
             />
-            <Channels />
+            <Channels/>
             <div className={ct.chat__communication}>
                 <Messages/>
                 {

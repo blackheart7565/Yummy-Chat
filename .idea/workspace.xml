@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02ac5987-11bb-4688-aa7f-5fdc0571c4b9" name="Changes" comment="Added connection of another user to the channel">
-      <change afterPath="$PROJECT_DIR$/client/src/component/AppRouter.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/routs/path-rout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/Authorization.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Authorization.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/Chat.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Chat.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/component/Registration.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Registration.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/AppRouter.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/AppRouter.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/component/ChannelsList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/component/ChannelsList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Chat.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Chat.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/routs/path-rout.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/routs/path-rout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/utils/const-vars.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utils/const-vars.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +54,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;,
     &quot;ts.external.directory.path&quot;: &quot;F:\\WebStorm 2023.1.3\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -67,11 +66,11 @@
       <recent name="E:\My project\HTML + CSS + JavaScripts\Project\Yummy-Chat\client\public" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\My project\HTML + CSS + JavaScripts\Project\Yummy-Chat\client\src" />
       <recent name="E:\My project\HTML + CSS + JavaScripts\Project\Yummy-Chat\client\src\pages" />
       <recent name="E:\My project\HTML + CSS + JavaScripts\Project\Yummy-Chat\client\src\utils\reducer\repository" />
       <recent name="E:\My project\HTML + CSS + JavaScripts\Project\Yummy-Chat\server\controllers" />
       <recent name="E:\My project\HTML + CSS + JavaScripts\Project\Yummy-Chat\client\src\utils\reducer" />
-      <recent name="E:\My project\HTML + CSS + JavaScripts\Project\Yummy-Chat\client\src\UI\Connect" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -115,6 +114,9 @@
       <workItem from="1690457779651" duration="8024000" />
       <workItem from="1690544306068" duration="6283000" />
       <workItem from="1690633513506" duration="7799000" />
+      <workItem from="1690819934150" duration="8097000" />
+      <workItem from="1690894953663" duration="1687000" />
+      <workItem from="1690900872623" duration="2973000" />
     </task>
     <task id="LOCAL-00001" summary="Refactoring. Changed the storage of the current user. Moved to redux instead of object">
       <option name="closed" value="true" />
