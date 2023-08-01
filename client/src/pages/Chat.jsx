@@ -4,7 +4,7 @@ import Messages from "../component/Messages";
 import Channels from "../component/Channels";
 import MenuBar from "../component/MenuBar";
 import {connect} from "../utils/websocket/socket-connect";
-import {addUserToChannelAPI, fetchAllChannel, fetchOneChannel, fetchUserChannel} from "../http/channelAPI";
+import ChannelAPI from "../http/channelAPI";
 import SendMessage from "../component/SendMessage";
 import Connect from "../UI/Connect/Connect";
 import ChannelService from "../utils/reducer/service/channelService";
@@ -17,14 +17,14 @@ const Chat = () => {
 
 
     const ConnectUserToChannel = async () => {
-        await addUserToChannelAPI(user.currentUser.id, channel.currentChannelId)
+        await ChannelAPI.addUserToChannelAPI(user.currentUser.id, channel.currentChannelId)
             .then(channel =>
                 dispatch(
                     ChannelService.addNewChannel(channel)
                 )
             );
 
-        await fetchOneChannel(channel.currentChannelId)
+        await ChannelAPI.fetchOneChannel(channel.currentChannelId)
             .then(channel =>
                 dispatch(
                     ChannelService.addCurrentChannel(channel)
@@ -40,14 +40,14 @@ const Chat = () => {
     // Получение каналов которые пренадлежат пользователю
     useEffect(() => {
         if (user.currentUser) {
-            fetchUserChannel(user.currentUser.id)
+            ChannelAPI.fetchUserChannel(user.currentUser.id)
                 .then(channel => dispatch(ChannelService.addNewManyChannel(channel.channels)));
         }
     }, [user.currentUser])
 
     // При старте получает все каналы всех пользователей
     useEffect(() => {
-        fetchAllChannel().then(channels => {
+        ChannelAPI.fetchAllChannel().then(channels => {
                 dispatch(
                     ChannelService.getAllChannel(channels)
                 )

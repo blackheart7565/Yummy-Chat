@@ -1,9 +1,8 @@
 import chlslist from '../styles/module/ChannelsList.module.scss';
 import React, {useEffect} from 'react';
 import ChannelsItem from "./ChannelsItem";
-import {useDispatch, useSelector} from "react-redux";
 import ChannelService from "../utils/reducer/service/channelService";
-import {fetchOneChannel} from "../http/channelAPI";
+import ChannelAPI from "../http/channelAPI";
 import {nanoid} from "nanoid";
 import {Link} from "react-router-dom";
 import {CHAT_PATH} from "../utils/const-vars";
@@ -20,7 +19,7 @@ const ChannelsList = () => {
 
     useEffect(() => {
         if (channel.currentChannelId) {
-            fetchOneChannel(channel.currentChannelId)
+            ChannelAPI.fetchOneChannel(channel.currentChannelId)
                 .then(channel =>
                     dispatch(
                         ChannelService.addCurrentChannel(channel)

@@ -1,7 +1,7 @@
 import menubar from '../styles/module/MenuBar.module.scss';
 import React from 'react';
 import MyButton from "../UI/MyButton/MyButton";
-import {createChannel} from "../http/channelAPI";
+import ChannelAPI from "../http/channelAPI";
 import ChannelService from "../utils/reducer/service/channelService";
 import {useRedux} from "../hook/redux";
 
@@ -17,7 +17,7 @@ const MenuBar = ({websocket}) => {
             messages: []
         }
 
-        createChannel(channel)
+        ChannelAPI.createChannel(channel)
             .then(chanel => {
                     dispatch(
                         ChannelService.addNewChannel(chanel)

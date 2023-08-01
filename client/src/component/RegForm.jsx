@@ -4,7 +4,7 @@ import MyInput from "../UI/MyInput/MyInput";
 import MySelect from "../UI/MySelect/MySelect";
 import HideAndShowPass from "../UI/HideAndShowPass/HideAndShowPass";
 import MyButton from "../UI/MyButton/MyButton";
-import {registration} from "../http/useAPI";
+import UseAPI from "../http/useAPI";
 import {useNavigate} from "react-router-dom";
 import {LOGIN_PATH} from "../utils/const-vars";
 
@@ -22,7 +22,7 @@ const RegForm = ({...props}) => {
         e.preventDefault();
 
        try {
-           await registration({
+           await UseAPI.registration({
                username: userReg.username,
                email: userReg.email,
                phone: `${selectCodeCountryPhone.current.value}${userReg.phone}`,

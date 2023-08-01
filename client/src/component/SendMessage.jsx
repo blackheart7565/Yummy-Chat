@@ -2,7 +2,7 @@ import sendmes from '../styles/module/SendMessage.module.scss';
 import React, {useRef, useState} from 'react';
 import MyTextArea from "../UI/MyTextArea/MyTextArea";
 import {SIZE_HEIGHT_TEXTAREA} from "../utils/const-vars";
-import {createMessage} from "../http/messageAPI";
+import MessageAPI from "../http/messageAPI";
 import {useRedux} from "../hook/redux";
 
 const SendMessage = ({websocket}) => {
@@ -37,7 +37,7 @@ const SendMessage = ({websocket}) => {
                     JSON.stringify(messageEvent)
                 );
 
-                await createMessage(messageEvent.data);
+                await MessageAPI.createMessage(messageEvent.data);
             } catch (e) {
                 console.log(e.message)
             }

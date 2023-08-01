@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import MyInput from "../UI/MyInput/MyInput";
 import MyButton from "../UI/MyButton/MyButton";
 import HideAndShowPass from "../UI/HideAndShowPass/HideAndShowPass";
-import {login} from "../http/useAPI";
+import UseAPI from "../http/useAPI";
 import UserService from "../utils/reducer/service/userService";
 import {Link, useLocation} from "react-router-dom";
 import {REGISTRATION_PATH} from "../utils/const-vars";
@@ -19,7 +19,7 @@ const AuthFrom = ({IsRegistration, ...props}) => {
 
     const singIn = async (e) => {
         e.preventDefault();
-        const user = await login(userAuth.email, userAuth.password)
+        const user = await UseAPI.login(userAuth.email, userAuth.password)
 
         if (user) {
             dispatch(
