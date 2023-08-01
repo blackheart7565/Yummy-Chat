@@ -2,14 +2,12 @@ import sendmes from '../styles/module/SendMessage.module.scss';
 import React, {useRef, useState} from 'react';
 import MyTextArea from "../UI/MyTextArea/MyTextArea";
 import {SIZE_HEIGHT_TEXTAREA} from "../utils/const-vars";
-import {useSelector} from "react-redux";
 import {createMessage} from "../http/messageAPI";
+import {useRedux} from "../hook/redux";
 
 const SendMessage = ({websocket}) => {
     const [value, setValue] = useState('');
-    const currentChannel = useSelector(state => state.channel.currentChannel);
-    const currentUser = useSelector(state => state.user.currentUser);
-
+    const {channel, user} = useRedux();
     const textareaRef = useRef();
 
     const changeSizeInput = (e) => {
@@ -22,15 +20,15 @@ const SendMessage = ({websocket}) => {
     }
 
     const sendingMessage = async () => {
-        if (currentChannel) {
+        if (channel.currentChannel) {
             const messageEvent = {
                 event: 'message',
                 data: {
                     message: value
-                    , username: currentUser.username
-                    , nameChannel: currentChannel.name
-                    , userId: currentUser.id
-                    , channelId: currentChannel.id
+                    , username: user.currentUser.username
+                    , nameChannel: channel.currentChannel.name
+                    , userId: user.currentUser.id
+                    , channelId: channel.currentChannel.id
                 }
             }
 

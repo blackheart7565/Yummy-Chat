@@ -3,18 +3,18 @@ import React, {useState} from 'react';
 import MyInput from "../UI/MyInput/MyInput";
 import MyButton from "../UI/MyButton/MyButton";
 import HideAndShowPass from "../UI/HideAndShowPass/HideAndShowPass";
-import {useDispatch} from "react-redux";
 import {login} from "../http/useAPI";
 import UserService from "../utils/reducer/service/userService";
 import {Link, useLocation} from "react-router-dom";
 import {REGISTRATION_PATH} from "../utils/const-vars";
+import {useRedux} from "../hook/redux";
 
 const AuthFrom = ({IsRegistration, ...props}) => {
     const [userAuth, setUserAuth] = useState({
         email: ''
         , password: ''
     });
-    const dispatch = useDispatch();
+    const {dispatch} = useRedux();
     const location = useLocation();
 
     const singIn = async (e) => {

@@ -2,10 +2,7 @@ import React from 'react';
 import {Navigate, Route, Routes} from "react-router-dom";
 import {useRedux} from "../hook/redux";
 import {authRouter, routs} from "../routs/path-rout";
-import {CHANNEL_PATH, CHAT_PATH, LOGIN_PATH} from "../utils/const-vars";
-import Channels from "./Channels";
-import MenuBar from "./MenuBar";
-import Messages from "./Messages";
+import {CHAT_PATH, LOGIN_PATH} from "../utils/const-vars";
 
 const AppRouter = () => {
     const {user} = useRedux();

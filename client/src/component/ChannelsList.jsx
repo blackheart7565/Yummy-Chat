@@ -6,12 +6,11 @@ import ChannelService from "../utils/reducer/service/channelService";
 import {fetchOneChannel} from "../http/channelAPI";
 import {nanoid} from "nanoid";
 import {Link} from "react-router-dom";
-import {CHANNEL_PATH, CHAT_PATH} from "../utils/const-vars";
+import {CHAT_PATH} from "../utils/const-vars";
+import {useRedux} from "../hook/redux";
 
 const ChannelsList = () => {
-    const dispatch = useDispatch();
-    const channels = useSelector(state => state.channel.channels);
-    const currentChannelId = useSelector(state => state.channel.currentChannelId);
+    const {dispatch, channel} = useRedux();
 
     const handleCurrentChannel = (channelId) => {
         dispatch(
@@ -20,27 +19,29 @@ const ChannelsList = () => {
     }
 
     useEffect(() => {
-        if (currentChannelId) {
-            fetchOneChannel(currentChannelId)
-                .then(channel => dispatch(
-                    ChannelService.addCurrentChannel(channel)
-                ));
+        if (channel.currentChannelId) {
+            fetchOneChannel(channel.currentChannelId)
+                .then(channel =>
+                    dispatch(
+                        ChannelService.addCurrentChannel(channel)
+                    )
+                );
         }
-    }, [currentChannelId]);
+    }, [channel.currentChannelId]);
 
     return (
         <div className={chlslist.channels__list}>
             {
-                channels.map(channel =>
-                   <Link
-                       to={`${CHAT_PATH}${channel.id}`}
-                       key={channel.id + nanoid(5)}
-                   >
-                       <ChannelsItem
-                           onClick={() => handleCurrentChannel(channel.id)}
-                           channel={channel}
-                       />
-                   </Link>
+                channel.channels.map(channel =>
+                    <Link
+                        to={`${CHAT_PATH}${channel.id}`}
+                        key={channel.id + nanoid(5)}
+                    >
+                        <ChannelsItem
+                            onClick={() => handleCurrentChannel(channel.id)}
+                            channel={channel}
+                        />
+                    </Link>
                 )
             }
         </div>

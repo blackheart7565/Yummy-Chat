@@ -1,27 +1,24 @@
 import mgs from '../styles/module/Messages.module.scss';
 import React from 'react';
-import {useSelector} from "react-redux";
 import Message from "./Message";
 import {v4 as uuid} from 'uuid'
+import {useRedux} from "../hook/redux";
 
 const Messages = () => {
-    const currentChannelId = useSelector(state => state.channel.currentChannelId);
-    const currentUser = useSelector(state => state.user.currentUser);
-    const currentChannel = useSelector(state => state.channel.currentChannel);
-    const messages = useSelector(state => state.message.messages);
+    const {channel, user, message} = useRedux();
 
-    if (!currentChannel) {
+    if (!channel.currentChannel) {
         return <div className={mgs.messages}></div>
     }
 
     return (
         <div className={mgs.messages}>
             {
-                messages.map(mess =>
-                        mess.channelId === currentChannelId && (
+                message.messages.map(mess =>
+                        mess.channelId === channel.currentChannelId && (
                             <Message
                                 key={uuid(7)}
-                                className={mess.username === currentUser.username ? mgs.currentUserMessage : mgs.otherUserMessage}
+                                className={mess.username === user.currentUser.username ? mgs.currentUserMessage : mgs.otherUserMessage}
                             >
                                 <div className={mgs.messages__username}>
                                     <div>{mess.nameChannel}</div>

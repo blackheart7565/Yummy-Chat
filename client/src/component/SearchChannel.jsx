@@ -1,15 +1,14 @@
 import st from '../styles/module/SearchChannel.module.scss';
 import React, {useState} from 'react';
 import MyInput from "../UI/MyInput/MyInput";
-import {useDispatch, useSelector} from "react-redux";
 import ChannelsItem from "./ChannelsItem";
 import ChannelService from "../utils/reducer/service/channelService";
 import {v4 as uuid} from 'uuid'
+import {useRedux} from "../hook/redux";
 
 const SearchChannel = () => {
     const [search, setSearch] = useState('');
-    const allChannels = useSelector(state => state.channel.allChannels);
-    const dispatch = useDispatch();
+    const {dispatch, channel} = useRedux();
 
     const handleCurrentChannel = (channelId) => {
         dispatch(
@@ -29,7 +28,7 @@ const SearchChannel = () => {
             </div>
             <div className={st.searchChannel__resultInput}>
                 {
-                    allChannels.map(channel => {
+                    channel.allChannels.map(channel => {
                             if (channel.name === search) {
                                 return <ChannelsItem
                                     onClick={() => handleCurrentChannel(channel.id)}
