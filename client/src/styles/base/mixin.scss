@@ -26,6 +26,8 @@
   min-height: 300px;
   max-width: 500px;
   max-height: 500px;
+  box-shadow: 5px 7px 3px #041167;
+  position: relative;
 
   @include VisionsOfGrandeur-gradient;
 
@@ -112,7 +114,31 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0d3de6",endColorstr="#0ebde7",GradientType=1);
 }
 
+@mixin wings ($width: 200, $height: 500, $left: -40%, $right:-40%) {
+  &:after, &:before {
+    content: '';
+    width: 200px;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    z-index: 200;
 
+    background-size: contain;
+    background-position: 0 0;
+    background-repeat: no-repeat;
+  }
+
+  &:before {
+    background-image: url($left-wing);
+    left: -40%;
+  }
+
+  &:after {
+    background-image: url($right-wing);
+    right: -40%;
+  }
+}
 
 
 

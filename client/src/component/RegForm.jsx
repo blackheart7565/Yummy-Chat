@@ -1,5 +1,5 @@
 import React, {useRef, useState} from 'react';
-import reg from "../styles/module/Registration.module.scss";
+import regForm from "../styles/module/RegForm.module.scss";
 import MyInput from "../UI/MyInput/MyInput";
 import MySelect from "../UI/MySelect/MySelect";
 import HideAndShowPass from "../UI/HideAndShowPass/HideAndShowPass";
@@ -40,56 +40,59 @@ const RegForm = ({...props}) => {
     }
 
     return (
-        <form {...props} className={reg.reg__form}>
+        <form
+            {...props}
+            className={regForm.form}
+        >
             <MyInput
                 value={userReg.username}
                 onChange={e => setUserReg({...userReg, username: e.target.value})}
-                className={[reg.reg__username].join(' ')}
+                className={[regForm.form__username].join(' ')}
                 type="text"
                 placeholder='Username'
             />
             <MyInput
                 value={userReg.email}
                 onChange={e => setUserReg({...userReg, email: e.target.value})}
-                className={reg.reg__email}
+                className={regForm.form__email}
                 type="email"
                 placeholder='Email'
             />
-            <div className={reg.reg__phoneBlock}>
+            <div className={regForm.form__phoneBlock}>
                 <MySelect
                     ref={selectCodeCountryPhone}
-                    className={reg.reg__phoneSelect}
+                    className={regForm.form__phoneSelect}
                 />
                 <MyInput
                     value={userReg.phone}
                     onChange={e => setUserReg({...userReg, phone: e.target.value})}
-                    className={reg.reg__phone}
+                    className={regForm.form__phone}
                     type="text"
                     placeholder='Phone'
                 />
             </div>
             <div
                 id='passwordBlock'
-                className={reg.reg__passwordBlock}
+                className={regForm.form__passwordBlock}
             >
                 <MyInput
                     value={userReg.password}
                     onChange={e => setUserReg({...userReg, password: e.target.value})}
-                    className={reg.reg__password}
+                    className={regForm.form__password}
                     type="password"
                     placeholder='Password'
                 />
                 <HideAndShowPass/>
             </div>
-            <div className={reg.reg__btns}>
+            <div className={regForm.form__btns}>
                 <MyButton
-                    className={reg.reg__login}
+                    className={regForm.form__login}
                     onClick={RegistrationUser}
                 >
                     registration
                 </MyButton>
                 <MyButton
-                    className={reg.reg__login}
+                    className={regForm.form__login}
                     onClick={Back}
                 >
                     Back

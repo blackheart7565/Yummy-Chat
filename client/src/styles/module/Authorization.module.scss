@@ -6,7 +6,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  @include veryBlue-bg(top, 0.5);
+  @include veryBlue-bg(top, 1);
   z-index: 600;
 
   &__inner {
@@ -14,17 +14,6 @@
     flex-direction: column;
     justify-content: center;
     @include innerBlock;
+    @include wings();
   }
-
-  &__title {
-    @include title;
-  }
-
-  &__phoneOption {
-
-  }
-}
-
-.auth.authClose {
-  display: none;
 }

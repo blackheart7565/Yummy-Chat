@@ -1,5 +1,6 @@
 import React from 'react';
 import auth from '../styles/module/Authorization.module.scss';
+import '../styles/base/base.scss';
 import AuthFrom from "../component/AuthFrom";
 
 const Authorization = () => {
@@ -8,7 +9,7 @@ const Authorization = () => {
     return (
         <div className={rootClass.join(' ')}>
             <div className={auth.auth__inner}>
-                <h2 className={auth.auth__title}>
+                <h2 className={'title'}>
                     Authorization
                 </h2>
                 <AuthFrom/>

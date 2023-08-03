@@ -1,6 +1,5 @@
 import st from './MySelect.module.scss';
 import React, {forwardRef} from 'react';
-import auth from "../../styles/module/Authorization.module.scss";
 import MyOption from "../MyOption/MyOption";
 import {countries} from "../../API/CountryCodes";
 
@@ -34,7 +33,6 @@ const MySelect = forwardRef((props, ref) => {
             {
                 countries.map(phone =>
                     <MyOption
-                        className={auth.auth__phoneOption}
                         key={phone.name}
                     >
                         {phone.dial_code}

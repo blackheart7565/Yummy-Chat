@@ -9,7 +9,7 @@ import {Link, useLocation} from "react-router-dom";
 import {REGISTRATION_PATH} from "../utils/const-vars";
 import {useRedux} from "../hook/redux";
 
-const AuthFrom = ({IsRegistration, ...props}) => {
+const AuthFrom = ({...props}) => {
     const [userAuth, setUserAuth] = useState({
         email: ''
         , password: ''
@@ -57,7 +57,7 @@ const AuthFrom = ({IsRegistration, ...props}) => {
                 className={authFrom.form__login}
                 onClick={singIn}
             >
-                Log In
+                Sign In
             </MyButton>
             <Link
                 className={authFrom.form__info}

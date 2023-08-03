@@ -9,3 +9,6 @@ body, html {
   height: $full-screen;
 }
 
+.title {
+  @include title;
+}
