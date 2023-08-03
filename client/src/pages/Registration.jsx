@@ -8,6 +8,10 @@ const Registration = () => {
 
     return (
         <div className={rootClass.join(' ')}>
+            <i>VIII</i>
+            <i>IV</i>
+            <i>III</i>
+            <i>XVII</i>
             <div className={reg.reg__inner}>
                 <h2 className={'title'}>
                     Registration

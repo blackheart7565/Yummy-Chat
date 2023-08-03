@@ -8,6 +8,10 @@ const Authorization = () => {
 
     return (
         <div className={rootClass.join(' ')}>
+            <i>VIII</i>
+            <i>IV</i>
+            <i>III</i>
+            <i>XVII</i>
             <div className={auth.auth__inner}>
                 <h2 className={'title'}>
                     Authorization
