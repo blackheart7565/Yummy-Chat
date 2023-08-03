@@ -1,17 +1,19 @@
-import {table} from "../model/model.js";
 import {ApiError} from "../error/ApiError.js";
 import MessageService from "./service/messageService.js";
+import {Messages} from "../model/Messages.js";
+import {Users} from "../model/Users.js";
+import {Channels} from "../model/Channels.js";
 
 class ChannelController {
 
     async create(req, res) {
         let {avatar, name, description, type, userId} = req.body;
 
-        const channel = await table.Channel.create(
+        const channel = await Channels.create(
             {avatar, name, description, type, userId}
         );
 
-        const user = await table.User.findOne({where: {id: userId}});
+        const user = await Users.findOne({where: {id: userId}});
         if (!user) {
             ApiError.notFound('Пользователь не найден');
         }
@@ -32,10 +34,10 @@ class ChannelController {
     async getUserChannel(req, res) {
         const {userId} = req.query;
 
-        const channelsUser = await table.User.findOne(
+        const channelsUser = await Users.findOne(
             {
                 where: {id: userId},
-                include: table.Channel
+                include: Channels
             }
         );
 
@@ -45,8 +47,8 @@ class ChannelController {
     async connectUserToChannel(req, res) {
         const {userId, channelId} = req.body;
 
-        const user = await table.User.findByPk(userId);
-        const channel = await table.Channel.findByPk(channelId);
+        const user = await Users.findByPk(userId);
+        const channel = await Channels.findByPk(channelId);
 
         await user.addChannel(channel);
         await channel.addUser(user);
@@ -55,8 +57,8 @@ class ChannelController {
     }
 
     async getAll(req, res) {
-        const channel = await table.Channel.findAll({
-            include: [{model: table.Message, as: "messages"}]
+        const channel = await Channels.findAll({
+            include: [{model: Messages, as: "messages"}]
         });
         return res.json(channel);
     }
@@ -64,12 +66,12 @@ class ChannelController {
     async getOne(req, res) {
         const {id} = req.params;
 
-        const channel = await table.Channel.findOne(
+        const channel = await Channels.findOne(
             {
                 where: {id},
                 include: [
-                    {model: table.Message, as: 'messages'}
-                    , {model: table.User}
+                    {model: Messages, as: 'messages'}
+                    , {model: Users}
                 ]
             }
         );

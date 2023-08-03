@@ -1,8 +1,8 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import {table} from "../model/model.js";
 import {ApiError} from "../error/ApiError.js";
 import {SECRET_KEY} from "../const-vars.js";
+import {Users} from "../model/Users.js";
 
 const generateJwt = (id, avatar, username, email, phone) => {
     return jwt.sign(
@@ -23,7 +23,7 @@ class UserController {
             return next(ApiError.badRequest('Некорректний email или password'));
         }
 
-        const candidate = await table.User.findOne({
+        const candidate = await Users.findOne({
             where: {email}
         });
 
@@ -32,7 +32,7 @@ class UserController {
         }
 
         const hashPassword = await bcrypt.hash(password, 5);
-        const user = await table.User.create({
+        const user = await Users.create({
             avatar
             , username
             , email
@@ -46,7 +46,7 @@ class UserController {
 
     async login(req, res, next) {
         const {email, password} = req.body;
-        const user = await table.User.findOne({where: {email}})
+        const user = await Users.findOne({where: {email}})
         if (!user) {
             return next(ApiError.badRequest(`Пользователь не найден!`));
         }

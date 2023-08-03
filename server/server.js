@@ -4,7 +4,7 @@ config();
 import {WebSocketServer} from "ws";
 import {broadcastMessage, onSequelize} from "./websocket/server-service.js";
 import {WS_PORT} from "./const-vars.js";
-import {table} from "./model/model.js";
+
 import express from 'express';
 import cors from 'cors';
 import {errorHandler} from "./middleware/ErrorHandlerMidleware.js";

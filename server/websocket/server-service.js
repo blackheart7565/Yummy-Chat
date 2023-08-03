@@ -10,7 +10,8 @@ export const broadcastMessage = (server, data) => {
 export const onSequelize = async (express) => {
     try {
         await sequelize.authenticate();
-        await sequelize.sync();
+        // await sequelize.sync();
+        await sequelize.sync({force: true});
         express.listen(EXPRESS_PORT, () => console.log(`Express server started on ${EXPRESS_PORT} port`));
     } catch (e) {
         console.log(e.message)

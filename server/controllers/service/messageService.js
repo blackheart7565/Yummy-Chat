@@ -1,9 +1,9 @@
-import {table} from "../../model/model.js";
+import {Messages} from "../../model/Messages.js";
+
 
 class MessageService {
-
     async create(message) {
-        const messages = await table.Message.create(message);
+        const messages = await Messages.create(message);
         return messages;
     }
 }

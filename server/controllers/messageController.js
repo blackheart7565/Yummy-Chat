@@ -1,6 +1,6 @@
 import MessageService from "./service/messageService.js";
-import {table} from "../model/model.js";
 import {ApiError} from "../error/ApiError.js";
+import {Channels} from "../model/Channels.js";
 
 class MessageController {
 
@@ -13,7 +13,7 @@ class MessageController {
             , nameChannel
             , userId
         });
-        const channel = await table.Channel.findByPk(channelId);
+        const channel = await Channels.findByPk(channelId);
         if(!channel) {
             return ApiError.notFound('Канал не найден');
         }
