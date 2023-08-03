@@ -30,7 +30,7 @@ const UserChannel = sequelize.define('user_channel', {
 
 const Message = sequelize.define('message', {
     id: {type: DataTypes.INTEGER, autoIncrement: true, primaryKey: true},
-    message: {type: DataTypes.STRING, allowNull: true},
+    message: {type: DataTypes.TEXT, allowNull: true},
     username: {type: DataTypes.STRING, allowNull: false},
     nameChannel: {type: DataTypes.STRING, allowNull: false}
 }, {
