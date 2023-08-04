@@ -30,7 +30,7 @@ export const channelReducer = (state = defaultChannel, action) => {
         case ADD_MANY_CHANNEL: {
             return {
                 ...state
-                , channels: [...state.channels, ...action.payload]
+                , channels: action.payload
             };
         }
 

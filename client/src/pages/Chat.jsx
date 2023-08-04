@@ -14,7 +14,6 @@ const Chat = () => {
     const {dispatch, channel, user} = useRedux();
     const socket = useRef();
 
-
     const ConnectUserToChannel = async () => {
         await ChannelAPI.addUserToChannelAPI(user.currentUser.id, channel.currentChannelId)
             .then(channel =>
@@ -34,15 +33,17 @@ const Chat = () => {
     // Подключение websocket
     useEffect(() => {
         connect({socket, user: user.currentUser})(dispatch);
-    }, [connect]);
+    }, []);
 
     // Получение каналов которые пренадлежат пользователю
     useEffect(() => {
-        if (user.currentUser) {
-            ChannelAPI.fetchUserChannel(user.currentUser.id)
-                .then(channel => dispatch(ChannelService.addNewManyChannel(channel.channels)));
-        }
-    }, [user.currentUser])
+        ChannelAPI.fetchUserChannel(user.currentUser.id)
+            .then(channel =>
+                dispatch(
+                    ChannelService.addNewManyChannel(channel.channels)
+                )
+            );
+    }, []);
 
     // При старте получает все каналы всех пользователей
     useEffect(() => {
