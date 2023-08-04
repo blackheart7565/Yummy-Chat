@@ -2,10 +2,10 @@
 @import "../base/mixin";
 
 .searchChannel {
-  margin: 5px 5px 20px 5px;
+  width: $full-screen;
 
   &__inputSection {
-
+    width: $full-screen;
   }
 
   &__input {

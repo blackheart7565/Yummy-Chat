@@ -9,10 +9,6 @@ export const Messages = Message.init({
         type: DataTypes.INTEGER
         , autoIncrement: true, primaryKey: true
     },
-    message: {
-        type: DataTypes.TEXT
-        , allowNull: true
-    },
     username:
         {type: DataTypes.STRING
             , allowNull: false
@@ -20,7 +16,11 @@ export const Messages = Message.init({
     nameChannel: {
         type: DataTypes.STRING
         , allowNull: false
-    }
+    },
+    message: {
+        type: DataTypes.TEXT
+        , allowNull: true
+    },
 }, {
     sequelize: sequelize
     , tableName: 'messages'

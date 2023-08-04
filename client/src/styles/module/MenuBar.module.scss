@@ -2,26 +2,18 @@
 @import "../base/mixin";
 
 .menuBar {
-  height: $full-screen;
-  text-align: center;
-  @include Frost-gradient(top, 1);
-
-  &__inner {
-    overflow-x: hidden;
-    overflow-y: auto;
-    height: $full-screen;
-    padding: 10px 0;
-  }
+  display: flex;
+  align-items: center;
 
   &__settings {
     width: 40px;
     height: 40px;
     border: none;
+
     & > * {
       width: inherit;
       height: inherit;
       background: url("../../../public/settings.png") 0 / cover no-repeat;
-
     }
   }
 }

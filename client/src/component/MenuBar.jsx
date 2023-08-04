@@ -17,6 +17,10 @@ const MenuBar = ({websocket}) => {
             messages: []
         }
 
+        if (!Object.values(channel).every(item => item)) {
+            return;
+        }
+
         ChannelAPI.createChannel(channel)
             .then(chanel => {
                     dispatch(
@@ -39,14 +43,12 @@ const MenuBar = ({websocket}) => {
 
     return (
         <div className={menubar.menuBar}>
-            <div className={menubar.menuBar__inner}>
-                <MyButton
-                    onClick={newChannel}
-                    className={menubar.menuBar__settings}
-                >
-                    <div></div>
-                </MyButton>
-            </div>
+            <MyButton
+                onClick={newChannel}
+                className={menubar.menuBar__settings}
+            >
+                <div></div>
+            </MyButton>
         </div>
     );
 };

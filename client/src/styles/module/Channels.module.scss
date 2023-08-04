@@ -10,8 +10,14 @@
   max-width: $channels-max-width;
   height: $full-screen;
 
-  background: #000046;
-  background: -webkit-linear-gradient(to top, #1CB5E0, #000046);
-  background: linear-gradient(to top, #1CB5E0, #000046);
+  @include VisionsOfGrandeur-gradient(top, 1);
 
+  &__wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 10px;
+    margin: 10px 10px 20px;
+    align-items: center;
+    justify-content: center;
+  }
 }

@@ -2,7 +2,6 @@ import ct from '../styles/module/Chat.module.scss';
 import React, {useEffect, useRef} from 'react';
 import Messages from "../component/Messages";
 import Channels from "../component/Channels";
-import MenuBar from "../component/MenuBar";
 import {connect} from "../utils/websocket/socket-connect";
 import ChannelAPI from "../http/channelAPI";
 import SendMessage from "../component/SendMessage";
@@ -63,10 +62,9 @@ const Chat = () => {
 
     return (
         <div className={ct.chat}>
-            <MenuBar
+            <Channels
                 websocket={socket}
             />
-            <Channels/>
             <div className={ct.chat__communication}>
                 <Messages/>
                 {
