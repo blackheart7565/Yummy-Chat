@@ -31,3 +31,10 @@
 .otherUserMessage{
   align-self: start;
 }
+
+.currentUserMessage , 
+.otherUserMessage > * {
+  @media (max-width: 770px) {
+    font-size: 16px;
+  }
+}

@@ -3,11 +3,18 @@
 
 .chat {
   display: grid;
-  grid-template-columns: auto 1fr;
+  @media (min-width: 1120px) {
+    grid-template-columns: auto 1fr;
+  }
+  grid-template-columns: 1fr;
   grid-template-rows: $full-screen;
   width: $full-screen;
   height: $full-screen;
 
+  @media (max-width: 1120px) {
+    
+  }
+  
   &__communication {
     display: flex;
     flex-direction: column;
