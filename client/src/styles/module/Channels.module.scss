@@ -2,10 +2,7 @@
 @import "../base/mixin";
 
 .channels {
-  @media (min-width: 1120px) {
-    display: flex;
-  }
-  display: none;
+  display: flex;
   flex-direction: column;
 
   width: 400px;
@@ -22,5 +19,18 @@
     margin: 10px 10px 20px;
     align-items: center;
     justify-content: center;
+  }
+
+  @media (max-width: 1120px) {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: $full-screen;
+  }
+
+  @media (max-width: 600px) {
+    width: $full-screen;
+    max-width: $full-screen;
   }
 }

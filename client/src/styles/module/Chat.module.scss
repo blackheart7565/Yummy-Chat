@@ -3,22 +3,23 @@
 
 .chat {
   display: grid;
-  @media (min-width: 1120px) {
-    grid-template-columns: auto 1fr;
-  }
-  grid-template-columns: 1fr;
+  grid-template-columns: auto 1fr;
   grid-template-rows: $full-screen;
   width: $full-screen;
   height: $full-screen;
-
-  @media (max-width: 1120px) {
-    
-  }
   
   &__communication {
     display: flex;
     flex-direction: column;
     width: $full-screen;
     height: $full-screen;
+  }
+
+  @media (max-width: 1120px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (max-width: 600px) {
+    transform: translate3d(100vw, 0, 0);
   }
 }

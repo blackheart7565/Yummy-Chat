@@ -45,7 +45,7 @@ const Messages = () => {
                                     <div>{mess.nameChannel}</div>
                                     <div>{mess.username}</div>
                                 </div>
-                                <p>{mess.message}</p>
+                                <div>{mess.message}</div>
                             </Message>
                         )
                 )

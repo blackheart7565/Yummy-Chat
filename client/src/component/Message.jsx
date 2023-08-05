@@ -5,8 +5,10 @@ const Message = ({children, ...props}) => {
     const classArr = [mess.message, props.className];
 
     return (
-        <div {...props} className={classArr.join(' ')}>
-            {children}
+        <div  {...props} className={classArr.join(' ')}>
+            <div className={mess.message__inner}>
+                {children}
+            </div>
         </div>
     );
 };

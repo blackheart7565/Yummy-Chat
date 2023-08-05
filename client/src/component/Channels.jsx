@@ -12,6 +12,7 @@ import ChannelService from "../utils/reducer/service/channelService";
 const Channels = ({websocket}) => {
     const {dispatch, channel} = useRedux();
     const [search, setSearch] = useState('');
+
     const handleCurrentChannel = (channelId) => {
         dispatch(
             ChannelService.setCurrentChannel(channelId)

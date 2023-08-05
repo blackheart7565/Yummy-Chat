@@ -2,11 +2,23 @@
 @import "mixin";
 
 body, html {
+  width: $full-screen;
+  min-width: $full-screen;
+  max-width: $full-screen;
   height: $full-screen;
+  min-height: $full-screen;
+  max-height: $full-screen;
+  overflow: hidden;
 }
 
 #root {
+  width: $full-screen;
+  min-width: $full-screen;
+  max-width: $full-screen;
   height: $full-screen;
+  min-height: $full-screen;
+  max-height: $full-screen;
+
 }
 
 .title {

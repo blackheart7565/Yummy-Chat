@@ -9,10 +9,13 @@ import Connect from "../UI/Connect/Connect";
 import ChannelService from "../utils/reducer/service/channelService";
 import MessageService from "../utils/reducer/service/messageService";
 import {useRedux} from "../hook/redux";
+import ChatInfo from "../component/ChatInfo";
 
 const Chat = () => {
     const {dispatch, channel, user} = useRedux();
     const socket = useRef();
+    const isChannel = channel.currentChannel?.users.some(u => u.id === user.currentUser.id)
+
 
     const ConnectUserToChannel = async () => {
         await ChannelAPI.addUserToChannelAPI(user.currentUser.id, channel.currentChannelId)
@@ -67,10 +70,18 @@ const Chat = () => {
                 websocket={socket}
             />
             <div className={ct.chat__communication}>
+                {
+                    channel.currentChannel ?
+                        isChannel && (
+                            <ChatInfo/>
+                        )
+                        :
+                        null
+                }
                 <Messages/>
                 {
                     channel.currentChannel ?
-                        channel.currentChannel?.users.some(u => u.id === user.currentUser.id)
+                        isChannel
                             ? (
                                 <SendMessage
                                     websocket={socket}

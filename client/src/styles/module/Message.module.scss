@@ -1,24 +1,26 @@
 @import "../base/base";
 @import "../base/mixin";
+@import "../base/vars";
 
 .message {
   display: inline-block;
   word-wrap: break-word;
   max-width: 600px;
   white-space: pre-wrap;
-
+  font-size: 14px;
   padding: 10px 20px;
   border-radius: 8px 8px 8px 0;
-
   color: $white;
   @include Royal-gradient(top, 1);
-  
-  @media (max-width: 770px) {
-    max-width: 400px;
-    font-size: 20px;
+
+  @media (max-width: 720px) {
+    max-width: 400px
   }
-  @media (max-width: 460px) {
-    max-width: 270px;
-    font-size: 20px;
+  @media (max-width: 500px) {
+    max-width: 250px
+  }
+  
+  &__inner {
+
   }
 }
