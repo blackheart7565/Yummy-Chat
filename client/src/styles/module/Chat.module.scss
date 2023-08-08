@@ -7,19 +7,13 @@
   grid-template-rows: $full-screen;
   width: $full-screen;
   height: $full-screen;
-  
+
   &__communication {
-    display: flex;
     flex-direction: column;
-    width: $full-screen;
-    height: $full-screen;
   }
 
-  @media (max-width: 1120px) {
+  @include tabletExtension($size-tablet-3) {
     grid-template-columns: 1fr;
   }
-
-  @media (max-width: 600px) {
-    transform: translate3d(100vw, 0, 0);
-  }
 }
+

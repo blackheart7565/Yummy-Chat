@@ -15,6 +15,8 @@ const ChannelsList = () => {
         dispatch(
             ChannelService.setCurrentChannel(channelId)
         );
+        document.body.classList.remove('is-left-show');
+
     }
 
     useEffect(() => {

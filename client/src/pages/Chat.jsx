@@ -16,7 +16,6 @@ const Chat = () => {
     const socket = useRef();
     const isChannel = channel.currentChannel?.users.some(u => u.id === user.currentUser.id)
 
-
     const ConnectUserToChannel = async () => {
         await ChannelAPI.addUserToChannelAPI(user.currentUser.id, channel.currentChannelId)
             .then(channel =>
@@ -64,12 +63,19 @@ const Chat = () => {
         )
     }, []);
 
+    useEffect(() => {
+        document.body.classList.add('is-left-show');
+    }, [])
+
     return (
         <div className={ct.chat}>
             <Channels
                 websocket={socket}
             />
-            <div className={ct.chat__communication}>
+            <div
+                className={ct.chat__communication}
+                id={'column-right'}
+            >
                 {
                     channel.currentChannel ?
                         isChannel && (

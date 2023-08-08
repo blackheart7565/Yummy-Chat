@@ -18,9 +18,15 @@ body, html {
   height: $full-screen;
   min-height: $full-screen;
   max-height: $full-screen;
-
 }
 
 .title {
   @include title;
+}
+
+#column-right {
+  display: flex !important;
+  width: $full-screen;
+  height: $full-screen;
+  position: relative;
 }

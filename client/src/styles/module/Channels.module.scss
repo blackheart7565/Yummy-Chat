@@ -4,12 +4,11 @@
 .channels {
   display: flex;
   flex-direction: column;
-
   width: 400px;
   min-width: $channels-min-width;
   max-width: $channels-max-width;
   height: $full-screen;
-
+  grid-column-start: 1;
   @include VisionsOfGrandeur-gradient(top, 1);
 
   &__wrapper {
@@ -19,18 +18,5 @@
     margin: 10px 10px 20px;
     align-items: center;
     justify-content: center;
-  }
-
-  @media (max-width: 1120px) {
-    display: flex;
-    position: fixed;
-    top: 0;
-    left: -100%;
-    width: $full-screen;
-  }
-
-  @media (max-width: 600px) {
-    width: $full-screen;
-    max-width: $full-screen;
   }
 }

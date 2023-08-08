@@ -16,3 +16,28 @@ $bright-green: #66ff00;
 $white: #fff;
 $selection-input: #1CB5E0;
 
+
+// media
+//для смартфонов — 320 px, 480 px и выше;
+$size-mobile-1: 320px;
+$size-mobile-2: 480px;
+$size-mobile-3: 600px; //+
+
+//для планшетов — 768 px и выше;
+$size-tablet-1: 768px;
+$size-tablet-2: 800px;
+$size-tablet-3: 960px; //+
+$size-tablet-4: 1020px;
+
+//для нетбуков — 1024 px и выше;
+$size-netbook-1: 1024px;
+$size-netbook-2: 1060px; //+
+$size-netbook-3: 1148px;
+$size-netbook-4: 1220px;
+
+//для мониторов — 1280 px, 1600 px, 1920 px и выше.
+$size-monitor-1: 1280px;
+$size-monitor-2: 1420px;
+$size-monitor-3: 1600px;
+$size-monitor-4: 1728px;
+$size-monitor-5: 1920px;

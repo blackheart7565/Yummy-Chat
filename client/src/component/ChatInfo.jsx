@@ -5,10 +5,17 @@ import {useRedux} from "../hook/redux";
 const ChatInfo = () => {
     const {channel} = useRedux();
 
+    const showChannel = () => {
+        document.body.classList.toggle('is-left-show');
+    }
+
     return (
         <div className={st.chatInfo}>
-            <button className={st.chatInfo__btn}>
-
+            <button
+                className={st.chatInfo__btn}
+                onClick={showChannel}
+            >
+                <span className={st.chatInfo__lines}></span>
             </button>
             <img
                 className={st.chatInfo__avatar}

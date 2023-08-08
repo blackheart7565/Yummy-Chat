@@ -24,11 +24,42 @@
   }
 
   &__btn {
-    width: 60px;
     display: none;
+    width: 60px;
+    background: #000;
+    border: none;
+    position: relative;
 
-    @media (max-width:  1120px) {
+    @include tabletExtension($size-tablet-3) {
       display: block;
+    }
+  }
+
+  &__lines {
+    display: block;
+    background: $white;
+    width: 20px;
+    height: 1px;
+    @include centerPosition();
+
+    &:before,
+    &:after {
+      content: '';
+      background: inherit;
+      width: 10px;
+      height: inherit;
+      position: absolute;
+      left: -2px;
+    }
+
+    &:before {
+      top: -3px;
+      transform: rotate(-45deg);
+    }
+
+    &:after {
+      top: 3px;
+      transform: rotate(45deg);
     }
   }
 }

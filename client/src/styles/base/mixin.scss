@@ -103,18 +103,18 @@
 }
 
 @mixin Light-Sky($direction: top, $opacity: 1) {
-  $start-color: rgba(13,61,230, $opacity);
-  $middle-color: rgba(18,21,203,$opacity);
-  $end-color: rgba(14,189,231,$opacity);
+  $start-color: rgba(13, 61, 230, $opacity);
+  $middle-color: rgba(18, 21, 203, $opacity);
+  $end-color: rgba(14, 189, 231, $opacity);
 
-  background: rgba(13,61,230, 1);
+  background: rgba(13, 61, 230, 1);
   background: -moz-linear-gradient(to $direction, $start-color 0%, $middle-color 62%, $end-color 100%);
   background: -webkit-linear-gradient(to $direction, $start-color 0%, $middle-color 62%, $end-color 100%);
   background: linear-gradient(to $direction, $start-color 0%, $middle-color 62%, $end-color 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0d3de6",endColorstr="#0ebde7",GradientType=1);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0d3de6", endColorstr="#0ebde7", GradientType=1);
 }
 
-@mixin wings ($width: 200, $height: 500, $left: -40%, $right:-40%) {
+@mixin wings($width: 200, $height: 500, $left: -40%, $right:-40%) {
   &:after, &:before {
     content: '';
     width: 200px;
@@ -140,7 +140,7 @@
   }
 }
 
-@mixin RomanNumerals () {
+@mixin RomanNumerals() {
   & > i:nth-child(1) {
     position: absolute;
     top: 10%;
@@ -177,8 +177,39 @@
   }
 }
 
+// default mobile extension min=320px and max~=600px
+@mixin mobileExtension($max-width: 600px) {
+  @media (max-width: $max-width) {
+    @content
+  }
+}
 
+// default tablet extension min=768px and max~=960px
+@mixin tabletExtension($max-width: 960px, $min-width: null) {
+  @if $min-width != null {
+    @media (min-width: $min-width) and (max-width: $max-width) {
+      @content
+    }
+  } @else {
+    @media (max-width: $max-width) {
+      @content
+    }
+  }
+}
 
+// default tablet extension min=1024px and max~=1220px
+@mixin netbookExtension($max-width: 1220px) {
+  @media (max-width: $max-width) {
+    @content
+  }
+}
+
+// default tablet extension min=1280px and max~=1920px
+@mixin pcExtension($max-width: 1920px) {
+  @media (max-width: $max-width) {
+    @content
+  }
+}
 
 
 

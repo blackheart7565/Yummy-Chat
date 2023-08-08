@@ -13,13 +13,10 @@
   color: $white;
   @include Royal-gradient(top, 1);
 
-  @media (max-width: 720px) {
+  @include netbookExtension($size-netbook-2) {
     max-width: 400px
   }
-  @media (max-width: 500px) {
-    max-width: 250px
-  }
-  
+
   &__inner {
 
   }

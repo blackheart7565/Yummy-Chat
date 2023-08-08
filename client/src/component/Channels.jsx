@@ -22,6 +22,7 @@ const Channels = ({websocket}) => {
     return (
         <div
             className={st.channels}
+            id={'column-left'}
         >
             <div className={st.channels__wrapper}>
                 <MenuBar
