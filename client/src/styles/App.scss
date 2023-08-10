@@ -5,6 +5,10 @@
 @import "base/base";
 @import "base/media";
 
+:root {
+  --size-index: calc(1vw + 1vh)
+}
+
 .App {
   position: relative;
   height: $full-screen;

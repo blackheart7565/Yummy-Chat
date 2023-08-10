@@ -13,7 +13,7 @@
 
 @mixin mainBlock {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   height: $full-screen;
@@ -22,8 +22,8 @@
 
 @mixin innerBlock {
   width: $full-screen;
-  min-width: 300px;
-  min-height: 300px;
+  min-width: 200px;
+  min-height: 200px;
   max-width: 500px;
   max-height: 500px;
   box-shadow: 5px 7px 3px #041167;
@@ -42,6 +42,10 @@
   text-transform: uppercase;
   letter-spacing: 5px;
   text-align: center;
+
+  @include mobileExtension($size-mobile-3) {
+    font-size: 25px;
+  }
 }
 
 @mixin passwordBlock {
@@ -114,11 +118,15 @@
   //filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0d3de6", endColorstr="#0ebde7", GradientType=1);
 }
 
+
 @mixin wings($width: 200, $height: 500, $left: -40%, $right:-40%) {
   &:after, &:before {
     content: '';
     width: 200px;
     height: 500px;
+    //width: calc(var(--size-index) * 80%);
+    //height: calc(var(--size-index) * 80%);
+
     position: absolute;
     top: 50%;
     transform: translate(0, -50%);
@@ -175,12 +183,69 @@
     font-size: 500px;
     opacity: 0.06;
   }
+
+  @include tabletExtension($size-tablet-3) {
+    & > i:nth-child(1) {
+      font-size: 200px;
+    }
+    & > i:nth-child(2) {
+      font-size: 300px;
+    }
+    & > i:nth-child(3) {
+      font-size: 200px;
+    }
+    & > i:nth-child(4) {
+      font-size: 200px;
+    }
+  }
+
+  @include tabletExtension($size-tablet-3) {
+    & > i:nth-child(1) {
+      font-size: 150px;
+    }
+    & > i:nth-child(2) {
+      font-size: 250px;
+    }
+    & > i:nth-child(3) {
+      font-size: 150px;
+    }
+    & > i:nth-child(4) {
+      font-size: 150px;
+    }
+  }
+
+  @include mobileExtension($size-mobile-3) {
+    & > i:nth-child(1) {
+      font-size: 100px;
+    }
+    & > i:nth-child(2) {
+      font-size: 150px;
+    }
+    & > i:nth-child(3) {
+      font-size: 100px;
+    }
+    & > i:nth-child(4) {
+      font-size: 100px;
+    }
+  }
+
+  @include mobileExtension($size-mobile-2) {
+    & > i {
+      display: none;
+    }
+  }
 }
 
 // default mobile extension min=320px and max~=600px
-@mixin mobileExtension($max-width: 600px) {
-  @media (max-width: $max-width) {
-    @content
+@mixin mobileExtension($max-width: 600px, $min-width: null) {
+  @if $min-width != null {
+    @media (min-width: $min-width) and (max-width: $max-width) {
+      @content
+    }
+  } @else {
+    @media (max-width: $max-width) {
+      @content
+    }
   }
 }
 

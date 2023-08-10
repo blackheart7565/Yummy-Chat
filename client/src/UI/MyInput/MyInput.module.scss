@@ -11,6 +11,11 @@
   border: none;
   border-radius: 8px;
   position: relative;
+  min-width: calc(var(--size-index));
+
+  @include tabletExtension($size-tablet-3) {
+    font-size: 14px;
+  }
 
   &::selection {
     background: $selection-input;

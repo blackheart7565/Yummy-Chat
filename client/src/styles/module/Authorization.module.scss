@@ -1,6 +1,7 @@
 @import "../../styles/base/vars";
 @import "../../styles/base/mixin";
 
+
 .auth {
   @include mainBlock;
   position: absolute;
@@ -11,11 +12,22 @@
 
   @include RomanNumerals();
 
+  &__img {
+    width: calc(var(--size-index) * 7);
+    height: calc(var(--size-index)* 15);
+    position: relative;
+    z-index: 200;
+
+    @include mobileExtension($size-mobile-3) {
+      display: none;
+    }
+  }
+
   &__inner {
     display: flex;
     flex-direction: column;
     justify-content: center;
     @include innerBlock;
-    @include wings();
+    //@include wings();
   }
 }

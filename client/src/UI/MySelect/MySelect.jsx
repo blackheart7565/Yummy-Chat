@@ -1,7 +1,7 @@
 import st from './MySelect.module.scss';
 import React, {forwardRef} from 'react';
 import MyOption from "../MyOption/MyOption";
-import {countries} from "../../API/CountryCodes";
+import {countries} from "../../API/сountry-сodes";
 
 
 const MySelect = forwardRef((props, ref) => {
