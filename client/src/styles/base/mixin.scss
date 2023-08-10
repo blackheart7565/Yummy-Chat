@@ -111,7 +111,7 @@
   background: -moz-linear-gradient(to $direction, $start-color 0%, $middle-color 62%, $end-color 100%);
   background: -webkit-linear-gradient(to $direction, $start-color 0%, $middle-color 62%, $end-color 100%);
   background: linear-gradient(to $direction, $start-color 0%, $middle-color 62%, $end-color 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0d3de6", endColorstr="#0ebde7", GradientType=1);
+  //filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0d3de6", endColorstr="#0ebde7", GradientType=1);
 }
 
 @mixin wings($width: 200, $height: 500, $left: -40%, $right:-40%) {

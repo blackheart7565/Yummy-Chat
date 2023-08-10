@@ -1,21 +1,28 @@
 import React from 'react';
 import st from '../styles/module/ChatInfo.module.scss'
 import {useRedux} from "../hook/redux";
+import ChannelService from "../utils/reducer/service/channelService";
 
 const ChatInfo = () => {
-    const {channel} = useRedux();
+    const {channel, dispatch} = useRedux();
+
+    const chatInfoBtn = [
+        st.chatInfo__btn
+        , channel.isCloseActive ? st.chatInfo__btn_active : ''
+    ];
 
     const showChannel = () => {
         document.body.classList.toggle('is-left-show');
+        dispatch(ChannelService.toggleCloseActive());
     }
 
     return (
         <div className={st.chatInfo}>
             <button
-                className={st.chatInfo__btn}
+                className={chatInfoBtn.join(' ')}
                 onClick={showChannel}
             >
-                <span className={st.chatInfo__lines}></span>
+                <span></span>
             </button>
             <img
                 className={st.chatInfo__avatar}

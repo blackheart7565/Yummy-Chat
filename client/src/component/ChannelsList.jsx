@@ -16,7 +16,7 @@ const ChannelsList = () => {
             ChannelService.setCurrentChannel(channelId)
         );
         document.body.classList.remove('is-left-show');
-
+        dispatch(ChannelService.toggleCloseActive());
     }
 
     useEffect(() => {
@@ -35,6 +35,7 @@ const ChannelsList = () => {
             {
                 channel.channels.map(channel =>
                     <Link
+                        className={chlslist.channels__link}
                         to={`${CHAT_PATH}${channel.id}`}
                         key={channel.id + nanoid(5)}
                     >

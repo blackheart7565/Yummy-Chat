@@ -2,7 +2,7 @@ import {
     ADD_CHANNEL, ADD_CHANNEL_IN_ALL_CHANNEL
     , ADD_CURRENT_CHANNEL
     , ADD_MANY_CHANNEL
-    , GET_ALL_CHANNEL
+    , GET_ALL_CHANNEL, IS_CLOSE_ACTIVE
     , SET_CURRENT_CHANNEL
 } from "../const-reducer";
 
@@ -15,6 +15,8 @@ const defaultChannel = {
     , currentChannelId: null
     // текущий канал
     , currentChannel: null
+    // состояния отображения класса active для закрытия каналов
+    , isCloseActive: false
 }
 
 export const channelReducer = (state = defaultChannel, action) => {
@@ -59,6 +61,13 @@ export const channelReducer = (state = defaultChannel, action) => {
             return {
                 ...state
                 , currentChannelId: action.payload
+            };
+        }
+
+        case IS_CLOSE_ACTIVE: {
+            return {
+                ...state
+                , isCloseActive: !state.isCloseActive
             };
         }
 

@@ -29,4 +29,5 @@ body, html {
   width: $full-screen;
   height: $full-screen;
   position: relative;
+  transition: transform $transition;
 }

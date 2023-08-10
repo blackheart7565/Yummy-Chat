@@ -4,27 +4,24 @@
 
 @include mobileExtension($size-mobile-3) {
   body.is-left-show #column-right {
-    transform: translate3d(100vw,0,0);
+    transform: translate3d(100vw, 0, 0);
+    transition: transform $transition;
   }
 }
 
 @include tabletExtension($size-tablet-3, 601px) {
   body.is-left-show #column-right {
-    transform: translate3d(26.5625rem, 0, 0)
+    transform: translate3d(26.5625rem, 0, 0);
+    transition: $transition;
   }
 }
 
-
-@include mobileExtension($size-mobile-3){
+@include mobileExtension($size-mobile-3) {
   #column-left {
     width: $full-screen;
     max-width: $full-screen;
     position: fixed;
   }
-
-  //body:not(.is-left-show) #column-left {
-  //  transform: translate3d(-25vw,0,0);
-  //}
 }
 
 @include tabletExtension($size-tablet-3, 601px) {

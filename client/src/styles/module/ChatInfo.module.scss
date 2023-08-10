@@ -3,6 +3,7 @@
 
 .chatInfo {
   display: flex;
+  align-items: center;
   gap: 10px;
   width: $full-screen;
   color: $white;
@@ -25,41 +26,51 @@
 
   &__btn {
     display: none;
-    width: 60px;
-    background: #000;
+    width: 40px;
+    height: 40px;
     border: none;
     position: relative;
+    border-radius: 50%;
+    @include veryBlue-bg(right top, 1);
+
+    & span,
+    & span::before,
+    & span::after {
+      display: block;
+      position: absolute;
+      width: 20px;
+      height: 2px;
+      top: 50%;
+      left: 50%;
+      margin-top: -1px;
+      margin-left: -10px;
+      background: $white;
+      transition: transform $transition;
+    }
+
+    & span::before,
+    & span::after {
+      content: '';
+    }
+
+    & span::before {
+      transform: rotate(-35deg);
+      width: 10px;
+      transform-origin: left bottom;
+    }
+
+    & span::after {
+      transform: rotate(35deg);
+      width: 10px;
+      transform-origin: left top;
+    }
 
     @include tabletExtension($size-tablet-3) {
       display: block;
     }
   }
 
-  &__lines {
-    display: block;
-    background: $white;
-    width: 20px;
-    height: 1px;
-    @include centerPosition();
-
-    &:before,
-    &:after {
-      content: '';
-      background: inherit;
-      width: 10px;
-      height: inherit;
-      position: absolute;
-      left: -2px;
-    }
-
-    &:before {
-      top: -3px;
-      transform: rotate(-45deg);
-    }
-
-    &:after {
-      top: 3px;
-      transform: rotate(45deg);
-    }
+  &__btn_active span {
+    transform: rotate(180deg);
   }
 }

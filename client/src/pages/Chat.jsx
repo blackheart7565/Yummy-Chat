@@ -1,5 +1,5 @@
 import ct from '../styles/module/Chat.module.scss';
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Messages from "../component/Messages";
 import Channels from "../component/Channels";
 import {connect} from "../utils/websocket/socket-connect";
@@ -14,7 +14,7 @@ import ChatInfo from "../component/ChatInfo";
 const Chat = () => {
     const {dispatch, channel, user} = useRedux();
     const socket = useRef();
-    const isChannel = channel.currentChannel?.users.some(u => u.id === user.currentUser.id)
+    const isChannel = channel.currentChannel?.users.some(u => u.id === user.currentUser.id);
 
     const ConnectUserToChannel = async () => {
         await ChannelAPI.addUserToChannelAPI(user.currentUser.id, channel.currentChannelId)
@@ -65,7 +65,7 @@ const Chat = () => {
 
     useEffect(() => {
         document.body.classList.add('is-left-show');
-    }, [])
+    }, []);
 
     return (
         <div className={ct.chat}>

@@ -8,7 +8,6 @@
   min-width: $channels-min-width;
   max-width: $channels-max-width;
   height: $full-screen;
-  grid-column-start: 1;
   @include VisionsOfGrandeur-gradient(top, 1);
 
   &__wrapper {

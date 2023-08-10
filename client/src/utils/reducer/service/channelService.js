@@ -2,7 +2,7 @@ import {
     ADD_CHANNEL, ADD_CHANNEL_IN_ALL_CHANNEL,
     ADD_CURRENT_CHANNEL,
     ADD_MANY_CHANNEL,
-    GET_ALL_CHANNEL,
+    GET_ALL_CHANNEL, IS_CLOSE_ACTIVE,
     SET_CURRENT_CHANNEL
 } from "../const-reducer";
 
@@ -47,6 +47,12 @@ class ChannelService {
         return {
             type: SET_CURRENT_CHANNEL
             , payload: channelId
+        }
+    }
+
+    toggleCloseActive = () => {
+        return {
+            type: IS_CLOSE_ACTIVE
         }
     }
 }
