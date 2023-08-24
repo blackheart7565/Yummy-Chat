@@ -166,7 +166,8 @@
 }
 
 .channels__list.channels__list-scroll {
-    overflow-y: auto;
+    /*overflow-y: auto;*/
+    overflow-y: scroll;
     direction: rtl;
 }
 

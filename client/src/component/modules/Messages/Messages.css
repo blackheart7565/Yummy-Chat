@@ -1,0 +1,11 @@
+
+.messages {
+    display: flex;
+    flex-direction: column;
+    min-height: var(--full-width-screen);
+    gap: 10px;
+    width: calc(100% - 15vw);
+    background: var(--messages-bg);
+    margin: 0 auto;
+    padding: 20px;
+}

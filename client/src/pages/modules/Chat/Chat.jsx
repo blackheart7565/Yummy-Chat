@@ -7,6 +7,7 @@ import ChannelService from "../../../utils/reducer/service/channelService";
 import MessageService from "../../../utils/reducer/service/messageService";
 import {useRedux} from "../../../hook/redux";
 import './Chat.css';
+import ChatPanel from "../../../component/modules/ChatPanel/ChatPanel";
 
 const Chat = () => {
     const {dispatch, channel, user} = useRedux();
@@ -51,7 +52,10 @@ const Chat = () => {
     return (
         <div className={'chat'}>
             <Channels/>
-            {/*<ChatPanel/>*/}
+            <ChatPanel
+                websocket={socket}
+                isCurrentChannel={isCurrentChannel}
+            />
         </div>
     );
 };

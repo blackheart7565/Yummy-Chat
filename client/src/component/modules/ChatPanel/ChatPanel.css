@@ -1,0 +1,16 @@
+
+.chat-panel {
+    background: var(--main-color);
+    width: var(--full-width-screen);
+}
+
+.chat-panel__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    height: var(--full-width-screen);
+    width: var(--full-width-screen);
+    padding-top: 30px;
+    padding-bottom: 20px;
+}

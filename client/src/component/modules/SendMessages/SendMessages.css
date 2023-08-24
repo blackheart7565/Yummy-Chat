@@ -1,0 +1,40 @@
+
+.send-message {
+    display: flex;
+    width: calc(100% - 15vw);
+    min-height: 60px;
+    max-height: 200px;
+    border-radius: 10px 10px 0 0;
+    overflow-y: auto;
+    background: var(--main-color);
+    border: 1px solid #606060;
+    box-shadow: 0 3px 0 0 #FFF;
+}
+
+.send-message__input {
+    cursor: text;
+    width: var(--full-width-screen);
+    max-height: none;
+    height: inherit;
+    outline: none;
+    padding: 20px;
+    font-size: 16px;
+    border-radius: inherit;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    color: var(--accent-color);
+}
+
+.send-message__input:empty:before {
+    content: attr(data-placeholder);
+}
+
+.send-message__ico {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: relative;
+    bottom: 14px;
+    margin-right: 20px;
+    align-self: flex-end;
+}
