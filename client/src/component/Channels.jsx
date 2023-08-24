@@ -49,7 +49,6 @@ const Channels = ({websocket}) => {
                 }
             </div>
 
-
             <ChannelsList/>
         </div>
     );

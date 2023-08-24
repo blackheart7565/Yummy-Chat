@@ -5,8 +5,20 @@
 @import "base/base";
 @import "base/media";
 
+
 :root {
-  --size-index: calc(1vw + 1vh)
+  --size-index: calc(1vw + 1vh);
+
+  --main-color: #13141F;
+  --accent-color: #D9D9D9;
+  --secondary-color: #10111A;
+  --messages-bg: #1B1C2E;
+  --white: #fff;
+
+  --placeholder-color: #ababab;
+
+  --bg: #313250;
+  --full-width-screen: 100%;
 }
 
 .App {

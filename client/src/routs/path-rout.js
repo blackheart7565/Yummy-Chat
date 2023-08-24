@@ -1,8 +1,9 @@
-import Chat from "../pages/Chat";
+// import Chat from "../pages/Chat";
 import Authorization from "../pages/Authorization";
 import Registration from "../pages/Registration";
 import {CHAT_PATH, LOGIN_PATH, REGISTRATION_PATH} from "../utils/const-vars";
 import React from "react";
+import Chat from "../pages/modules/Chat/Chat";
 
 export const authRouter = [
     {
