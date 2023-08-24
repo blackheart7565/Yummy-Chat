@@ -16,7 +16,6 @@ const Channels = () => {
     const menuBurger = useRef(null);
 
     const handleCurrentChannel = (e, channelId, index) => {
-        e.preventDefault();
         dispatch(
             ChannelService.setCurrentChannel(channelId)
         );
@@ -98,9 +97,11 @@ const Channels = () => {
                             key={nanoid(9)}
                             className={`channel__link ${currentChannelItem === index ? 'active-current-channel' : ''}`}
                             to={`${CHAT_PATH}${channel.id}`}
-                            onClick={(e) => handleCurrentChannel(e, channel.id, index)}
                         >
-                            <div className="channel__link-wrapper">
+                            <div
+                                className="channel__link-wrapper"
+                                onClick={(e) => handleCurrentChannel(e, channel.id, index)}
+                            >
                                 <div className="channel__link--left">
                                     <img
                                         className="channel__avatar"
