@@ -1,11 +1,15 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 import './InfoChannel.css';
 import {useRedux} from "../../../hook/redux";
 
 const InfoChannel = () => {
     const {channel} = useRedux();
-    const countUsers = 10000;
+    const [countUsers, setCountUsers] = useState(0);
+
+    useEffect(() => {
+        setCountUsers(channel.currentChannel.users.length);
+    }, [channel.currentChannel]);
 
     return (
         <section className={'info-channel'}>
@@ -15,7 +19,7 @@ const InfoChannel = () => {
                     alt="info-channel-avatar"
                 />
             </div>
-            <div className="info-channel-data">
+            <div className="info-channel__content">
                 <div className="info-channel__title">
                     <span>{channel.currentChannel.name}</span>
                 </div>

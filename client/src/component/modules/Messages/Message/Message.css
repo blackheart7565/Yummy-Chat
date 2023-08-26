@@ -58,10 +58,11 @@
     background: var(--messages-bg);
     border-bottom-right-radius: 20px;
 }
+
 .message__text {
     padding: 10px 10px 0 10px;
     word-wrap: break-word;
-    white-space: pre-line;
+    white-space: pre-wrap;
     line-height: 1.3rem;
     font-size: 14px;
 }

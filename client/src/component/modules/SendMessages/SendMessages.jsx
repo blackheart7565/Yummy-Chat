@@ -1,9 +1,9 @@
-import React, {useRef, useState} from 'react';
+import React, {useState} from 'react';
 import {useRedux} from "../../../hook/redux";
 import MessageAPI from "../../../http/messageAPI";
 
-import './SendMessages.css';
 import TextArea from "antd/es/input/TextArea";
+import './SendMessages.css';
 
 const SendMessages = ({websocket}) => {
     const [value, setValue] = useState('');
