@@ -1,8 +1,5 @@
 
 .info-channel {
-    display: grid;
-    grid-template-columns: 80px auto;
-    align-items: center;
     height: 60px;
     min-height: 60px;
     max-height: 60px;
@@ -12,6 +9,13 @@
     border: 1px solid #606060;
     background: #13141F;
     box-shadow: 0 -3px 0 0 var(--accent-color);
+}
+
+.info-channel__wrapper {
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 80px auto;
+    align-items: center;
 }
 
 .info-channel__avatar {

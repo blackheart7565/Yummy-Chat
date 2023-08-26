@@ -1,12 +1,14 @@
 
 .message {
     display: flex;
-    max-width: 480px;
+    width: var(--full-width-screen);
 }
 
 .message.message__isme {
     flex-direction: row-reverse;
-    align-self: end;
+}
+.message.message__isme .message__wrapper {
+    flex-direction: row-reverse;
 }
 .message__isme .message__avatar {
     margin: 0 0 5px 5px;
@@ -23,6 +25,10 @@
     border-bottom-left-radius: 20px;
 }
 
+.message__wrapper {
+    display: flex;
+    max-width: 480px;
+}
 .message__avatar {
     display: flex;
     flex-direction: column-reverse;
@@ -58,10 +64,9 @@
     background: var(--messages-bg);
     border-bottom-right-radius: 20px;
 }
-
 .message__text {
     padding: 10px 10px 0 10px;
-    word-wrap: break-word;
+    word-wrap: anywhere;
     white-space: pre-wrap;
     line-height: 1.3rem;
     font-size: 14px;

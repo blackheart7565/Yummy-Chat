@@ -11,21 +11,30 @@ const InfoChannel = () => {
         setCountUsers(channel.currentChannel.users.length);
     }, [channel.currentChannel]);
 
+    function viewInfo(e) {
+        console.log(`view information channel and user`)
+    }
+
     return (
         <section className={'info-channel'}>
-            <div className="info-channel__avatar">
-                <img
-                    src="https://images.pexels.com/photos/17827719/pexels-photo-17827719.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                    alt="info-channel-avatar"
-                />
-            </div>
-            <div className="info-channel__content">
-                <div className="info-channel__title">
-                    <span>{channel.currentChannel.name}</span>
+            <div
+                className="info-channel__wrapper"
+                onClick={viewInfo}
+            >
+                <div className="info-channel__avatar">
+                    <img
+                        src="https://images.pexels.com/photos/17827719/pexels-photo-17827719.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        alt="info-channel-avatar"
+                    />
                 </div>
-                <div className="info-channel__count">
-                    <span>{countUsers}</span>
-                    <span>{countUsers > 1 ? ' учасника' : ' учасник'}</span>
+                <div className="info-channel__content">
+                    <div className="info-channel__title">
+                        <span>{channel.currentChannel.name}</span>
+                    </div>
+                    <div className="info-channel__count">
+                        <span>{countUsers}</span>
+                        <span>{countUsers > 1 ? ' учасника' : ' учасник'}</span>
+                    </div>
                 </div>
             </div>
         </section>
