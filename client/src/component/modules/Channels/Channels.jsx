@@ -15,7 +15,7 @@ const Channels = () => {
     const channelsList = useRef(null);
     const menuBurger = useRef(null);
 
-    const handleCurrentChannel = (e, channelId, index) => {
+    const handleCurrentChannel = (channelId, index) => {
         dispatch(
             ChannelService.setCurrentChannel(channelId)
         );
@@ -100,7 +100,7 @@ const Channels = () => {
                         >
                             <div
                                 className="channel__link-wrapper"
-                                onClick={(e) => handleCurrentChannel(e, channel.id, index)}
+                                onClick={() => handleCurrentChannel(channel.id, index)}
                             >
                                 <div className="channel__link--left">
                                     <img

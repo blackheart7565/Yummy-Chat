@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Charis+SIL&display=swap');
+
 @import "vars";
 @import "mixin";
 
@@ -9,6 +11,9 @@ body, html {
   min-height: $full-screen;
   max-height: $full-screen;
   overflow: hidden;
+  font-family: 'Charis SIL', serif;
+  font-weight: 400;
+  font-size: 14px;
 }
 
 #root {

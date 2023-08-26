@@ -1,5 +1,5 @@
 import ct from '../styles/module/Chat.module.scss';
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useRef} from 'react';
 import Messages from "../component/Messages";
 import Channels from "../component/Channels";
 import {connect} from "../utils/websocket/socket-connect";

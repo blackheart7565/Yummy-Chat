@@ -1,16 +1,13 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {useRedux} from "../../../hook/redux";
 import MessageAPI from "../../../http/messageAPI";
 
 import './SendMessages.css';
+import TextArea from "antd/es/input/TextArea";
 
 const SendMessages = ({websocket}) => {
     const [value, setValue] = useState('');
     const {channel, user} = useRedux();
-
-    function inputText(e) {
-        setValue(e.currentTarget.textContent);
-    }
 
     const sendingMessage = async () => {
         if (channel.currentChannel) {
@@ -40,22 +37,25 @@ const SendMessages = ({websocket}) => {
     }
 
     return (
-        <section className={'send-message'}>
+        <section className='send-message'>
             <div
-                contentEditable={"true"}
-                data-placeholder={'Send messages'}
-                className={'send-message__input'}
-                onInput={inputText}
+                data-placeholder='Send messages'
+                className='send-message__input'
             >
+                <TextArea
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                    className='send-message__input-wrapper'
+                    placeholder='Send message'
+                    autoSize
+                />
             </div>
+
             <div
                 className="send-message__ico"
                 onClick={sendingMessage}
             >
-                <img
-                    src="/send/send-icon.png"
-                    alt="send-message-ico"
-                />
+                <img src="/send/send-icon.png" alt="send-message-ico"/>
             </div>
         </section>
     );

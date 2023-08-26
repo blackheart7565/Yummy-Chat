@@ -1,10 +1,10 @@
 import React, {useEffect, useRef} from 'react';
 
-import './ChatPanel.css';
 import Messages from "../Messages/Messages";
 import {useRedux} from "../../../hook/redux";
 import InfoChannel from "../InfoChannel/InfoChannel";
 import SendMessages from "../SendMessages/SendMessages";
+import './ChatPanel.css';
 
 const ChatPanel = ({websocket, isCurrentChannel}) => {
     const {channel, user, message} = useRedux();

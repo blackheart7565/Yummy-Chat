@@ -1,9 +1,9 @@
 import React from 'react';
+import {v4 as uuid} from "uuid";
 
 import './Messages.css';
 import Message from "./Message/Message";
 import {useRedux} from "../../../hook/redux";
-import {v4 as uuid} from "uuid";
 
 const Messages = () => {
     const {channel, user, message} = useRedux();
