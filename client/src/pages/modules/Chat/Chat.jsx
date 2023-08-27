@@ -8,6 +8,7 @@ import MessageService from "../../../utils/reducer/service/messageService";
 import {useRedux} from "../../../hook/redux";
 import './Chat.css';
 import ChatPanel from "../../../component/modules/ChatPanel/ChatPanel";
+import CreateChannel from "../../../component/modules/windows/CreateChannel/CreateChannel";
 
 const Chat = () => {
     const {dispatch, channel, user} = useRedux();

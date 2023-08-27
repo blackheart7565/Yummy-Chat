@@ -1,5 +1,4 @@
 
-
 .channels {
     display: flex;
     flex-direction: column;
@@ -40,7 +39,9 @@
     border-radius: 8px;
 }
 
-.channels__burger .burger__btn span, .channels__burger .burger__btn span:before, .channels__burger .burger__btn span:after {
+.channels__burger .burger__btn span,
+.channels__burger .burger__btn span:before,
+.channels__burger .burger__btn span:after {
     position: absolute;
     left: 0;
     margin: auto;
@@ -50,7 +51,8 @@
     transition: transform 0.5s ease-in-out;
 }
 
-.channels__burger .burger__btn span:before, .channels__burger .burger__btn span:after {
+.channels__burger .burger__btn span:before,
+.channels__burger .burger__btn span:after {
     content: '';
     transition: width 0.5s ease-in-out, top 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
@@ -269,6 +271,7 @@
     height: 20px;
     background: var(--accent-color);
 }
+
 .channel__link > span:nth-child(3) {
     position: absolute;
     bottom: -20px;
@@ -277,6 +280,7 @@
     height: 20px;
     background: var(--accent-color);
 }
+
 .channel__link > span:nth-child(2):before {
     content: '';
     position: absolute;
@@ -287,6 +291,7 @@
     border-bottom-right-radius: 20px;
     background: var(--accent-color);
 }
+
 .channel__link > span:nth-child(3):before {
     content: '';
     position: absolute;
@@ -308,6 +313,7 @@
     transition: background-color .4s ease-in-out;
     z-index: 2;
 }
+
 .channel__link.active-current-channel > span:nth-child(3) {
     position: absolute;
     bottom: -20px;
@@ -318,6 +324,7 @@
     transition: background-color .4s ease-in-out;
     z-index: 2;
 }
+
 .channel__link.active-current-channel > span:nth-child(2):before {
     content: '';
     position: absolute;
@@ -328,6 +335,7 @@
     border-bottom-right-radius: 20px;
     background: var(--accent-color);
 }
+
 .channel__link.active-current-channel > span:nth-child(3):before {
     content: '';
     position: absolute;
@@ -342,7 +350,7 @@
 
 .channel__link.active-current-channel {
     background: var(--main-color);
-    transition: background-color .4s ease-in-out;
+    transition: background-color 0.4s ease-in-out;
 }
 
 .channel__link-wrapper {
@@ -408,27 +416,4 @@
 
 .channels__list .active-current-channel .channel__link-wrapper .channel__link--left .channel__avatar {
     background: var(--accent-color);
-}
-
-
-/*///////////////////////~MENU-BURGER~////////////////////////////*/
-
-
-.menu-burger {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    width: 20%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 999;
-    transform: translateX(-100%);
-    background: var(--bg);
-    transition: transform .5s ease-in-out;
-    border-radius: 0 20px 0 0;
-}
-
-.menu-burger.active__menu-burger {
-    transform: translateX(0);
 }

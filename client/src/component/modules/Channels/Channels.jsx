@@ -7,13 +7,18 @@ import {CHAT_PATH} from "../../../utils/const-vars";
 import ChannelService from "../../../utils/reducer/service/channelService";
 import ChannelAPI from "../../../http/channelAPI";
 import {nanoid} from "nanoid";
+import {SettingOutlined} from "@ant-design/icons";
+import MenuBurger from "./MenuBurger/MenuBurger";
+import CreateChannel from "../windows/CreateChannel/CreateChannel";
 
 const Channels = () => {
     const {dispatch, channel} = useRedux();
+    const [createChannel, setCreateChannel] = useState(false);
     const [currentChannelItem, setCurrentChannelItem] = useState(null);
     const channelsPanel = useRef(null);
     const channelsList = useRef(null);
     const menuBurger = useRef(null);
+    const menuBurgerBtn = useRef(null);
 
     const handleCurrentChannel = (channelId, index) => {
         dispatch(
@@ -37,6 +42,10 @@ const Channels = () => {
         menuBurger.current?.classList.toggle('active__menu-burger');
     }
 
+    const createChannelVisible = (flag) => {
+        setCreateChannel(flag);
+    }
+
     useEffect(() => {
         if (channel.currentChannelId) {
             ChannelAPI.fetchOneChannel(channel.currentChannelId)
@@ -58,6 +67,7 @@ const Channels = () => {
                 <button
                     className="burger__btn"
                     onClick={handleBurger}
+                    ref={menuBurgerBtn}
                 >
                     <span></span>
                 </button>
@@ -106,7 +116,8 @@ const Channels = () => {
                                     <img
                                         className="channel__avatar"
                                         src="https://images.pexels.com/photos/17827719/pexels-photo-17827719.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                                        alt="channel-avatar"/>
+                                        alt="channel-avatar"
+                                    />
                                 </div>
                                 <div className="channel__link--right">
                                     <h2 className="channel__name">
@@ -125,11 +136,15 @@ const Channels = () => {
                 }
             </ul>
 
-            <div
-                className="menu-burger"
-                id={'menu-burger'}
+            <MenuBurger
                 ref={menuBurger}
-            ></div>
+                btnMenuBurgerRef={menuBurgerBtn}
+                createChannelVisible={createChannelVisible}
+            />
+            <CreateChannel
+                visible={createChannel}
+                setVisible={setCreateChannel}
+            />
         </section>
     );
 };

@@ -1,0 +1,205 @@
+@import '../../../../styles/base/vars';
+
+
+.createChannel {
+  $self: &;
+  $margin-element: 50px;
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: var(--full-width-screen);
+  height: var(--full-width-screen);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  background: rgba(19, 20, 31, 0.3);
+
+  &__show {
+    display: flex;
+  }
+
+  &__container {
+    width: calc(100% - 100px);
+    margin: 0 auto;
+  }
+
+  &__wrapper {
+    width: 550px;
+    height: 500px;
+    background: var(--secondary-color);
+    border-radius: 50px;
+    border: 5px solid var(--accent-color);
+    box-shadow: 0 0 2px 0 var(--accent-color);
+  }
+
+  ///////////////////////////////
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: $margin-element;
+    margin-bottom: $margin-element;
+  }
+
+  &__avatar {
+    cursor: pointer;
+
+    &:hover #{$self}__avatarIco {
+      background: #c2c2c2;
+    }
+  }
+
+  &__avatarIco {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    color: var(--main-color);
+  }
+
+  &__name {
+    color: var(--accent-color);
+    user-select: none;
+  }
+
+  &__nameInput {
+    padding: 0 4px;
+    width: 300px;
+    height: 40px;
+    outline: none;
+    border: none;
+    color: var(--accent-color);
+    font-size: 16px;
+    border-bottom: 2px solid var(--accent-color);
+    background: transparent;
+
+    &::placeholder {
+      color: var(--accent-color);
+    }
+
+    &::selection {
+      background: $selection-input;
+    }
+  }
+
+  ///////////////////////////////
+
+  &__description {
+    margin-bottom: $margin-element;
+  }
+
+  &__descriptionInput {
+    background: transparent;
+    outline: none;
+    border: none;
+    border-radius: 0;
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+
+    &::placeholder {
+      color: var(--accent-color);
+    }
+
+    &::selection {
+      background: $selection-input;
+    }
+
+    &:focus {
+      border-bottom: 2px solid var(--accent-color);
+      box-shadow: 0 0 0 0 var(--accent-color);
+    }
+
+    &:hover {
+      border-bottom: 2px solid var(--accent-color);
+    }
+  }
+
+  ///////////////////////////////
+
+  &__types {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: var(--accent-color);
+    margin-bottom: $margin-element;
+  }
+
+  &__private {
+    > label {
+      display: flex;
+      align-items: center;
+
+      > span {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__privateChackbox {
+    margin-right: 7px;
+    width: 20px;
+    height: 20px;
+  }
+
+  &__public {
+    > label {
+      display: flex;
+      align-items: center;
+
+      > span {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__publicChackbox {
+    margin-right: 7px;
+    width: 20px;
+    height: 20px;
+  }
+
+  ///////////////////////////////
+
+  &__btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__createBtn {
+    $bg: #0EE13D;
+
+    width: 200px;
+    height: 40px;
+    border: 2px solid $bg;
+    background: transparent;
+    color: $bg;
+    transition: box-shadow .2s ease-in-out;
+
+    &:hover {
+      box-shadow: 0 0 30px 3px $bg;
+    }
+  }
+
+  &__backBtn {
+    $bg: #E10E0E;
+
+    width: 200px;
+    height: 40px;
+    border: 2px solid $bg;
+    background: transparent;
+    color: $bg;
+    transition: box-shadow .2s ease-in-out;
+
+    &:hover {
+      box-shadow: 0 0 30px 3px $bg;
+    }
+  }
+}
