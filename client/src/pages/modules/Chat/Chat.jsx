@@ -19,7 +19,6 @@ const Chat = () => {
 
     const isCurrentChannel = channel.currentChannel?.users.some(u => u.id === user.currentUser.id);
 
-
     const createChannelVisible = (flag) => {
         setCreateChannel(flag);
     }
@@ -63,21 +62,21 @@ const Chat = () => {
     return (
         <div className={'chat'}>
             <Channels
-                visible={visibleMenuBurger}
-                setVisible={setVisibleMenuBurger}
+                isVisible={visibleMenuBurger}
+                setIsVisible={setVisibleMenuBurger}
             />
             <ChatPanel
                 websocket={socket}
                 isCurrentChannel={isCurrentChannel}
             />
             <MenuBurger
-                visible={visibleMenuBurger}
-                setVisible={setVisibleMenuBurger}
+                isVisible={visibleMenuBurger}
+                setIsVisible={setVisibleMenuBurger}
                 createChannelVisible={createChannelVisible}
             />
             <CreateChannel
-                visible={createChannel}
-                setVisible={setCreateChannel}
+                isVisible={createChannel}
+                setIsVisible={setCreateChannel}
             />
         </div>
     );

@@ -21,6 +21,28 @@
   border: none;
   border-radius: 8px;
 
+
+  &.active__menuBurger span {
+    transform: rotate(180deg);
+  }
+
+  &.active__menuBurger span:before,
+  &.active__menuBurger span:after {
+    width: 8px;
+    top: 0;
+    transition-delay: .1s;
+  }
+
+  &.active__menuBurger span:before {
+    transform-origin: left top;
+    transform: rotate(-45deg);
+  }
+
+  &.active__menuBurger span:after {
+    transform-origin: left bottom;
+    transform: rotate(45deg);
+  }
+
   & span,
   & span::before,
   & span::after {
@@ -51,27 +73,6 @@
 
   & span:after {
     top: 5px;
-  }
-
-  &.active__menuBurger span {
-    transform: rotate(180deg);
-  }
-
-  &.active__menuBurger span:before,
-  &.active__menuBurger span:after {
-    width: 8px;
-    top: 0;
-    transition-delay: .1s;
-  }
-
-  &.active__menuBurger span:before {
-    transform-origin: left top;
-    transform: rotate(-45deg);
-  }
-
-  &.active__menuBurger span:after {
-    transform-origin: left bottom;
-    transform: rotate(45deg);
   }
 }
 

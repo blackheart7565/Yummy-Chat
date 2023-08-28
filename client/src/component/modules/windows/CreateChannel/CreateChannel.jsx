@@ -4,12 +4,16 @@ import st from './CreateChannel.module.scss';
 import TextArea from "antd/es/input/TextArea";
 import {CameraOutlined} from "@ant-design/icons";
 
-const CreateChannel = ({visible, setVisible}) => {
+const CreateChannel = (
+    {
+        isVisible
+        , setIsVisible
+    }) => {
     const rootClasses = [st.createChannel]
     const channelNameInputRef = useRef(null);
     const [subscribeType, setSubscribeType] = useState('private');
 
-    if (visible) {
+    if (isVisible) {
         rootClasses.push(st.createChannel__show)
     }
 
@@ -20,14 +24,14 @@ const CreateChannel = ({visible, setVisible}) => {
     const createChannel = () => {
         const value = channelNameInputRef.current?.value;
         if (value) {
-            setVisible(false);
+            setIsVisible(false);
         }
     }
 
     return (
         <section
             className={rootClasses.join(' ')}
-            onClick={() => setVisible(false)}
+            onClick={() => setIsVisible(false)}
         >
             <div
                 className={st.createChannel__wrapper}
@@ -96,7 +100,7 @@ const CreateChannel = ({visible, setVisible}) => {
                     <div className={st.createChannel__btns}>
                         <button
                             className={st.createChannel__backBtn}
-                            onClick={() => setVisible(false)}
+                            onClick={() => setIsVisible(false)}
                         >
                             Back
                         </button>

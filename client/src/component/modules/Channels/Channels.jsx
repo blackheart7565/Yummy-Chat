@@ -11,8 +11,8 @@ import NavigationPanel from "./NavigationPanel/NavigationPanel";
 
 const Channels = (
     {
-        visible
-        , setVisible
+        isVisible
+        , setIsVisible
     }) => {
     const {dispatch, channel} = useRedux();
     const [currentChannelItem, setCurrentChannelItem] = useState(null);
@@ -51,8 +51,8 @@ const Channels = (
             id={'chat__left'}
         >
             <NavigationPanel
-                visible={visible}
-                setVisible={setVisible}
+                isVisible={isVisible}
+                setIsVisible={setIsVisible}
                 isHideChannel={isHideChannel}
                 setIsHideChannel={setIsHideChannel}
             />

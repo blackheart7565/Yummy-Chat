@@ -1,25 +1,25 @@
 import React, {forwardRef} from 'react';
 import {GithubOutlined, NotificationOutlined, SettingOutlined} from "@ant-design/icons";
 
-import './MenuBurger.css';
+import st from './MenuBurger.module.scss';
 
 const MenuBurger = forwardRef((
     {
-        visible
-        , setVisible
+        isVisible
+        , setIsVisible
         , buttonEnableRef
         , createChannelVisible
         , ...props
     }, ref) => {
 
-    const rootClasses = ['menu-burger'];
+    const rootClasses = [st.menuBurger];
 
-    if (visible) {
-        rootClasses.push('active__menu-burger');
+    if (isVisible) {
+        rootClasses.push(st.active);
     }
 
     function closeMenuBurger() {
-        setVisible(false);
+        setIsVisible(false);
     }
 
     const createChannel = (e) => {
@@ -36,44 +36,44 @@ const MenuBurger = forwardRef((
             onClick={closeMenuBurger}
         >
             <div
-                className="menu-burger__wrapper"
+                className={st.menuBurger__wrapper}
                 onClick={(e) => e.stopPropagation()}
             >
-                <ul className="menu-burger__list">
-                    <li className="menu-burger__item">
-                        <a className={'menu-burger__link'} href={'#'}
+                <ul className={st.menuBurger__list}>
+                    <li className={st.menuBurger__item}>
+                        <a className={st.menuBurger__link} href={'#'}
                            onClick={createChannel}
                         >
                             <NotificationOutlined
-                                className={'menu-burger__icon'}
+                                className={st.menuBurger__icon}
                             />
-                            <span className={'menu-burger__text'}>
+                            <span className={st.menuBurger__text}>
                             Create Channel
                         </span>
                         </a>
                     </li>
-                    <li className="menu-burger__item">
+                    <li className={st.menuBurger__item}>
                         <a
-                            className={'menu-burger__link'}
+                            className={st.menuBurger__link}
                             href={'https://github.com/blackheart7565/Yummy-Chat'}
                             target={'_blank'}
                         >
                             <GithubOutlined
-                                className={'menu-burger__icon'}
+                                className={st.menuBurger__icon}
                             />
-                            <span className={'menu-burger__text'}>
+                            <span className={st.menuBurger__text}>
                             GitHub
                         </span>
                         </a>
                     </li>
-                    <li className="menu-burger__item">
-                        <a className={'menu-burger__link'} href={'#'}
+                    <li className={st.menuBurger__item}>
+                        <a className={st.menuBurger__link} href={'#'}
                            onClick={(e) => e.preventDefault()}
                         >
                             <SettingOutlined
-                                className={'menu-burger__icon'}
+                                className={st.menuBurger__icon}
                             />
-                            <span className={'menu-burger__text'}>
+                            <span className={st.menuBurger__text}>
                             Settings
                         </span>
                         </a>

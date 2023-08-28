@@ -4,28 +4,27 @@ import st from './NavigationPanel.module.scss';
 
 const NavigationPanel = (
     {
-        visible
-        , setVisible
+        isVisible
+        , setIsVisible
         , isHideChannel
         , setIsHideChannel
         , ...props
     }) => {
     const rootMenuBurgerClasses = [st.burger__btn];
 
-
-    if (visible) {
+    if (isVisible) {
         rootMenuBurgerClasses.push(st.active__menuBurger)
     }
 
     const handleBurger = (e) => {
         e.preventDefault();
 
-        if (visible) {
-            e.currentTarget.classList.remove('active__menu-burger');
-            setVisible(false);
+        if (isVisible) {
+            e.currentTarget.classList.remove(st.active__menuBurger);
+            setIsVisible(false);
         } else {
-            e.currentTarget.classList.add('active__menu-burger');
-            setVisible(true);
+            e.currentTarget.classList.add(st.active__menuBurger);
+            setIsVisible(true);
         }
     }
 
