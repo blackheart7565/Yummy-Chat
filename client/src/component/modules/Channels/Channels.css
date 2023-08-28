@@ -16,92 +16,6 @@
 
 /*////////////////////////////////////////////////*/
 
-.channels__burger {
-    display: flex;
-    justify-content: end;
-    align-items: center;
-    height: 75px;
-    border-radius: 0 20px 0 0;
-    padding: 0 20px;
-    position: relative;
-}
-
-.channels__burger .burger__btn {
-    position: absolute;
-    top: 50%;
-    left: 20px;
-    transform: translateY(-50%);
-    z-index: 1000;
-    width: 43px;
-    height: 43px;
-    background: var(--main-color);
-    border: none;
-    border-radius: 8px;
-}
-
-.channels__burger .burger__btn span,
-.channels__burger .burger__btn span:before,
-.channels__burger .burger__btn span:after {
-    position: absolute;
-    left: 0;
-    margin: auto;
-    width: 21px;
-    height: 1px;
-    background: var(--accent-color);
-    transition: transform 0.5s ease-in-out;
-}
-
-.channels__burger .burger__btn span:before,
-.channels__burger .burger__btn span:after {
-    content: '';
-    transition: width 0.5s ease-in-out, top 0.5s ease-in-out, transform 0.5s ease-in-out;
-}
-
-.channels__burger .burger__btn span {
-    top: 0;
-    bottom: 0;
-    right: 0;
-}
-
-.channels__burger .burger__btn span:before {
-    top: -5px;
-}
-
-.channels__burger .burger__btn span:after {
-    top: 5px;
-}
-
-.channels__burger .burger__btn.active__menu-burger span {
-    transform: rotate(180deg);
-}
-
-.channels__burger .burger__btn.active__menu-burger span:before,
-.channels__burger .burger__btn.active__menu-burger span:after {
-    width: 8px;
-    top: 0;
-    transition-delay: .1s;
-}
-
-.channels__burger .burger__btn.active__menu-burger span:before {
-    transform-origin: left top;
-    transform: rotate(-45deg);
-}
-
-.channels__burger .burger__btn.active__menu-burger span:after {
-    transform-origin: left bottom;
-    transform: rotate(45deg);
-}
-
-
-.channels__burger .burger__btn-hide {
-    cursor: pointer;
-    width: 43px;
-    height: 43px;
-    background: var(--main-color);
-    border: none;
-    border-radius: 8px;
-}
-
 
 /*////////////////////////////////////////////////*/
 
@@ -166,7 +80,6 @@
     padding-bottom: 20px;
     transition: width 0.2s ease-in-out;
 }
-
 .channels__list.channels__list-scroll {
     /*overflow-y: auto;*/
     overflow-y: scroll;
@@ -176,10 +89,6 @@
 .channels__list.channels__list-scroll > .channel__link {
     text-align: left;
     direction: ltr;
-}
-
-.channel__list.active__hideChannel {
-    width: 120px;
 }
 
 .channels__list::-webkit-scrollbar {

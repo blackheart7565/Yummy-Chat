@@ -7,18 +7,22 @@ import {CHAT_PATH} from "../../../utils/const-vars";
 import ChannelService from "../../../utils/reducer/service/channelService";
 import ChannelAPI from "../../../http/channelAPI";
 import {nanoid} from "nanoid";
-import {SettingOutlined} from "@ant-design/icons";
-import MenuBurger from "./MenuBurger/MenuBurger";
-import CreateChannel from "../windows/CreateChannel/CreateChannel";
+import NavigationPanel from "./NavigationPanel/NavigationPanel";
 
-const Channels = () => {
+const Channels = (
+    {
+        visible
+        , setVisible
+    }) => {
     const {dispatch, channel} = useRedux();
-    const [createChannel, setCreateChannel] = useState(false);
     const [currentChannelItem, setCurrentChannelItem] = useState(null);
-    const channelsPanel = useRef(null);
-    const channelsList = useRef(null);
-    const menuBurger = useRef(null);
-    const menuBurgerBtn = useRef(null);
+    const [isHideChannel, setIsHideChannel] = useState(false);
+
+    const rootClasses = [`channels`];
+
+    if(isHideChannel) {
+        rootClasses.push('active__hideChannel');
+    }
 
     const handleCurrentChannel = (channelId, index) => {
         dispatch(
@@ -28,22 +32,6 @@ const Channels = () => {
         dispatch(ChannelService.toggleCloseActive());
 
         setCurrentChannelItem(index);
-    }
-
-    const handleChannelHide = (e) => {
-        e.preventDefault();
-        channelsPanel.current?.classList.toggle('active__hideChannel');
-        channelsList.current?.classList.toggle('active__hideChannel');
-    }
-
-    const handleBurger = (e) => {
-        e.preventDefault();
-        e.currentTarget.classList.toggle('active__menu-burger');
-        menuBurger.current?.classList.toggle('active__menu-burger');
-    }
-
-    const createChannelVisible = (flag) => {
-        setCreateChannel(flag);
     }
 
     useEffect(() => {
@@ -59,29 +47,15 @@ const Channels = () => {
 
     return (
         <section
-            className="channels"
+            className={rootClasses.join(' ')}
             id={'chat__left'}
-            ref={channelsPanel}
         >
-            <div className="channels__burger">
-                <button
-                    className="burger__btn"
-                    onClick={handleBurger}
-                    ref={menuBurgerBtn}
-                >
-                    <span></span>
-                </button>
-                <button
-                    className="burger__btn-hide"
-                    onClick={handleChannelHide}
-                >
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
+            <NavigationPanel
+                visible={visible}
+                setVisible={setVisible}
+                isHideChannel={isHideChannel}
+                setIsHideChannel={setIsHideChannel}
+            />
             <div className="channels__search">
                 <input
                     className={`channels__search--input`}
@@ -99,7 +73,6 @@ const Channels = () => {
 
             <ul
                 className="channels__list channels__list-scroll"
-                ref={channelsList}
             >
                 {
                     channel.channels.map((channel, index) =>
@@ -136,15 +109,7 @@ const Channels = () => {
                 }
             </ul>
 
-            <MenuBurger
-                ref={menuBurger}
-                btnMenuBurgerRef={menuBurgerBtn}
-                createChannelVisible={createChannelVisible}
-            />
-            <CreateChannel
-                visible={createChannel}
-                setVisible={setCreateChannel}
-            />
+
         </section>
     );
 };

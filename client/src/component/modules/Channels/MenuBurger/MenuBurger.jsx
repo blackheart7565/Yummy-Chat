@@ -1,13 +1,25 @@
-import React, {forwardRef, useRef} from 'react';
+import React, {forwardRef} from 'react';
 import {GithubOutlined, NotificationOutlined, SettingOutlined} from "@ant-design/icons";
 
 import './MenuBurger.css';
 
-const MenuBurger = forwardRef(({btnMenuBurgerRef, createChannelVisible, ...props}, ref) => {
+const MenuBurger = forwardRef((
+    {
+        visible
+        , setVisible
+        , buttonEnableRef
+        , createChannelVisible
+        , ...props
+    }, ref) => {
+
+    const rootClasses = ['menu-burger'];
+
+    if (visible) {
+        rootClasses.push('active__menu-burger');
+    }
 
     function closeMenuBurger() {
-        ref?.current.classList.remove('active__menu-burger');
-        btnMenuBurgerRef?.current.classList.remove('active__menu-burger');
+        setVisible(false);
     }
 
     const createChannel = (e) => {
@@ -16,11 +28,10 @@ const MenuBurger = forwardRef(({btnMenuBurgerRef, createChannelVisible, ...props
         closeMenuBurger();
     }
 
-
     return (
         <div
             {...props}
-            className="menu-burger"
+            className={rootClasses.join(' ')}
             ref={ref}
             onClick={closeMenuBurger}
         >
@@ -42,8 +53,10 @@ const MenuBurger = forwardRef(({btnMenuBurgerRef, createChannelVisible, ...props
                         </a>
                     </li>
                     <li className="menu-burger__item">
-                        <a className={'menu-burger__link'} href={'#'}
-                           onClick={(e) => e.preventDefault()}
+                        <a
+                            className={'menu-burger__link'}
+                            href={'https://github.com/blackheart7565/Yummy-Chat'}
+                            target={'_blank'}
                         >
                             <GithubOutlined
                                 className={'menu-burger__icon'}

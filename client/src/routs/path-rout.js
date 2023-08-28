@@ -12,7 +12,7 @@ export const authRouter = [
     },
     {
         path: `${CHAT_PATH}:id`
-        , element: <Chat />
+        , element: <Chat/>
     }
 ]
 

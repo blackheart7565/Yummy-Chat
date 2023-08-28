@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Channels from "../../../component/modules/Channels/Channels";
 
 import {connect} from "../../../utils/websocket/socket-connect";
@@ -9,11 +9,20 @@ import {useRedux} from "../../../hook/redux";
 import './Chat.css';
 import ChatPanel from "../../../component/modules/ChatPanel/ChatPanel";
 import CreateChannel from "../../../component/modules/windows/CreateChannel/CreateChannel";
+import MenuBurger from "../../../component/modules/Channels/MenuBurger/MenuBurger";
 
 const Chat = () => {
+    const [createChannel, setCreateChannel] = useState(false);
+    const [visibleMenuBurger, setVisibleMenuBurger] = useState(false);
     const {dispatch, channel, user} = useRedux();
     const socket = useRef();
+
     const isCurrentChannel = channel.currentChannel?.users.some(u => u.id === user.currentUser.id);
+
+
+    const createChannelVisible = (flag) => {
+        setCreateChannel(flag);
+    }
 
     // Подключение websocket
     useEffect(() => {
@@ -46,16 +55,29 @@ const Chat = () => {
         )
     }, []);
 
+    ///??????????? под вопросом удаления
     useEffect(() => {
         document.body.classList.add('is-left-show');
     }, []);
 
     return (
         <div className={'chat'}>
-            <Channels/>
+            <Channels
+                visible={visibleMenuBurger}
+                setVisible={setVisibleMenuBurger}
+            />
             <ChatPanel
                 websocket={socket}
                 isCurrentChannel={isCurrentChannel}
+            />
+            <MenuBurger
+                visible={visibleMenuBurger}
+                setVisible={setVisibleMenuBurger}
+                createChannelVisible={createChannelVisible}
+            />
+            <CreateChannel
+                visible={createChannel}
+                setVisible={setCreateChannel}
             />
         </div>
     );
