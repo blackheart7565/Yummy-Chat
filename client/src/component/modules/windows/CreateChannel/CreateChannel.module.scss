@@ -44,26 +44,6 @@
     margin-bottom: $margin-element;
   }
 
-  &__avatar {
-    cursor: pointer;
-
-    &:hover #{$self}__avatarIco {
-      background: #c2c2c2;
-    }
-  }
-
-  &__avatarIco {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 40px;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: var(--accent-color);
-    color: var(--main-color);
-  }
-
   &__name {
     color: var(--accent-color);
     user-select: none;
@@ -133,6 +113,7 @@
 
   &__private {
     > label {
+      cursor: pointer;
       display: flex;
       align-items: center;
 
@@ -150,6 +131,7 @@
 
   &__public {
     > label {
+      cursor: pointer;
       display: flex;
       align-items: center;
 

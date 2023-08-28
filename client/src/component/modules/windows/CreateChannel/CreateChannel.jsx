@@ -2,10 +2,10 @@ import React, {useState} from 'react';
 
 import st from './CreateChannel.module.scss';
 import TextArea from "antd/es/input/TextArea";
-import {CameraOutlined} from "@ant-design/icons";
 import {useRedux} from "../../../../hook/redux";
 import ChannelAPI from "../../../../http/channelAPI";
 import ChannelService from "../../../../utils/reducer/service/channelService";
+import Avatar from "../../Avatar/Avatar";
 
 const CreateChannel = (
     {
@@ -14,8 +14,10 @@ const CreateChannel = (
         , websocket
     }) => {
     const {dispatch, user} = useRedux();
+    const [isImage, setIsImage] = useState(false);
     const [value, setValue] = useState({
-        name: ""
+        avatar: ""
+        , name: ""
         , description: ""
         , type: "private"
     });
@@ -37,7 +39,6 @@ const CreateChannel = (
         }
     }
 
-
     const newChannel = async () => {
         const channel = {
             name: value.name,
@@ -56,6 +57,13 @@ const CreateChannel = (
                         sendWS(chanel)
                     }
                 );
+            setValue({
+                avatar: ""
+                , name: ""
+                , description: ""
+                , type: "private"
+            });
+            setIsImage(false);
         } catch (e) {
             console.error(e.message);
         }
@@ -71,13 +79,31 @@ const CreateChannel = (
         );
     }
 
-    console.log(
-        value
-    )
+    const closedWindowCreateChannel = () => {
+        setIsVisible(false);
+        setIsImage(false);
+        setValue({
+            avatar: ""
+            , name: ""
+            , description: ""
+            , type: "private"
+        })
+    }
+
+    /**
+     *
+     * @param {String} avatar
+     * @param {String} isImage
+     */
+    const valueCacheCallback = (avatar, isImage) => {
+        setValue({...value, avatar: avatar});
+        setIsImage(isImage);
+    }
+
     return (
         <section
             className={rootClasses.join(' ')}
-            onClick={() => setIsVisible(false)}
+            onClick={closedWindowCreateChannel}
         >
             <div
                 className={st.createChannel__wrapper}
@@ -85,11 +111,11 @@ const CreateChannel = (
             >
                 <div className={st.createChannel__container}>
                     <div className={st.createChannel__header}>
-                        <div className={st.createChannel__avatar}>
-                            <CameraOutlined
-                                className={st.createChannel__avatarIco}
-                            />
-                        </div>
+                        <Avatar
+                            isVisible={isImage}
+                            setIsVisible={setIsImage}
+                            valueCacheCallback={valueCacheCallback}
+                        />
                         <div className={st.createChannel__name}>
                             <label htmlFor={'channel-name'}>
                                 <div>Channel Name</div>
@@ -149,7 +175,7 @@ const CreateChannel = (
                     <div className={st.createChannel__btns}>
                         <button
                             className={st.createChannel__backBtn}
-                            onClick={() => setIsVisible(false)}
+                            onClick={closedWindowCreateChannel}
                         >
                             Back
                         </button>
