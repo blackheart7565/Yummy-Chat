@@ -41,8 +41,10 @@ const MenuBurger = forwardRef((
             >
                 <ul className={st.menuBurger__list}>
                     <li className={st.menuBurger__item}>
-                        <a className={st.menuBurger__link} href={'#'}
-                           onClick={createChannel}
+                        <a
+                            className={st.menuBurger__link}
+                            href={'#'}
+                            onClick={createChannel}
                         >
                             <NotificationOutlined
                                 className={st.menuBurger__icon}
@@ -67,8 +69,10 @@ const MenuBurger = forwardRef((
                         </a>
                     </li>
                     <li className={st.menuBurger__item}>
-                        <a className={st.menuBurger__link} href={'#'}
-                           onClick={(e) => e.preventDefault()}
+                        <a
+                            className={st.menuBurger__link}
+                            href={'#'}
+                            onClick={(e) => e.preventDefault()}
                         >
                             <SettingOutlined
                                 className={st.menuBurger__icon}

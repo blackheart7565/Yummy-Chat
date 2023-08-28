@@ -77,6 +77,7 @@ const Chat = () => {
             <CreateChannel
                 isVisible={createChannel}
                 setIsVisible={setCreateChannel}
+                websocket={socket}
             />
         </div>
     );

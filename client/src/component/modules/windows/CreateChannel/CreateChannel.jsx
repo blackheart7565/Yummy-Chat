@@ -1,33 +1,79 @@
-import React, {useRef, useState} from 'react';
+import React, {useState} from 'react';
 
 import st from './CreateChannel.module.scss';
 import TextArea from "antd/es/input/TextArea";
 import {CameraOutlined} from "@ant-design/icons";
+import {useRedux} from "../../../../hook/redux";
+import ChannelAPI from "../../../../http/channelAPI";
+import ChannelService from "../../../../utils/reducer/service/channelService";
 
 const CreateChannel = (
     {
         isVisible
         , setIsVisible
+        , websocket
     }) => {
+    const {dispatch, user} = useRedux();
+    const [value, setValue] = useState({
+        name: ""
+        , description: ""
+        , type: "private"
+    });
+
     const rootClasses = [st.createChannel]
-    const channelNameInputRef = useRef(null);
-    const [subscribeType, setSubscribeType] = useState('private');
 
     if (isVisible) {
         rootClasses.push(st.createChannel__show)
     }
 
     const handleSubscribeType = (e) => {
-        setSubscribeType(e.target.value);
+        setValue({...value, type: e.target.value});
     }
 
-    const createChannel = () => {
-        const value = channelNameInputRef.current?.value;
-        if (value) {
+    const createChannel = async () => {
+        if (value.name) {
+            await newChannel();
             setIsVisible(false);
         }
     }
 
+
+    const newChannel = async () => {
+        const channel = {
+            name: value.name,
+            description: value?.description,
+            type: value.type,
+            userId: user.currentUser.id,
+            messages: []
+        }
+
+        try {
+            ChannelAPI.createChannel(channel)
+                .then(chanel => {
+                        dispatch(
+                            ChannelService.addNewChannel(chanel)
+                        );
+                        sendWS(chanel)
+                    }
+                );
+        } catch (e) {
+            console.error(e.message);
+        }
+    }
+
+    const sendWS = (channel) => {
+        const channelEvent = {
+            event: 'channel'
+            , channel
+        }
+        websocket.current.send(
+            JSON.stringify(channelEvent)
+        );
+    }
+
+    console.log(
+        value
+    )
     return (
         <section
             className={rootClasses.join(' ')}
@@ -53,16 +99,19 @@ const CreateChannel = (
                                     placeholder={'Name'}
                                     autoFocus
                                     className={st.createChannel__nameInput}
+                                    value={value.name}
+                                    onChange={(e) => setValue({...value, name: e.target.value})}
                                 />
                             </label>
                         </div>
                     </div>
                     <div className={st.createChannel__description}>
                         <TextArea
-                            ref={channelNameInputRef}
                             className={st.createChannel__descriptionInput}
                             placeholder="Description"
                             autoSize={{minRows: 3, maxRows: 3}}
+                            value={value.description}
+                            onChange={(e) => setValue({...value, description: e.target.value})}
                         />
                     </div>
                     <div className={st.createChannel__types}>
@@ -74,7 +123,7 @@ const CreateChannel = (
                                     id={'private-subscribe'}
                                     name={'subscribe-types'}
                                     value={'private'}
-                                    checked={subscribeType === 'private'}
+                                    checked={value.type === 'private'}
                                     onChange={handleSubscribeType}
 
                                 />
@@ -89,7 +138,7 @@ const CreateChannel = (
                                     id={'public-subscribe'}
                                     name={'subscribe-types'}
                                     value={'public'}
-                                    checked={subscribeType === 'public'}
+                                    checked={value.type === 'public'}
                                     onChange={handleSubscribeType}
 
                                 />

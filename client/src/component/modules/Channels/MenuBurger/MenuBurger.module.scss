@@ -76,8 +76,11 @@
     font-size: 25px;
     padding-left: 20px;
     text-decoration: none;
+    width: var(--full-width-screen);
+    height: var(--full-width-screen);
     color: var(--main-color);
     transition: color .5s ease-in-out;
+    line-height: 5rem;
   }
 
   &__icon {
