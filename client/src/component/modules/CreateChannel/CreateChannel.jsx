@@ -2,10 +2,10 @@ import React, {useState} from 'react';
 
 import st from './CreateChannel.module.scss';
 import TextArea from "antd/es/input/TextArea";
-import {useRedux} from "../../../../hook/redux";
-import ChannelAPI from "../../../../http/channelAPI";
-import ChannelService from "../../../../utils/reducer/service/channelService";
-import Avatar from "../../Avatar/Avatar";
+import {useRedux} from "../../../hook/redux";
+import ChannelAPI from "../../../http/channelAPI";
+import ChannelService from "../../../utils/reducer/service/channelService";
+import Avatar from "../Avatar/Avatar";
 
 const CreateChannel = (
     {

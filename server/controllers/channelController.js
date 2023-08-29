@@ -58,7 +58,7 @@ class ChannelController {
 
     async getAll(req, res) {
         const channel = await Channels.findAll({
-            include: [{model: Messages, as: "messages"}]
+            include: [{model: Messages, as: "messages"}, {model: Users}]
         });
         return res.json(channel);
     }

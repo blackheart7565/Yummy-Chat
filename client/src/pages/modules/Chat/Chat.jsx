@@ -8,8 +8,8 @@ import MessageService from "../../../utils/reducer/service/messageService";
 import {useRedux} from "../../../hook/redux";
 import './Chat.css';
 import ChatPanel from "../../../component/modules/ChatPanel/ChatPanel";
-import CreateChannel from "../../../component/modules/windows/CreateChannel/CreateChannel";
-import MenuBurger from "../../../component/modules/Channels/MenuBurger/MenuBurger";
+import CreateChannel from "../../../component/modules/CreateChannel/CreateChannel";
+import MenuBurger from "../../../component/modules/MenuBurger/MenuBurger";
 
 const Chat = () => {
     const [createChannel, setCreateChannel] = useState(false);

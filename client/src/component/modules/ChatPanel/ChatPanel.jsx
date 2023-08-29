@@ -28,12 +28,12 @@ const ChatPanel = ({websocket, isCurrentChannel}) => {
 
     if (!isCurrentChannel) {
         return (
-            <div className={'chat-panel'}></div>
+            <section className={'chat-panel'}></section>
         );
     }
 
     return (
-        <div
+        <section
             className={'chat-panel'}
             id="chat__right"
         >
@@ -51,7 +51,7 @@ const ChatPanel = ({websocket, isCurrentChannel}) => {
                     websocket={websocket}
                 />
             </div>
-        </div>
+        </section>
     );
 };
 

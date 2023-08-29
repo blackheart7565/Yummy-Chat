@@ -29,7 +29,7 @@ const MenuBurger = forwardRef((
     }
 
     return (
-        <div
+        <section
             {...props}
             className={rootClasses.join(' ')}
             ref={ref}
@@ -84,7 +84,7 @@ const MenuBurger = forwardRef((
                     </li>
                 </ul>
             </div>
-        </div>
+        </section>
     );
 });
 
