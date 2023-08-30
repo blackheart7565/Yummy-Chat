@@ -8,6 +8,8 @@ import './ChatPanel.css';
 import Connect from "../../../UI/Connect/Connect";
 import ChannelAPI from "../../../http/channelAPI";
 import ChannelService from "../../../utils/reducer/service/channelService";
+import MessageAPI from "../../../http/messageAPI";
+import MessageService from "../../../utils/reducer/service/messageService";
 
 const ChatPanel = ({websocket, isCurrentChannel}) => {
     const {channel, user, message, dispatch} = useRedux();
@@ -37,9 +39,19 @@ const ChatPanel = ({websocket, isCurrentChannel}) => {
 
     useEffect(() => {
         if (channel.currentChannel && isCurrentChannel) {
-            messagesRef.current.scrollTop = messagesRef.current?.scrollHeight;
+            MessageAPI.fetchMoreMessages(channel.currentChannel.id)
+                .then(mess => {
+                    dispatch(
+                        MessageService.addManyMessage(mess)
+                    )
+                });
+            scrollToBottom();
         }
     }, [channel.currentChannel]);
+
+    console.log(
+        message.messages
+    )
 
     useEffect(() => {
         scrollToBottom();
@@ -64,7 +76,7 @@ const ChatPanel = ({websocket, isCurrentChannel}) => {
                     className="scrollable scrollable-y"
                     ref={messagesRef}
                 >
-                    <Messages />
+                    <Messages/>
                 </div>
 
                 {

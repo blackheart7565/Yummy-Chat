@@ -14,9 +14,11 @@ export const connect = ({socket, user}) => (dispatch) => {
                 id: Date.now(),
             }
 
-            socket.current.send(
-                JSON.stringify(message)
-            );
+            if (socket.current.readyState === WebSocket.OPEN) {
+                socket.current.send(
+                    JSON.stringify(message)
+                );
+            }
         }
     }
 

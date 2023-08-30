@@ -25,5 +25,5 @@ export const Messages = Message.init({
     sequelize: sequelize
     , tableName: 'messages'
     , modelName: 'message'
-    , timestamps:false
+    // , timestamps:false
 });

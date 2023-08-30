@@ -19,14 +19,16 @@ const SendMessages = ({websocket}) => {
                     , nameChannel: channel.currentChannel.name
                     , userId: user.currentUser.id
                     , channelId: channel.currentChannel.id
+                    , createdAt: Date.now()
                 }
             }
 
             try {
-                websocket.current.send(
-                    JSON.stringify(messageEvent)
-                );
-
+                if (websocket.current.readyState === WebSocket.OPEN) {
+                    websocket.current.send(
+                        JSON.stringify(messageEvent)
+                    );
+                }
                 await MessageAPI.createMessage(messageEvent.data);
             } catch (e) {
                 console.log(e.message)

@@ -10,6 +10,7 @@ import './Chat.css';
 import ChatPanel from "../../../component/modules/ChatPanel/ChatPanel";
 import CreateChannel from "../../../component/modules/CreateChannel/CreateChannel";
 import MenuBurger from "../../../component/modules/MenuBurger/MenuBurger";
+import MessageAPI from "../../../http/messageAPI";
 
 const Chat = () => {
     const [createChannel, setCreateChannel] = useState(false);
@@ -36,22 +37,6 @@ const Chat = () => {
                     ChannelService.addNewManyChannel(channel.channels)
                 )
             );
-    }, []);
-
-    // При старте получает все каналы всех пользователей
-    useEffect(() => {
-        ChannelAPI.fetchAllChannel().then(channels => {
-                dispatch(
-                    ChannelService.getAllChannel(channels)
-                )
-                channels.forEach(channel => {
-                        dispatch(
-                            MessageService.addManyMessage(channel.messages)
-                        )
-                    }
-                )
-            }
-        )
     }, []);
 
     ///??????????? под вопросом удаления

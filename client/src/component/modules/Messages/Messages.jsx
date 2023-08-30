@@ -13,17 +13,19 @@ const Messages = () => {
             className={'messages'}
         >
             {
-                message.messages.map(mess =>
-                        mess.channelId === channel.currentChannelId && (
-                            <Message
-                                key={uuid(7)}
-                                message={mess.message}
-                                username={mess.username}
-                                isMe={mess.username === user.currentUser.username}
-                            >
-                            </Message>
-                        )
-                )
+                message.messages
+                    .sort((a, b) => a.id - b.id)
+                    .map(mess =>
+                            mess.channelId === channel.currentChannelId && (
+                                <Message
+                                    key={uuid(7)}
+                                    message={mess.message}
+                                    username={mess.username}
+                                    isMe={mess.username === user.currentUser.username}
+                                >
+                                </Message>
+                            )
+                    )
             }
         </section>
     );

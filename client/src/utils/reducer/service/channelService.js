@@ -1,8 +1,8 @@
 import {
-    ADD_CHANNEL, ADD_CHANNEL_IN_ALL_CHANNEL,
+    ADD_CHANNEL,
     ADD_CURRENT_CHANNEL,
     ADD_MANY_CHANNEL,
-    GET_ALL_CHANNEL, IS_CLOSE_ACTIVE,
+    IS_CLOSE_ACTIVE,
     SET_CURRENT_CHANNEL
 } from "../const-reducer";
 
@@ -25,20 +25,6 @@ class ChannelService {
     addCurrentChannel = (channel) => {
         return {
             type: ADD_CURRENT_CHANNEL
-            , payload: channel
-        }
-    }
-
-    getAllChannel = (channels) => {
-        return {
-            type: GET_ALL_CHANNEL
-            , payload: channels
-        }
-    }
-
-    addChannelInAllChannel = (channel) => {
-        return {
-            type: ADD_CHANNEL_IN_ALL_CHANNEL
             , payload: channel
         }
     }
