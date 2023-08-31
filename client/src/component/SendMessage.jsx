@@ -33,11 +33,13 @@ const SendMessage = ({websocket}) => {
             }
 
             try {
-                websocket.current.send(
-                    JSON.stringify(messageEvent)
-                );
+                if (websocket.current.readyState === WebSocket.OPEN) {
+                    websocket.current.send(
+                        JSON.stringify(messageEvent)
+                    );
 
-                await MessageAPI.createMessage(messageEvent.data);
+                    await MessageAPI.createMessage(messageEvent.data);
+                }
             } catch (e) {
                 console.log(e.message)
             }

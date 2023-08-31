@@ -4,10 +4,11 @@ import MessageAPI from "../../../http/messageAPI";
 
 import TextArea from "antd/es/input/TextArea";
 import './SendMessages.css';
+import {nanoid} from "nanoid";
 
 const SendMessages = ({websocket}) => {
     const [value, setValue] = useState('');
-    const {channel, user} = useRedux();
+    const {channel, user, message} = useRedux();
 
     const sendingMessage = async () => {
         if (channel.currentChannel) {
@@ -22,14 +23,13 @@ const SendMessages = ({websocket}) => {
                     , createdAt: Date.now()
                 }
             }
-
             try {
                 if (websocket.current.readyState === WebSocket.OPEN) {
                     websocket.current.send(
                         JSON.stringify(messageEvent)
                     );
+                    await MessageAPI.createMessage(messageEvent.data);
                 }
-                await MessageAPI.createMessage(messageEvent.data);
             } catch (e) {
                 console.log(e.message)
             }
