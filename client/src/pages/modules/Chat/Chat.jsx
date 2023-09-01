@@ -1,33 +1,31 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useMemo, useRef, useState} from 'react';
 import Channels from "../../../component/modules/Channels/Channels";
 
-import {connect} from "../../../utils/websocket/socket-connect";
 import ChannelAPI from "../../../http/channelAPI";
 import ChannelService from "../../../utils/reducer/service/channelService";
-import MessageService from "../../../utils/reducer/service/messageService";
 import {useRedux} from "../../../hook/redux";
 import './Chat.css';
 import ChatPanel from "../../../component/modules/ChatPanel/ChatPanel";
 import CreateChannel from "../../../component/modules/CreateChannel/CreateChannel";
 import MenuBurger from "../../../component/modules/MenuBurger/MenuBurger";
-import MessageAPI from "../../../http/messageAPI";
+import {PORT} from "../../../utils/const-vars";
+import {useWebSocket} from "../../../hook/useWebSocket";
 
 const Chat = () => {
     const [createChannel, setCreateChannel] = useState(false);
     const [visibleMenuBurger, setVisibleMenuBurger] = useState(false);
     const {dispatch, channel, user} = useRedux();
-    const socket = useRef();
+
+    const {socket} = useWebSocket({
+        url: `ws://localhost:${PORT}`
+        , user: user.currentUser
+    }, dispatch);
 
     const isCurrentChannel = channel.currentChannel?.users.some(u => u.id === user.currentUser.id);
 
     const createChannelVisible = (flag) => {
         setCreateChannel(flag);
     }
-
-    // Подключение websocket
-    useEffect(() => {
-        connect({socket, user: user.currentUser})(dispatch);
-    }, []);
 
     // Получение каналов которые пренадлежат пользователю
     useEffect(() => {
@@ -37,11 +35,6 @@ const Chat = () => {
                     ChannelService.addNewManyChannel(channel.channels)
                 )
             );
-    }, []);
-
-    ///??????????? под вопросом удаления
-    useEffect(() => {
-        document.body.classList.add('is-left-show');
     }, []);
 
     return (
@@ -62,7 +55,6 @@ const Chat = () => {
             <CreateChannel
                 isVisible={createChannel}
                 setIsVisible={setCreateChannel}
-                websocket={socket}
             />
         </div>
     );

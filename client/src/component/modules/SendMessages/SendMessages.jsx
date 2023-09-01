@@ -24,8 +24,8 @@ const SendMessages = ({websocket}) => {
                 }
             }
             try {
-                if (websocket.current.readyState === WebSocket.OPEN) {
-                    websocket.current.send(
+                if (websocket.readyState === WebSocket.OPEN) {
+                    websocket.send(
                         JSON.stringify(messageEvent)
                     );
                     await MessageAPI.createMessage(messageEvent.data);

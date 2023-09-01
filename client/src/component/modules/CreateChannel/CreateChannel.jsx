@@ -11,7 +11,6 @@ const CreateChannel = (
     {
         isVisible
         , setIsVisible
-        , websocket
     }) => {
     const {dispatch, user} = useRedux();
     const [isImage, setIsImage] = useState(false);
@@ -54,7 +53,6 @@ const CreateChannel = (
                         dispatch(
                             ChannelService.addNewChannel(chanel)
                         );
-                        sendWS(chanel)
                     }
                 );
             setValue({
@@ -69,16 +67,6 @@ const CreateChannel = (
         }
     }
 
-    const sendWS = (channel) => {
-        const channelEvent = {
-            event: 'channel'
-            , channel
-        }
-        websocket.current.send(
-            JSON.stringify(channelEvent)
-        );
-    }
-
     const closedWindowCreateChannel = () => {
         setIsVisible(false);
         setIsImage(false);
@@ -91,7 +79,6 @@ const CreateChannel = (
     }
 
     /**
-     *
      * @param {String} avatar
      * @param {String} isImage
      */
