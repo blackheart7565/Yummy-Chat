@@ -7,13 +7,8 @@ class MessageAPI {
         return data;
     }
 
-    fetchMoreMessages = async (channelId, olderMessageId) => {
-        const {data} = await $host.get('/api/message', {
-            params: {
-                channelId,
-                olderMessageId
-            }
-        })
+    allMessages = async (channelId, page = 0, limit = 20) => {
+        const {data} = await $host.get(`/api/message?channelId=${channelId}&limit=${limit}&page=${page}`)
         return data
     }
 }

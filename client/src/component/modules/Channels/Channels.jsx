@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useRedux} from "../../../hook/redux";
 import {Link} from "react-router-dom";
 
@@ -9,6 +9,7 @@ import {nanoid} from "nanoid";
 import NavigationPanel from "./NavigationPanel/NavigationPanel";
 import st from './Channels.module.scss';
 import Search from "./Search/Search";
+import MessageService from "../../../utils/reducer/service/messageService";
 
 
 const Channels = (
@@ -16,7 +17,7 @@ const Channels = (
         isVisible
         , setIsVisible
     }) => {
-    const {dispatch, channel} = useRedux();
+    const {dispatch, channel, message} = useRedux();
     const [currentChannelItem, setCurrentChannelItem] = useState(null);
     const [isHideChannel, setIsHideChannel] = useState(false);
     const [filterChannelItem, setFilterChannelItem] = useState('');
@@ -45,10 +46,14 @@ const Channels = (
     useEffect(() => {
         if (channel.currentChannelId) {
             ChannelAPI.fetchOneChannel(channel.currentChannelId)
-                .then(channel =>
-                    dispatch(
-                        ChannelService.addCurrentChannel(channel)
-                    )
+                .then(channel => {
+                        dispatch(
+                            MessageService.loadingMessageToCurrentChannel(channel.id, channel.messages)
+                        )
+                        dispatch(
+                            ChannelService.addCurrentChannel(channel)
+                        )
+                    }
                 );
         }
     }, [channel.currentChannelId]);

@@ -55,7 +55,7 @@ const Chat = () => {
                 )
                 channels.forEach(channel => {
                         dispatch(
-                            MessageService.addManyMessage(channel.messages)
+                            MessageService.messagePagination(channel.messages)
                         )
                     }
                 )

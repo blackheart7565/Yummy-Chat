@@ -58,19 +58,31 @@ class ChannelController {
 
     async getAll(req, res) {
         const channel = await Channels.findAll({
-            include: [{model: Messages, as: "messages"}, {model: Users}]
+            include: [
+                {model: Messages, as: "messages"}
+                , {model: Users}
+            ]
         });
         return res.json(channel);
     }
 
     async getOne(req, res) {
         const {id} = req.params;
+        let {page, limit} = req.query;
 
         const channel = await Channels.findOne(
             {
                 where: {id},
                 include: [
-                    {model: Messages, as: 'messages'}
+                    {
+                        model: Messages
+                        , as: 'messages'
+                        , limit: limit
+                        , offset: page * limit
+                        , order: [
+                            ['createdAt', 'DESC']
+                        ]
+                    }
                     , {model: Users}
                 ]
             }

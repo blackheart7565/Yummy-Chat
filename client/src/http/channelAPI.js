@@ -13,8 +13,14 @@ class ChannelAPI {
         return data;
     }
 
-    fetchOneChannel = async (id) => {
-        const {data} = await $host.get(`/api/channel/${id}`);
+    /**
+     * @param {Number} id уникальный индификатор канала
+     * @param {Number} limit органицение вывода данных
+     * @param {Number} page номер страници данных
+     * */
+    fetchOneChannel = async (id, page = 0, limit = 20) => {
+        const url = `/api/channel/${id}?limit=${limit}&page=${page}`;
+        const {data} = await $host.get(url);
         return data
     }
 

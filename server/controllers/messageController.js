@@ -24,24 +24,18 @@ class MessageController {
     }
 
     async all(req, res) {
-        const {channelId, olderMessageId} = req.query;
+        const {channelId, limit, page} = req.query;
 
         const messages = await Messages.findAll({
             where: {
                 channelId: channelId,
             },
-            order: [['createdAt', 'DESC']],
-            limit: 30
+            limit: limit,
+            offset: limit * page,
+            order: [
+                ['createdAt', 'DESC']
+            ],
         })
-
-        console.log(
-            messages
-        )
-
-
-
-
-
 
         return res.json(messages);
     }

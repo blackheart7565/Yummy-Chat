@@ -15,7 +15,7 @@ const Messages = () => {
         >
             {
                 message.messages[channel.currentChannel.id].data
-                    // .sort((a, b) => a.id - b.id)
+                    .sort((a, b) => a.id - b.id)
                     .map(mess =>
                             mess.channelId === channel.currentChannelId && (
                                 <Message

@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 
 import Messages from "../Messages/Messages";
 import {useRedux} from "../../../hook/redux";
@@ -8,18 +8,26 @@ import './ChatPanel.css';
 import Connect from "../../../UI/Connect/Connect";
 import ChannelAPI from "../../../http/channelAPI";
 import ChannelService from "../../../utils/reducer/service/channelService";
-import MessageAPI from "../../../http/messageAPI";
 import MessageService from "../../../utils/reducer/service/messageService";
 
 const ChatPanel = ({websocket, isCurrentChannel}) => {
+    const [countPage, setCountPage] = useState(1);
+    const [isFetching, setIsFetching] = useState(false);
     const {channel, user, message, dispatch} = useRedux();
     const messagesRef = useRef();
+
 
     const scrollToBottom = () => {
         if (messagesRef.current && messagesRef.current?.scrollHeight) {
             messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
         }
     };
+
+    const handlerScroll = (e) => {
+        if (e.target.scrollTop === 0) {
+            setIsFetching(true);
+        }
+    }
 
     const ConnectUserToChannel = async () => {
         await ChannelAPI.addUserToChannelAPI(user.currentUser.id, channel.currentChannelId)
@@ -38,24 +46,29 @@ const ChatPanel = ({websocket, isCurrentChannel}) => {
     }
 
     useEffect(() => {
-        if (channel.currentChannel && isCurrentChannel) {
-            MessageAPI.fetchMoreMessages(channel.currentChannel.id)
-                .then(mess => {
-                    dispatch(
-                        MessageService.addManyMessage(mess)
-                    )
-                });
-            scrollToBottom();
-        }
-    }, [channel.currentChannel]);
+        // if (channel.currentChannel && isCurrentChannel) {
+        //     scrollToBottom();
+        // }
+        setCountPage(1);
+    }, [channel.currentChannel, isCurrentChannel]);
 
-    console.log(
-        message.messages
-    )
+    // useEffect(() => {
+    //     scrollToBottom();
+    // }, [message.messages]);
 
     useEffect(() => {
-        scrollToBottom();
-    }, [message.messages]);
+        if (isFetching) {
+            ChannelAPI.fetchOneChannel(channel.currentChannelId, countPage)
+                .then(channelF => {
+                        dispatch(
+                            MessageService.messagePagination(channel.currentChannelId, channelF.messages)
+                        );
+                        setCountPage(prevState => prevState + 1);
+                    }
+                )
+                .finally(() => setIsFetching(false));
+        }
+    }, [isFetching]);
 
     if (!channel.currentChannel) {
         return (
@@ -72,9 +85,11 @@ const ChatPanel = ({websocket, isCurrentChannel}) => {
                 className="chat-panel__wrapper"
             >
                 <InfoChannel/>
+
                 <div
                     className="scrollable scrollable-y"
                     ref={messagesRef}
+                    onScroll={handlerScroll}
                 >
                     <Messages/>
                 </div>

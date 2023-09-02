@@ -1,4 +1,4 @@
-import {ADD_MANY_MESSAGE, ADDING_MESSAGE, SET_MESSAGE_TO_CURRENT_CHANNEL} from "../const-reducer";
+import {MESSAGE_PAGINATION, ADD_NEW_MESSAGE, SET_MESSAGE_TO_CURRENT_CHANNEL} from "../const-reducer";
 
 class MessageService {
 
@@ -9,7 +9,7 @@ class MessageService {
      * */
     addNewMessage = (channelId, data) => {
         return {
-            type: ADDING_MESSAGE
+            type: ADD_NEW_MESSAGE
             , payload: {
                 channelId
                 , data
@@ -17,10 +17,18 @@ class MessageService {
         }
     }
 
-    addManyMessage = (messages) => {
+    // пагинация
+    /**
+     @param {Number} channelId уникальный индиыфикатор канала
+     @param {Array} data массив данных
+     * */
+    messagePagination = (channelId, data) => {
         return {
-            type: ADD_MANY_MESSAGE
-            , payload: messages
+            type: MESSAGE_PAGINATION
+            , payload: {
+                channelId
+                , data
+            }
         }
     }
 
@@ -29,7 +37,7 @@ class MessageService {
      * @param {Number} channelId уникальный индиыфикатор канала
      * @param {Array} data массив данных
      * */
-    setMessageToCurrentChannel = (channelId, data) => {
+    loadingMessageToCurrentChannel = (channelId, data) => {
         return {
             type: SET_MESSAGE_TO_CURRENT_CHANNEL
             , payload: {

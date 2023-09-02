@@ -10,8 +10,8 @@ export const IS_CLOSE_ACTIVE = 'IS_CLOSE_ACTIVE';
 
 //////////////~Message~//////////////
 
-export const ADDING_MESSAGE = 'ADDING_MESSAGE';
-export const ADD_MANY_MESSAGE = 'ADD_MANY_MESSAGE';
+export const ADD_NEW_MESSAGE = 'ADD_NEW_MESSAGE';
+export const MESSAGE_PAGINATION = 'MESSAGE_PAGINATION';
 export const SET_MESSAGE_TO_CURRENT_CHANNEL = 'SET_MESSAGE_TO_CURRENT_CHANNEL';
 
 //////////////~User~//////////////

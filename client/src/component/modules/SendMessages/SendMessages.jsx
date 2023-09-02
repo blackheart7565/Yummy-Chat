@@ -23,6 +23,7 @@ const SendMessages = ({websocket}) => {
                     , createdAt: Date.now()
                 }
             }
+
             try {
                 if (websocket.readyState === WebSocket.OPEN) {
                     websocket.send(
