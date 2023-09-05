@@ -3,7 +3,7 @@ import React from 'react';
 import MyButton from "../UI/MyButton/MyButton";
 import ChannelAPI from "../http/channelAPI";
 import ChannelService from "../utils/reducer/service/channelService";
-import {useRedux} from "../hook/redux";
+import {useRedux} from "../hook/useRedux";
 
 const MenuBar = ({websocket}) => {
     const {dispatch, user} = useRedux();

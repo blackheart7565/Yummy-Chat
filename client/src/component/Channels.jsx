@@ -6,7 +6,7 @@ import SearchChannel from "./SearchChannel";
 import MenuBar from "./MenuBar";
 import ChannelsItem from "./ChannelsItem";
 import {v4 as uuid} from "uuid";
-import {useRedux} from "../hook/redux";
+import {useRedux} from "../hook/useRedux";
 import ChannelService from "../utils/reducer/service/channelService";
 
 const Channels = ({websocket}) => {

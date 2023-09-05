@@ -7,7 +7,7 @@ import UseAPI from "../http/useAPI";
 import UserService from "../utils/reducer/service/userService";
 import {Link, useLocation} from "react-router-dom";
 import {REGISTRATION_PATH} from "../utils/const-vars";
-import {useRedux} from "../hook/redux";
+import {useRedux} from "../hook/useRedux";
 
 const AuthFrom = ({...props}) => {
     const [userAuth, setUserAuth] = useState({

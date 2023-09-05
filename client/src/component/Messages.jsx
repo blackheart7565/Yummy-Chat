@@ -2,7 +2,7 @@ import mgs from '../styles/module/Messages.module.scss';
 import React, {useEffect, useRef} from 'react';
 import Message from "./Message";
 import {v4 as uuid} from 'uuid'
-import {useRedux} from "../hook/redux";
+import {useRedux} from "../hook/useRedux";
 
 const Messages = () => {
     const {channel, user, message} = useRedux();

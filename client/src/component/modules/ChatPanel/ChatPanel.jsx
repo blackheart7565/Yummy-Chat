@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 
 import Messages from "../Messages/Messages";
-import {useRedux} from "../../../hook/redux";
+import {useRedux} from "../../../hook/useRedux";
 import InfoChannel from "../InfoChannel/InfoChannel";
 import SendMessages from "../SendMessages/SendMessages";
 import './ChatPanel.css';
@@ -13,9 +13,8 @@ import MessageService from "../../../utils/reducer/service/messageService";
 const ChatPanel = ({websocket, isCurrentChannel}) => {
     const [countPage, setCountPage] = useState(1);
     const [isFetching, setIsFetching] = useState(false);
-    const {channel, user, message, dispatch} = useRedux();
-    const messagesRef = useRef();
-
+    const {channel, user, message, dispatch, setDispatch} = useRedux();
+    const messagesRef = useRef(null);
 
     const scrollToBottom = () => {
         if (messagesRef.current && messagesRef.current?.scrollHeight) {
@@ -25,6 +24,7 @@ const ChatPanel = ({websocket, isCurrentChannel}) => {
 
     const handlerScroll = (e) => {
         if (e.target.scrollTop === 0) {
+            console.log(`fetching`)
             setIsFetching(true);
         }
     }
@@ -47,9 +47,10 @@ const ChatPanel = ({websocket, isCurrentChannel}) => {
 
     useEffect(() => {
         // if (channel.currentChannel && isCurrentChannel) {
+        //     console.log(`current channel`)
         //     scrollToBottom();
         // }
-        setCountPage(1);
+        // setCountPage(1);
     }, [channel.currentChannel, isCurrentChannel]);
 
     // useEffect(() => {
@@ -58,17 +59,20 @@ const ChatPanel = ({websocket, isCurrentChannel}) => {
 
     useEffect(() => {
         if (isFetching) {
-            ChannelAPI.fetchOneChannel(channel.currentChannelId, countPage)
+            ChannelAPI.fetchOneChannel(channel.currentChannelId, message.messages[channel.currentChannelId].page)
                 .then(channelF => {
                         dispatch(
                             MessageService.messagePagination(channel.currentChannelId, channelF.messages)
                         );
-                        setCountPage(prevState => prevState + 1);
+                        setDispatch(
+                            MessageService.setPageMessage(channel.currentChannelId, message.messages[channel.currentChannelId].page + 1)
+                        )
                     }
                 )
                 .finally(() => setIsFetching(false));
         }
     }, [isFetching]);
+
 
     if (!channel.currentChannel) {
         return (

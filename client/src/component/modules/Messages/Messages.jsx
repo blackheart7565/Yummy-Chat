@@ -3,7 +3,7 @@ import {v4 as uuid} from "uuid";
 
 import './Messages.css';
 import Message from "./Message/Message";
-import {useRedux} from "../../../hook/redux";
+import {useRedux} from "../../../hook/useRedux";
 import {nanoid} from "nanoid";
 
 const Messages = () => {

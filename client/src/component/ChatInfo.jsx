@@ -1,6 +1,6 @@
 import React from 'react';
 import st from '../styles/module/ChatInfo.module.scss'
-import {useRedux} from "../hook/redux";
+import {useRedux} from "../hook/useRedux";
 import ChannelService from "../utils/reducer/service/channelService";
 
 const ChatInfo = () => {

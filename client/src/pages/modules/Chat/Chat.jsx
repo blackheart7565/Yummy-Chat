@@ -3,7 +3,7 @@ import Channels from "../../../component/modules/Channels/Channels";
 
 import ChannelAPI from "../../../http/channelAPI";
 import ChannelService from "../../../utils/reducer/service/channelService";
-import {useRedux} from "../../../hook/redux";
+import {useRedux} from "../../../hook/useRedux";
 import './Chat.css';
 import ChatPanel from "../../../component/modules/ChatPanel/ChatPanel";
 import CreateChannel from "../../../component/modules/CreateChannel/CreateChannel";
@@ -14,7 +14,7 @@ import {useWebSocket} from "../../../hook/useWebSocket";
 const Chat = () => {
     const [createChannel, setCreateChannel] = useState(false);
     const [visibleMenuBurger, setVisibleMenuBurger] = useState(false);
-    const {dispatch, channel, user} = useRedux();
+    const {dispatch, channel, user, message} = useRedux();
 
     const {socket} = useWebSocket({
         url: `ws://localhost:${PORT}`

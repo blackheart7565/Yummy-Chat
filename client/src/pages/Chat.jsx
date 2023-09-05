@@ -8,7 +8,7 @@ import SendMessage from "../component/SendMessage";
 import Connect from "../UI/Connect/Connect";
 import ChannelService from "../utils/reducer/service/channelService";
 import MessageService from "../utils/reducer/service/messageService";
-import {useRedux} from "../hook/redux";
+import {useRedux} from "../hook/useRedux";
 import ChatInfo from "../component/ChatInfo";
 
 const Chat = () => {

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
 import './InfoChannel.css';
-import {useRedux} from "../../../hook/redux";
+import {useRedux} from "../../../hook/useRedux";
 
 const InfoChannel = () => {
     const {channel} = useRedux();

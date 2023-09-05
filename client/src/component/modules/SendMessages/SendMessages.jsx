@@ -1,14 +1,13 @@
 import React, {useState} from 'react';
-import {useRedux} from "../../../hook/redux";
+import {useRedux} from "../../../hook/useRedux";
 import MessageAPI from "../../../http/messageAPI";
 
 import TextArea from "antd/es/input/TextArea";
 import './SendMessages.css';
-import {nanoid} from "nanoid";
 
 const SendMessages = ({websocket}) => {
     const [value, setValue] = useState('');
-    const {channel, user, message} = useRedux();
+    const {channel, user} = useRedux();
 
     const sendingMessage = async () => {
         if (channel.currentChannel) {

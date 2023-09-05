@@ -1,4 +1,10 @@
-import {MESSAGE_PAGINATION, ADD_NEW_MESSAGE, SET_MESSAGE_TO_CURRENT_CHANNEL} from "../const-reducer";
+import {
+    MESSAGE_PAGINATION,
+    ADD_NEW_MESSAGE,
+    SET_MESSAGE_TO_CURRENT_CHANNEL,
+    PAGE_MASSAGE,
+    INITIALIZATION_BLOCK_MESSAGE
+} from "../const-reducer";
 
 class MessageService {
 
@@ -43,6 +49,36 @@ class MessageService {
             , payload: {
                 channelId
                 , data
+            }
+        }
+    }
+
+    /**
+     * Метод для сохранения номера страницы во время пагинации
+     @param {Number} channelId уникальный индиыфикатор канала
+     @param {Number} page номер страницы подгрузки пагинации сообщений
+     * */
+    setPageMessage = (channelId, page = 1) => {
+        return {
+            type: PAGE_MASSAGE
+            , payload: {
+                channelId
+                , page
+            }
+        }
+    }
+
+    /**
+     * Метод для блокировки первой инициализации сообщений текущего канала
+     @param {Number} channelId уникальный индиыфикатор канала
+     @param {Boolean} isBlockLoadMess флаг состояния
+     * */
+    setInitializationBlockMess = (channelId, isBlockLoadMess) => {
+        return {
+            type: INITIALIZATION_BLOCK_MESSAGE
+            , payload: {
+                channelId
+                , isBlockLoadMess
             }
         }
     }

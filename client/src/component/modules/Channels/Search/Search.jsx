@@ -2,7 +2,7 @@ import React from 'react';
 
 import st from './Search.module.scss';
 import ChannelAPI from "../../../../http/channelAPI";
-import {useRedux} from "../../../../hook/redux";
+import {useRedux} from "../../../../hook/useRedux";
 
 const Search = (
     {

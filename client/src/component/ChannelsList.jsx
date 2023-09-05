@@ -6,7 +6,7 @@ import ChannelAPI from "../http/channelAPI";
 import {nanoid} from "nanoid";
 import {Link} from "react-router-dom";
 import {CHAT_PATH} from "../utils/const-vars";
-import {useRedux} from "../hook/redux";
+import {useRedux} from "../hook/useRedux";
 
 const ChannelsList = () => {
     const {dispatch, channel} = useRedux();

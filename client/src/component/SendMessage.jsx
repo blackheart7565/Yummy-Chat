@@ -3,7 +3,7 @@ import React, {useRef, useState} from 'react';
 import MyTextArea from "../UI/MyTextArea/MyTextArea";
 import {SIZE_HEIGHT_TEXTAREA} from "../utils/const-vars";
 import MessageAPI from "../http/messageAPI";
-import {useRedux} from "../hook/redux";
+import {useRedux} from "../hook/useRedux";
 
 const SendMessage = ({websocket}) => {
     const [value, setValue] = useState('');

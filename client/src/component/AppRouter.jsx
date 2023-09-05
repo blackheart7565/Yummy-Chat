@@ -1,6 +1,6 @@
 import React from 'react';
 import {Navigate, Route, Routes} from "react-router-dom";
-import {useRedux} from "../hook/redux";
+import {useRedux} from "../hook/useRedux";
 import {authRouter, routs} from "../routs/path-rout";
 import {CHAT_PATH, LOGIN_PATH} from "../utils/const-vars";
 
